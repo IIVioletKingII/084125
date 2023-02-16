@@ -1,30 +1,30 @@
 <template>
 	<div class="page" data-name="home">
-		<!-- Top Navbar -->
-		<div class="navbar navbar-large">
-			<div class="navbar-bg"></div>
-			<div class="navbar-inner">
-				<div class="left">
-					<a href="#" class="link icon-only panel-open" data-panel="left">
-						<i class="icon f7-icons if-not-md">menu</i>
-						<i class="icon material-icons if-md">menu</i>
-					</a>
-				</div>
-				<div class="title sliding">Sam-DePoule</div>
-				<div class="right">
-					<a href="#" class="link icon-only panel-open" data-panel="right">
-						<i class="icon f7-icons if-not-md">menu</i>
-						<i class="icon material-icons if-md">menu</i>
-					</a>
-				</div>
-				<div class="title-large">
-					<div class="title-large-text">Sam-DePoule</div>
+
+		<div data-collapse="small" data-animation="default" data-duration="400"
+			data-w-id="ee744c24-2d72-fc7a-55c0-5579bd20ef0b" role="banner" class="nav-bar w-nav" style="opacity: 1;">
+			<div class="wrapper">
+				<a id="my-name" href="/" aria-current="page" class="brand w-nav-brand w--current">
+					<!-- <img src="https://uploads-ssl.webflow.com/5eb98b2079b4fc247b5a89f3/5eb99a5a2b679c6a8e737436_Robin%20Logo.svg"
+						alt="" class="logo"> -->
+					Sam DePoule
+				</a>
+				<nav role="navigation" class="nav-menu w-nav-menu">
+					<a href="#Exp" class="nav-link w-nav-link">Experience</a>
+					<a href="#Work" class="nav-link w-nav-link">Work</a>
+					<a href="#Photo" class="nav-link w-nav-link">Photos</a>
+					<a href="#Contact" class="nav-link w-nav-link">Contact</a>
+				</nav>
+				<div class="menu-button w-nav-button">
+					<!-- <img src="https://uploads-ssl.webflow.com/5eb98b2079b4fc247b5a89f3/5eb9a900aff554b9edae42a7_Menu%20Icon.svg"
+						alt=""> -->
 				</div>
 			</div>
+			<div class="w-nav-overlay" data-wf-ignore=""></div>
 		</div>
-
-		<!-- Scrollable page content-->
 		<div class="page-content">
+			<img data-src="assets/Cover.png" class="lazy lazy-fade-in picture cover" />
+
 			<div class="block block-strong">
 				<p>This is an example of tabs-layout application. The main point of such tabbed layout is that each tab
 					contains independent view with its own routing and navigation.</p>
@@ -95,7 +95,14 @@
 	</div>
 </template>
 <script>
-	export default () => {
+
+	export default (props, { $, $on, $f7, $store }) => {
+
+		$on('pageInit', (e) => {
+
+
+
+		})
 		return $render;
 	}
 </script>
