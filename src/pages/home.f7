@@ -23,10 +23,13 @@
 			<div class="w-nav-overlay" data-wf-ignore=""></div>
 		</div>
 		<div class="page-content">
-			<!--   -->
-			<img id="cover_image" data-src="assets/sam-268.jpg" class="lazy lazy-fade-in picture cover light" />
-			<img id="cover_image" data-src="assets/sam-179.jpg" class="lazy lazy-fade-in picture cover dark" />
-			<!-- <div id="bg_image">Testing text</div> -->
+
+			<img id="cover_image"
+				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-268.jpg"
+				class="lazy lazy-fade-in picture cover light" alt="Picture of Sam" />
+			<img id="cover_image"
+				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-179.jpg"
+				class="lazy lazy-fade-in picture cover dark" alt="Picture of Sam" />
 
 			<div class="block block-strong">
 				<p>This is an example of tabs-layout application. The main point of such tabbed layout is that each tab
