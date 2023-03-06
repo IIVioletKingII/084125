@@ -1,12 +1,11 @@
 <template>
 	<div class="page" data-name="home">
 
-		<div data-collapse="small" data-animation="default" data-duration="400"
+
+		<!-- <div data-collapse="small" data-animation="default" data-duration="400"
 			data-w-id="ee744c24-2d72-fc7a-55c0-5579bd20ef0b" role="banner" class="nav-bar w-nav" style="opacity: 1;">
 			<div class="wrapper">
 				<a id="my-name" href="/" aria-current="page" class="brand w-nav-brand w--current">
-					<!-- <img src="https://uploads-ssl.webflow.com/5eb98b2079b4fc247b5a89f3/5eb99a5a2b679c6a8e737436_Robin%20Logo.svg"
-						alt="" class="logo"> -->
 					Sam DePoule
 				</a>
 				<nav role="navigation" class="nav-menu w-nav-menu">
@@ -16,29 +15,70 @@
 					<a href="#Contact" class="nav-link w-nav-link">Contact</a>
 				</nav>
 				<div class="menu-button w-nav-button">
-					<!-- <img src="https://uploads-ssl.webflow.com/5eb98b2079b4fc247b5a89f3/5eb9a900aff554b9edae42a7_Menu%20Icon.svg"
-						alt=""> -->
 				</div>
 			</div>
 			<div class="w-nav-overlay" data-wf-ignore=""></div>
-		</div>
+		</div> -->
+
+		<header id="header" class="d-flex flex-row justify-content-center">
+			<nav id="navbar" class="navbar nav-menu">
+				<a href="#home" class="nav-link scrollto active">
+					<i class="icon fa-solid fa-home"></i>
+					<span>Home</span>
+					<!-- <span>
+						You are here. lol
+					</span> -->
+				</a>
+
+				<a href="#about" class="nav-link scrollto">
+					<i class="icon fa-solid fa-user"></i>
+					<span>About</span>
+					<!-- <span>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</span> -->
+				</a>
+				<a href="#photography" class="nav-link scrollto">
+					<i class="fa-solid fa-camera"></i>
+					<span>Photography</span>
+					<!-- <span>
+						Sed scelerisque urna non odio tempor pretium.
+					</span> -->
+				</a>
+				<a href="#resume" class="nav-link scrollto">
+					<i class="icon fa-solid fa-file"></i>
+					<span>Resume</span>
+					<!-- <span>
+						Maecenas maximus varius dui, vel molestie nibh dignissim vitae.
+					</span> -->
+				</a>
+
+			</nav>
+		</header>
+
 		<div class="page-content">
 
-			<img id="cover_image"
+
+			<!-- <img id="cover_image"
 				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-268.jpg"
 				class="lazy lazy-fade-in picture cover light" alt="Picture of Sam" />
 			<img id="cover_image"
 				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-179.jpg"
-				class="lazy lazy-fade-in picture cover dark" alt="Picture of Sam" />
+				class="lazy lazy-fade-in picture cover dark" alt="Picture of Sam" /> -->
+			<img id="cover_image"
+				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
+				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
+			<!-- <a href="#resume" class="icon fa-solid fa-file" style="padding-left: 2px;"></i> -->
 
 			<div class="block block-strong">
-				<p>This is an example of tabs-layout application. The main point of such tabbed layout is that each tab
+				<p>This is an example of tabs-layout application. The main point of such tabbed layout is that each
+					tab
 					contains independent view with its own routing and navigation.</p>
 
-				<p>Each tab/view may have different layout, different navbar type (dynamic, fixed or static) or without
+				<p>Each tab/view may have different layout, different navbar type (dynamic, fixed or static) or
+					without
 					navbar like this tab.</p>
 			</div>
-			<div class="block-title">Navigation</div>
+			<div id="resume" class="block-title">Resume</div>
 			<div class="list">
 				<ul>
 					<li>
@@ -75,7 +115,8 @@
 			<div class="block block-strong">
 				<div class="row">
 					<div class="col-50">
-						<a href="#" class="button button-raised button-fill panel-open" data-panel="left">Left Panel</a>
+						<a href="#" class="button button-raised button-fill panel-open" data-panel="left">Left
+							Panel</a>
 					</div>
 					<div class="col-50">
 						<a href="#" class="button button-raised button-fill panel-open" data-panel="right">Right
@@ -104,9 +145,44 @@
 
 	export default (props, { $, $on, $f7, $store }) => {
 
+
+
 		$on('pageInit', (e) => {
 
 
+			var selectors = document.getElementsByClassName('nav-link');
+
+			for (let i = 0; i < selectors.length; i++) {
+				selectors[i].onclick = function () {
+					selectors[i].classList.add('active');
+					clearOthers(i);
+				}
+			}
+
+			function clearOthers(i) {
+				selectors = document.getElementsByClassName('nav-link');
+				for (let j = 0; j < selectors.length; j++)
+					if (i != j)
+						selectors.item(j).classList.remove('active');
+
+			}
+
+
+			$("a[href^='#']").click(function (e) {
+				e.preventDefault();
+
+				var position = $($(this).attr("href")).offset().top;
+
+				// console.log($('html, body'))
+				$('html, body')[1].animate({
+					scrollTop: position
+				}, 80, function () {
+
+					console.log('finished')
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					// window.location.hash = hash;
+				});
+			});
 
 		})
 		return $render;
