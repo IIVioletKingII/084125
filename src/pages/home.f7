@@ -20,7 +20,13 @@
 			<div class="w-nav-overlay" data-wf-ignore=""></div>
 		</div> -->
 
-		<header id="header" class="d-flex flex-row justify-content-center">
+		<!-- flex-row -->
+		<header id="header" class="d-flex justify-content-center">
+
+			<a class="mobile-nav-toggle">
+				<i class="icon fa-solid fa-bars"></i>
+			</a>
+			<div class="mobile-nav-background"></div>
 			<nav id="navbar" class="navbar nav-menu">
 				<a href="#home" class="nav-link scrollto active">
 					<i class="icon fa-solid fa-home"></i>
@@ -57,6 +63,26 @@
 
 		<div class="page-content">
 
+			<!-- <article> -->
+
+			<img id="cover_image"
+				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
+				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
+			<!-- </article>
+			<article>
+				<div id="about" class="block-title">About</div>
+				<div>Blee Blah Dee Dah</div>
+			</article>
+			<article>
+				<div id="about" class="block-title">About</div>
+				<div>Blee Blah Dee Dah</div>
+
+			</article>
+			<article>
+				<div id="about" class="block-title">About</div>
+				<div>Blee Blah Dee Dah</div>
+
+			</article> -->
 
 			<!-- <img id="cover_image"
 				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-268.jpg"
@@ -64,12 +90,9 @@
 			<img id="cover_image"
 				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-179.jpg"
 				class="lazy lazy-fade-in picture cover dark" alt="Picture of Sam" /> -->
-			<img id="cover_image"
-				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
 			<!-- <a href="#resume" class="icon fa-solid fa-file" style="padding-left: 2px;"></i> -->
 
-			<div class="block block-strong">
+			<!-- <div class="block block-strong">
 				<p>This is an example of tabs-layout application. The main point of such tabbed layout is that each
 					tab
 					contains independent view with its own routing and navigation.</p>
@@ -77,8 +100,8 @@
 				<p>Each tab/view may have different layout, different navbar type (dynamic, fixed or static) or
 					without
 					navbar like this tab.</p>
-			</div>
-			<div id="resume" class="block-title">Resume</div>
+			</div> -->
+			<!-- <div id="resume" class="block-title">Resume</div>
 			<div class="list">
 				<ul>
 					<li>
@@ -96,9 +119,9 @@
 						</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 
-			<div class="block-title">Modals</div>
+			<!-- <div class="block-title">Modals</div>
 			<div class="block block-strong">
 				<div class="row">
 					<div class="col-50">
@@ -109,9 +132,9 @@
 							data-login-screen="#my-login-screen">Login Screen</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="block-title">Panels</div>
+			<!-- <div class="block-title">Panels</div>
 			<div class="block block-strong">
 				<div class="row">
 					<div class="col-50">
@@ -123,9 +146,9 @@
 							Panel</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="list links-list">
+			<!-- <div class="list links-list">
 				<ul>
 					<li>
 						<a href="/dynamic-route/blog/45/post/125/?foo=bar#about">Dynamic (Component) Route</a>
@@ -137,7 +160,7 @@
 						<a href="/request-and-load/user/123456/">Request Data & Load</a>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>
@@ -146,28 +169,78 @@
 	export default (props, { $, $on, $f7, $store }) => {
 
 
+		function swapClassNames(element, swap1, swap2) {
+			if (swapClassName(element, swap1, swap2));
+			else if (swapClassName(element, swap2, swap1));
+		}
+
+		function swapClassName(element, remove, add) {
+			let containsRemove = element.classList.contains(remove);
+			if (containsRemove) {
+				element.classList.remove(remove);
+				element.classList.add(add);
+			}
+			return containsRemove;
+		}
 
 		$on('pageInit', (e) => {
 
 
+			// Nav Menu - onclick nav-links
 			var selectors = document.getElementsByClassName('nav-link');
-
-			for (let i = 0; i < selectors.length; i++) {
-				selectors[i].onclick = function () {
-					selectors[i].classList.add('active');
-					clearOthers(i);
-				}
-			}
 
 			function clearOthers(i) {
 				selectors = document.getElementsByClassName('nav-link');
 				for (let j = 0; j < selectors.length; j++)
 					if (i != j)
 						selectors.item(j).classList.remove('active');
+			}
 
+			for (let i = 0; i < selectors.length; i++) {
+				selectors[i].onclick = function () {
+					selectors[i].classList.add('active');
+					clearOthers(i);
+					if (mobileView())
+						toggleMenu();
+				}
+			}
+
+			// Nav Menu - onclick mobile menu
+			var navBg = document.getElementsByClassName('mobile-nav-background')[0];
+			var navMenu = document.getElementsByClassName('nav-menu')[0];
+			var mobileNavToggle = document.getElementsByClassName('mobile-nav-toggle')[0];
+			var header = document.getElementById('header');
+			let linesEl = mobileNavToggle.firstChild;
+
+			function mobileView() {
+				return navMenu.classList.contains('mobile-nav-menu')
+			}
+
+			function toggleMenu() {
+				if (swapClassName(linesEl, 'fa-bars', 'fa-bars-staggered')) {
+					navBg.classList.add('mobile-nav-active');
+					swapClassName(navMenu, 'nav-menu', 'mobile-nav-menu')
+				} else if (swapClassName(linesEl, 'fa-bars-staggered', 'fa-bars')) {
+					navBg.classList.remove('mobile-nav-active');
+					swapClassName(navMenu, 'mobile-nav-menu', 'nav-menu')
+				}
+			}
+
+			mobileNavToggle.onclick = function () {
+				toggleMenu();
+			}
+			navBg.onclick = function () {
+				toggleMenu();
 			}
 
 
+
+
+
+
+
+
+			// Something using href tags
 			$("a[href^='#']").click(function (e) {
 				e.preventDefault();
 
