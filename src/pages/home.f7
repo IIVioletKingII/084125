@@ -28,7 +28,7 @@
 			</a>
 			<div class="mobile-nav-background"></div>
 			<nav id="navbar" class="navbar nav-menu">
-				<a href="#home" class="nav-link scrollto active">
+				<a href="#home" data-index="0" class="nav-link scrollto active">
 					<i class="icon fa-solid fa-home"></i>
 					<span>Home</span>
 					<!-- <span>
@@ -36,21 +36,21 @@
 					</span> -->
 				</a>
 
-				<a href="#about" class="nav-link scrollto">
+				<a href="#about" data-index="1" class="nav-link scrollto">
 					<i class="icon fa-solid fa-user"></i>
 					<span>About</span>
 					<!-- <span>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					</span> -->
 				</a>
-				<a href="#photography" class="nav-link scrollto">
+				<a href="#photography" data-index="2" class="nav-link scrollto">
 					<i class="fa-solid fa-camera"></i>
 					<span>Photography</span>
 					<!-- <span>
 						Sed scelerisque urna non odio tempor pretium.
 					</span> -->
 				</a>
-				<a href="#resume" class="nav-link scrollto">
+				<a href="#resume" data-index="3" class="nav-link scrollto">
 					<i class="icon fa-solid fa-file"></i>
 					<span>Resume</span>
 					<!-- <span>
@@ -186,6 +186,16 @@
 		$on('pageInit', (e) => {
 
 
+			// Screen Size - mobile menu open resize
+			function resizeWindowCheckMenu() {
+				if (mobileViewOpen() && window.innerWidth >= 992)
+					toggleMenu();
+				console.log(window.innerWidth, window.innerHeight)
+			}
+
+			window.addEventListener('resize', resizeWindowCheckMenu);
+
+
 			// Nav Menu - onclick nav-links
 			var selectors = document.getElementsByClassName('nav-link');
 
@@ -200,10 +210,11 @@
 				selectors[i].onclick = function () {
 					selectors[i].classList.add('active');
 					clearOthers(i);
-					if (mobileView())
+					if (mobileViewOpen())
 						toggleMenu();
 				}
 			}
+
 
 			// Nav Menu - onclick mobile menu
 			var navBg = document.getElementsByClassName('mobile-nav-background')[0];
@@ -212,15 +223,17 @@
 			var header = document.getElementById('header');
 			let linesEl = mobileNavToggle.firstChild;
 
-			function mobileView() {
+			function mobileViewOpen() {
 				return navMenu.classList.contains('mobile-nav-menu')
 			}
 
-			function toggleMenu() {
-				if (swapClassName(linesEl, 'fa-bars', 'fa-bars-staggered')) {
+			function toggleMenu(setMobile) {
+				let isUndefined = setMobile == undefined;
+				console.log(isUndefined, setMobile)
+				if ((!isUndefined && setMobile) || swapClassName(linesEl, 'fa-bars', 'fa-bars-staggered')) {
 					navBg.classList.add('mobile-nav-active');
 					swapClassName(navMenu, 'nav-menu', 'mobile-nav-menu')
-				} else if (swapClassName(linesEl, 'fa-bars-staggered', 'fa-bars')) {
+				} else if ((!isUndefined && !setMobile) || swapClassName(linesEl, 'fa-bars-staggered', 'fa-bars')) {
 					navBg.classList.remove('mobile-nav-active');
 					swapClassName(navMenu, 'mobile-nav-menu', 'nav-menu')
 				}
@@ -230,29 +243,14 @@
 				toggleMenu();
 			}
 			navBg.onclick = function () {
-				toggleMenu();
+				if (mobileViewOpen())
+					toggleMenu();
 			}
 
 
 			// Page Navigation
 			let activeIndex = 0;
 			const groups = document.getElementsByClassName('page-group')
-
-			const handleRightPageClick = () => {
-				const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
-
-				const currentGroup = document.querySelector('[data-index="${activeIndex}"]'),
-					nextGroup = document.querySelector('[data-index="${nextIndex}"]');
-
-				currentGroup.dataset.status = "after";
-
-				nextGroup.dataset.status = "becoming-active-from-before"
-
-				setTimeout(() => {
-					nextGroup.dataset.status = "active";
-					activeIndex = nextIndex;
-				});
-			}
 
 			const handleLeftPageClick = () => {
 				const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
@@ -263,6 +261,22 @@
 				currentGroup.dataset.status = "before";
 
 				nextGroup.dataset.status = "becoming-active-from-after"
+
+				setTimeout(() => {
+					nextGroup.dataset.status = "active";
+					activeIndex = nextIndex;
+				});
+			}
+
+			const handleRightPageClick = () => {
+				const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
+
+				const currentGroup = document.querySelector('[data-index="${activeIndex}"]'),
+					nextGroup = document.querySelector('[data-index="${nextIndex}"]');
+
+				currentGroup.dataset.status = "after";
+
+				nextGroup.dataset.status = "becoming-active-from-before"
 
 				setTimeout(() => {
 					nextGroup.dataset.status = "active";
