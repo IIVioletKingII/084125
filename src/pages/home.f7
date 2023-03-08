@@ -63,26 +63,26 @@
 
 		<div class="page-content">
 
-			<!-- <article> -->
+			<article class="page-group" data-index="0" data-status="active">
 
-			<img id="cover_image"
-				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
-			<!-- </article>
-			<article>
+				<img id="cover_image"
+					data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
+					class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
+			</article>
+			<article class="page-group" data-index="1" data-status="inactive">
 				<div id="about" class="block-title">About</div>
 				<div>Blee Blah Dee Dah</div>
 			</article>
-			<article>
+			<article class="page-group" data-index="2" data-status="inactive">
 				<div id="about" class="block-title">About</div>
 				<div>Blee Blah Dee Dah</div>
 
 			</article>
-			<article>
+			<article class="page-group" data-index="3" data-status="inactive">
 				<div id="about" class="block-title">About</div>
 				<div>Blee Blah Dee Dah</div>
 
-			</article> -->
+			</article>
 
 			<!-- <img id="cover_image"
 				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-268.jpg"
@@ -234,6 +234,41 @@
 			}
 
 
+			// Page Navigation
+			let activeIndex = 0;
+			const groups = document.getElementsByClassName('page-group')
+
+			const handleRightPageClick = () => {
+				const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
+
+				const currentGroup = document.querySelector('[data-index="${activeIndex}"]'),
+					nextGroup = document.querySelector('[data-index="${nextIndex}"]');
+
+				currentGroup.dataset.status = "after";
+
+				nextGroup.dataset.status = "becoming-active-from-before"
+
+				setTimeout(() => {
+					nextGroup.dataset.status = "active";
+					activeIndex = nextIndex;
+				});
+			}
+
+			const handleLeftPageClick = () => {
+				const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
+
+				const currentGroup = document.querySelector('[data-index="${activeIndex}"]'),
+					nextGroup = document.querySelector('[data-index="${nextIndex}"]');
+
+				currentGroup.dataset.status = "before";
+
+				nextGroup.dataset.status = "becoming-active-from-after"
+
+				setTimeout(() => {
+					nextGroup.dataset.status = "active";
+					activeIndex = nextIndex;
+				});
+			}
 
 
 

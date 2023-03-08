@@ -155,21 +155,43 @@ div {
 }
 
 
-
-
-
 // =============================================================
 // =====                    Main Pages                     =====
 // =============================================================
 
 
-article {
-
-	width: 100vw;
-	height: 100vh;
-	// position: static;
+.page-content {
+	flex-grow: 1;
+	position: relative;
 }
 
+
+.page-group {
+
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	transition: transform 400ms ease;
+}
+
+.page-group[data-status="after"] {
+	transform: translateX(50%) scale(0);
+}
+
+.page-group[data-status="becoming-after-from-before"] {
+	transform: translateX(-50%) scale(0);
+	transition: none;
+}
+
+.page-group[data-status="active"] {
+	transition-delay: 300ms;
+}
+
+.page-group[data-status="inactive"] {
+	transform: scale(0);
+}
 
 // =============================================================
 
