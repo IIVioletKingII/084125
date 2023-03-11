@@ -280,7 +280,7 @@ div {
 	padding: 15px;
 }
 
-#navbar {
+.nav-menu {
 	display: flex;
 	gap: 8px;
 }
@@ -293,7 +293,7 @@ div {
 }
 
 @media (min-width: 992px) {
-	#navbar {
+	.nav-menu {
 		justify-content: center;
 		flex-direction: row;
 	}
@@ -302,7 +302,7 @@ div {
 
 @media (min-width: 992px) {
 
-	.navbar {
+	.nav-menu {
 		height: auto;
 	}
 }
@@ -315,11 +315,8 @@ div {
 		align-items: center;
 	}
 
-	#navbar {
+	.nav-menu {
 		flex-direction: column;
-	}
-
-	.navbar {
 		height: auto;
 		width: auto;
 	}
@@ -435,6 +432,10 @@ div {
 // ==============================================================
 // =====                 Mobile Navigation                  =====
 // ==============================================================
+
+.mobile-nav-menu {
+	height: auto;
+}
 
 .mobile-nav-menu * {
 	margin: 0;
