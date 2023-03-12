@@ -262,6 +262,10 @@
 				}
 			}
 
+			document.getElementById('resume').addEventListener("focus", (event) => {
+
+			});
+
 			// Nav Menu - onclick mobile menu
 			var navBg = document.getElementsByClassName('mobile-nav-background')[0];
 			var navMenu = document.getElementsByClassName('nav-menu')[0];

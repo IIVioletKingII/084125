@@ -5,7 +5,7 @@ import Framework7 from 'framework7/bundle';
 import 'framework7/css/bundle';
 
 // Import Icons and App Custom Styles
-import '../css/icons.css';
+
 import '../css/app.scss';
 
 
