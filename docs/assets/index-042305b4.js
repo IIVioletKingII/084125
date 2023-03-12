@@ -323,31 +323,8 @@ ${o.toString()}`)}return n&&(typeof n=="string"?l+=`?${n}`:Object.keys(n).length
 
 			</div>
 		</div>
-		<!-- 		
-		<article class="page-group" data-index="0" data-status="active">
-
-			<img id="cover_image"
-				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
-		</article>
-		<article class="page-group" data-index="1" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-		</article>
-		<article class="page-group" data-index="2" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article>
-		<article class="page-group" data-index="3" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article> -->
-
-		<!-- </div> -->
 	</div>
-`}}On.id="ab87600554";function Bn(){return function(s){var e=s.$,t=s.$h,a=s.$root,n=s.$f7,r=s.$f7route,i=s.$f7router,l=s.$theme,o=s.$update,c=s.$store;return t`
+`}}On.id="69db5a5e1f";function Bn(){return function(s){var e=s.$,t=s.$h,a=s.$root,n=s.$f7,r=s.$f7route,i=s.$f7router,l=s.$theme,o=s.$update,c=s.$store;return t`
 <div class="page" data-name="about">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -374,7 +351,7 @@ ${o.toString()}`)}return n&&(typeof n=="string"?l+=`?${n}`:Object.keys(n).length
     </div>
   </div>
 </div>
-`}}Bn.id="ba27bd7a8d";function An(){return function(s){var e=s.$,t=s.$h,a=s.$root,n=s.$f7,r=s.$f7route,i=s.$f7router,l=s.$theme,o=s.$update,c=s.$store;return t`
+`}}Bn.id="2cf3c739a7";function An(){return function(s){var e=s.$,t=s.$h,a=s.$root,n=s.$f7,r=s.$f7route,i=s.$f7router,l=s.$theme,o=s.$update,c=s.$store;return t`
 <div class="page" data-name="form">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -633,7 +610,7 @@ ${o.toString()}`)}return n&&(typeof n=="string"?l+=`?${n}`:Object.keys(n).length
     </div>
   </div>
 </div>
-`}}An.id="2512eb8c1e";function ma(s,{$f7:e,$on:t,$onBeforeMount:a,$onMounted:n,$onBeforeUnmount:r,$onUnmounted:i}){let l="Jimmy",o=25,c=["Tennis","Chess","Football"];const d=()=>{e.dialog.alert("Hello World")};return a(()=>{console.log("onBeforeMount")}),n(()=>{console.log("onMounted")}),r(()=>{console.log("onBeforeUnmount")}),i(()=>{console.log("onUnmounted")}),t("pageMounted",(u,p)=>{console.log("pageMounted",p)}),t("pageInit",(u,p)=>{console.log("pageInit",p)}),t("pageBeforeIn",(u,p)=>{console.log("pageBeforeIn",p)}),t("pageAfterIn",(u,p)=>{console.log("pageAfterIn",p)}),t("pageBeforeOut",(u,p)=>{console.log("pageBeforeOut",p)}),t("pageAfterOut",(u,p)=>{console.log("pageAfterOut",p)}),t("pageBeforeRemove",(u,p)=>{console.log("pageBeforeRemove",p)}),function(u){var p=u.$,g=u.$h,h=u.$root,f=u.$f7,m=u.$f7route,b=u.$f7router,v=u.$theme,y=u.$update,x=u.$store;return g`
+`}}An.id="5f0232b195";function ma(s,{$f7:e,$on:t,$onBeforeMount:a,$onMounted:n,$onBeforeUnmount:r,$onUnmounted:i}){let l="Jimmy",o=25,c=["Tennis","Chess","Football"];const d=()=>{e.dialog.alert("Hello World")};return a(()=>{console.log("onBeforeMount")}),n(()=>{console.log("onMounted")}),r(()=>{console.log("onBeforeUnmount")}),i(()=>{console.log("onUnmounted")}),t("pageMounted",(u,p)=>{console.log("pageMounted",p)}),t("pageInit",(u,p)=>{console.log("pageInit",p)}),t("pageBeforeIn",(u,p)=>{console.log("pageBeforeIn",p)}),t("pageAfterIn",(u,p)=>{console.log("pageAfterIn",p)}),t("pageBeforeOut",(u,p)=>{console.log("pageBeforeOut",p)}),t("pageAfterOut",(u,p)=>{console.log("pageAfterOut",p)}),t("pageBeforeRemove",(u,p)=>{console.log("pageBeforeRemove",p)}),function(u){var p=u.$,g=u.$h,h=u.$root,f=u.$f7,m=u.$f7route,b=u.$f7router,v=u.$theme,y=u.$update,x=u.$store;return g`
   <div class="page">
     <div class="navbar">
       <div class="navbar-bg"></div>
@@ -689,7 +666,7 @@ ${o.toString()}`)}return n&&(typeof n=="string"?l+=`?${n}`:Object.keys(n).length
       </div>
     </div>
   </div>
-`}}ma.id="34a5fe5736";ma.style=`
+`}}ma.id="601f362a2e";ma.style=`
   p {
     margin: 10px 0;
   }
@@ -720,7 +697,7 @@ ${o.toString()}`)}return n&&(typeof n=="string"?l+=`?${n}`:Object.keys(n).length
       </div>
     </div>
   </div>
-`}}Dn.id="e9a54c3484";function Ln(){return function(s){var e=s.$,t=s.$h,a=s.$root,n=s.$f7,r=s.$f7route,i=s.$f7router,l=s.$theme,o=s.$update,c=s.$store;return t`
+`}}Dn.id="31ee31096e";function Ln(){return function(s){var e=s.$,t=s.$h,a=s.$root,n=s.$f7,r=s.$f7route,i=s.$f7router,l=s.$theme,o=s.$update,c=s.$store;return t`
 <div class="page">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -741,7 +718,7 @@ ${o.toString()}`)}return n&&(typeof n=="string"?l+=`?${n}`:Object.keys(n).length
     </div>
   </div>
 </div>
-`}}Ln.id="9d4bcab59d";var zd=[{path:"/",component:On},{path:"/about/",component:Bn},{path:"/form/",component:An},{path:"/dynamic-route/blog/:blogId/post/:postId/",component:ma},{path:"/request-and-load/user/:userId/",async:function({router:s,to:e,resolve:t}){var a=s.app;a.preloader.show();var n=e.params.userId;setTimeout(function(){var r={firstName:"Vladimir",lastName:"Kharlampidi",about:"Hello, i am creator of Framework7! Hope you like it!",links:[{title:"Framework7 Website",url:"http://framework7.io"},{title:"Framework7 Forum",url:"http://forum.framework7.io"}]};a.preloader.hide(),t({component:Dn},{props:{user:r}})},1e3)}},{path:"(.*)",component:Ln}];Oe.use([cn]);ke.use([Js,Zs,en,tn,an,sn,ln,ua,gn,mn,vn,bn,$n,yn,En,Cn,xn,kn,wn]);const Fd=ra({state:{products:[{id:"1",title:"Apple iPhone 8",description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis."},{id:"2",title:"Apple iPhone 8 Plus",description:"Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!"},{id:"3",title:"Apple iPhone X",description:"Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum."}]},getters:{products({state:s}){return s.products}},actions:{addProduct({state:s},e){s.products=[...s.products,e]}}});function Rn(s,{$f7:e,$update:t}){let a="",n="";const r=o=>{a=o.target.value,t()},i=o=>{n=o.target.value,t()},l=()=>{e.dialog.alert("Username: "+a+"<br/>Password: "+n,()=>{e.loginScreen.close()})};return function(o){var c=o.$,d=o.$h,u=o.$root,p=o.$f7,g=o.$f7route,h=o.$f7router,f=o.$theme,m=o.$update,b=o.$store;return d`
+`}}Ln.id="613bb79508";var zd=[{path:"/",component:On},{path:"/about/",component:Bn},{path:"/form/",component:An},{path:"/dynamic-route/blog/:blogId/post/:postId/",component:ma},{path:"/request-and-load/user/:userId/",async:function({router:s,to:e,resolve:t}){var a=s.app;a.preloader.show();var n=e.params.userId;setTimeout(function(){var r={firstName:"Vladimir",lastName:"Kharlampidi",about:"Hello, i am creator of Framework7! Hope you like it!",links:[{title:"Framework7 Website",url:"http://framework7.io"},{title:"Framework7 Forum",url:"http://forum.framework7.io"}]};a.preloader.hide(),t({component:Dn},{props:{user:r}})},1e3)}},{path:"(.*)",component:Ln}];Oe.use([cn]);ke.use([Js,Zs,en,tn,an,sn,ln,ua,gn,mn,vn,bn,$n,yn,En,Cn,xn,kn,wn]);const Fd=ra({state:{products:[{id:"1",title:"Apple iPhone 8",description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis."},{id:"2",title:"Apple iPhone 8 Plus",description:"Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!"},{id:"3",title:"Apple iPhone X",description:"Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum."}]},getters:{products({state:s}){return s.products}},actions:{addProduct({state:s},e){s.products=[...s.products,e]}}});function Rn(s,{$f7:e,$update:t}){let a="",n="";const r=o=>{a=o.target.value,t()},i=o=>{n=o.target.value,t()},l=()=>{e.dialog.alert("Username: "+a+"<br/>Password: "+n,()=>{e.loginScreen.close()})};return function(o){var c=o.$,d=o.$h,u=o.$root,p=o.$f7,g=o.$f7route,h=o.$f7router,f=o.$theme,m=o.$update,b=o.$store;return d`
 	<div id="app">
 
 		<!-- Your main view, should have "view-main" class -->
@@ -817,4 +794,4 @@ ${o.toString()}`)}return n&&(typeof n=="string"?l+=`?${n}`:Object.keys(n).length
 		</div>
 
 	</div>
-`}}Rn.id="f1c36d7947";var $u=new ke({name:"Sam DePoule",theme:"auto",el:"#app",component:Rn,store:Fd,routes:zd,autoDarkMode:!0,view:{browserHistory:!0,browserHistorySeparator:""}});
+`}}Rn.id="83c173056c";var $u=new ke({name:"Sam DePoule",theme:"auto",el:"#app",component:Rn,store:Fd,routes:zd,autoDarkMode:!0});
