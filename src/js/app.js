@@ -5,7 +5,7 @@ import Framework7 from 'framework7/bundle';
 import 'framework7/css/bundle';
 
 // Import Icons and App Custom Styles
-import '../css/icons.css';
+
 import '../css/app.scss';
 
 
@@ -19,7 +19,7 @@ import App from '../app.f7';
 
 
 var app = new Framework7({
-	name: 'Sam-DePoule', // App name
+	name: 'Sam DePoule', // App name
 	theme: 'auto', // Automatic theme detection
 	el: '#app', // App root element
 	component: App, // App main component
@@ -36,5 +36,4 @@ var app = new Framework7({
 		browserHistory: true,
 		browserHistorySeparator: ""
 	},
-
 });

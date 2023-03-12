@@ -1,4 +1,4 @@
-# Sam-DePoule
+# Sam DePoule
 
 ## Framework7 CLI Options
 
@@ -6,20 +6,20 @@ Framework7 app created with following options:
 
 ```
 {
-  "cwd": "C:\\Users\\Surface\\git\\sam-depoule",
+  "cwd": "C:\\Users\\Sam\\git\\sam-depoule",
   "type": [
     "web"
   ],
-  "name": "Sam-DePoule",
+  "name": "Sam DePoule",
   "framework": "core",
-  "template": "tabs",
+  "template": "single-view",
   "bundler": "vite",
   "cssPreProcessor": "scss",
   "theming": {
-    "customColor": true,
-    "color": "#0055d4",
+    "customColor": false,
+    "color": "#007aff",
     "darkTheme": true,
-    "iconFonts": true,
+    "iconFonts": false,
     "fillBars": false
   },
   "customBuild": false
