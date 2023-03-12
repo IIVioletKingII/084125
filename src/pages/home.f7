@@ -7,19 +7,19 @@
 			</a>
 			<div class="mobile-nav-background"></div>
 			<nav id="navbar" class="navbar nav-menu">
-				<a href="#home" class="nav-link scrollto active">
+				<a class="nav-link scrollto active" data-target="home">
 					<i class="icon fa-solid fa-home"></i>
 					<span>Home</span>
 				</a>
-				<a href="#about" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="about">
 					<i class="icon fa-solid fa-user"></i>
 					<span>About</span>
 				</a>
-				<a href="#photography" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="photography">
 					<i class="fa-solid fa-camera"></i>
 					<span>Photography</span>
 				</a>
-				<a href="#resume" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="resume">
 					<i class="icon fa-solid fa-file"></i>
 					<span>Resume</span>
 				</a>
@@ -184,29 +184,6 @@
 
 			</div>
 		</div>
-		<!-- 		
-		<article class="page-group" data-index="0" data-status="active">
-
-			<img id="cover_image"
-				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
-		</article>
-		<article class="page-group" data-index="1" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-		</article>
-		<article class="page-group" data-index="2" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article>
-		<article class="page-group" data-index="3" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article> -->
-
-		<!-- </div> -->
 	</div>
 </template>
 <script>
@@ -259,7 +236,7 @@
 			function resizeWindowCheckMenu() {
 				if (mobileViewOpen() && window.innerWidth >= 992)
 					toggleMenu();
-				console.log(window.innerWidth, window.innerHeight)
+				// console.log(window.innerWidth, window.innerHeight)
 			}
 
 			window.addEventListener('resize', resizeWindowCheckMenu);
@@ -277,25 +254,12 @@
 
 			for (let i = 0; i < selectors.length; i++) {
 				selectors[i].onclick = function () {
+					document.getElementById(selectors[i].dataset.target).scrollIntoView();
 					selectors[i].classList.add('active');
 					clearOthers(i);
 					if (mobileViewOpen())
 						toggleMenu();
-					slideTo('resume')
-
-					// handlePageClick(i)
 				}
-			}
-
-			function slideTo(id) {
-				var element = document.getElementById(id);
-				// window.scrollTo({
-				// 	top: 0,
-				// 	left: element.offsetLeft,
-				// 	behavior: 'smooth'
-				// });
-				window.scrollBy(100, 100)
-				console.log(window, element.offsetLeft)
 			}
 
 			// Nav Menu - onclick mobile menu
@@ -331,29 +295,6 @@
 
 
 
-
-			// Something using href tags
-			$("a[href^='#']").click(function (e) {
-				// e.preventDefault();
-				// 944
-
-				let el = $($(this).attr("href"));
-				var position = el.offset().left;
-
-				let test = $('.page-scroller');
-				// console.log(position, test, $($(this).attr("href")).offset())
-				// console.log(test[1])
-				// console.log(el.scrollLeft())
-				// $('html, body')[1]({
-				test.animate({
-					scrollTo: position
-				}, 0, function () {
-
-					console.log('finished')
-					// Add hash(#) to URL when done scrolling(default click behavior)
-					window.location.hash = hash;
-				});
-			});
 
 		})
 		return $render;
