@@ -29,7 +29,7 @@ var app = new Framework7({
 	// App routes
 	routes: routes,
 
-	autoDarkMode: true,
+	// autoDarkMode: true,
 	// darkModeChange: true,
 
 	view: {
