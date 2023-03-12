@@ -32,8 +32,8 @@ var app = new Framework7({
 	autoDarkMode: true,
 	// darkModeChange: true,
 
-	view: {
-		browserHistory: true,
-		// browserHistorySeparator: ""
-	},
+	// view: {
+	// 	browserHistory: true,
+	// 	browserHistorySeparator: ""
+	// },
 });
