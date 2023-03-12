@@ -7,19 +7,19 @@
 			</a>
 			<div class="mobile-nav-background"></div>
 			<nav id="navbar" class="navbar nav-menu">
-				<a href="#home" class="nav-link scrollto active">
+				<a class="nav-link scrollto active" data-target="home">
 					<i class="icon fa-solid fa-home"></i>
 					<span>Home</span>
 				</a>
-				<a href="#about" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="about">
 					<i class="icon fa-solid fa-user"></i>
 					<span>About</span>
 				</a>
-				<a href="#photography" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="photography">
 					<i class="fa-solid fa-camera"></i>
 					<span>Photography</span>
 				</a>
-				<a href="#resume" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="resume">
 					<i class="icon fa-solid fa-file"></i>
 					<span>Resume</span>
 				</a>
@@ -29,138 +29,161 @@
 
 		<!-- <div class="page-content"> -->
 
-		<div class="page-scroller">
+		<div class="page-content">
+
+			<div class="page-scroller">
 
 
-			<div id="home" class="page-group hero-picture lazy lazy-fade-in">
-				<!-- <div class="hero-title">Hi there! I'm Sam DePoule</div> -->
-				<!-- <img id="cover_image"
+				<div id="home" class="page-group hero-picture lazy lazy-fade-in">
+					<!-- <div class="hero-title">Hi there! I'm Sam DePoule</div> -->
+					<!-- <img id="cover_image"
 					data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
 					class="lazy lazy-fade-in picture cover" alt="Picture of Sam" /> -->
+				</div>
+				<div id="about" class="page-group">
+					<div class="block-title">About</div>
+					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+						tempor incididunt ut labore
+						et dolore magna aliqua. Leo in vitae turpis massa sed. Cursus risus at ultrices mi. Est sit amet
+						facilisis magna etiam tempor. Ultrices dui sapien eget mi proin sed libero enim sed. Ipsum a
+						arcu
+						cursus vitae congue mauris rhoncus aenean vel. Lectus mauris ultrices eros in cursus turpis. Sed
+						sed
+						risus pretium quam vulputate dignissim. Nunc mi ipsum faucibus vitae. Viverra maecenas accumsan
+						lacus vel facilisis volutpat est velit egestas. Aenean euismod elementum nisi quis.
+
+						Mattis ullamcorper velit sed ullamcorper. Bibendum at varius vel pharetra vel turpis nunc eget.
+						Ultrices vitae auctor eu augue. Id nibh tortor id aliquet lectus proin nibh nisl. Pretium fusce
+						id
+						velit ut tortor pretium. Sem nulla pharetra diam sit amet nisl suscipit. Et tortor at risus
+						viverra
+						adipiscing at in tellus integer. Et tortor consequat id porta nibh venenatis cras. Enim nec dui
+						nunc
+						mattis. Amet consectetur adipiscing elit pellentesque. Pretium aenean pharetra magna ac
+						placerat.
+						Donec massa sapien faucibus et. Enim blandit volutpat maecenas volutpat blandit aliquam etiam
+						erat
+						velit. Ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing.
+						Magna
+						sit amet purus gravida quis.
+
+						Quam vulputate dignissim suspendisse in est ante in nibh. Auctor elit sed vulputate mi sit amet
+						mauris. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Purus sit amet luctus
+						venenatis lectus magna fringilla urna porttitor. Ac tortor dignissim convallis aenean et tortor
+						at.
+						Eu lobortis elementum nibh tellus molestie. Tortor posuere ac ut consequat. Semper quis lectus
+						nulla
+						at volutpat diam ut venenatis tellus. Vitae congue eu consequat ac felis donec. Eget duis at
+						tellus
+						at. Nibh ipsum consequat nisl vel. Sem fringilla ut morbi tincidunt augue.
+
+						Lacinia quis vel eros donec ac odio tempor orci dapibus. Gravida quis blandit turpis cursus in
+						hac
+						habitasse. Libero justo laoreet sit amet cursus sit amet. Et netus et malesuada fames ac.
+						Facilisis
+						volutpat est velit egestas dui id ornare arcu odio. Neque volutpat ac tincidunt vitae. Volutpat
+						consequat mauris nunc congue. Sit amet venenatis urna cursus eget nunc scelerisque viverra
+						mauris.
+						Egestas congue quisque egestas diam in arcu cursus euismod. Vulputate odio ut enim blandit
+						volutpat
+						maecenas. Pharetra sit amet aliquam id diam. Lorem ipsum dolor sit amet consectetur adipiscing
+						elit.
+						Magnis dis parturient montes nascetur. Faucibus turpis in eu mi bibendum neque. Et odio
+						pellentesque
+						diam volutpat commodo sed egestas egestas. Eu consequat ac felis donec et odio pellentesque
+						diam.
+						Leo vel orci porta non pulvinar neque laoreet suspendisse interdum.
+
+						Amet purus gravida quis blandit turpis cursus. Netus et malesuada fames ac. Pellentesque massa
+						placerat duis ultricies lacus. Urna porttitor rhoncus dolor purus non enim praesent. Turpis in
+						eu mi
+						bibendum neque. Odio ut enim blandit volutpat maecenas. Vitae turpis massa sed elementum tempus
+						egestas sed. Imperdiet dui accumsan sit amet nulla facilisi morbi. At quis risus sed vulputate
+						odio.
+						Pretium fusce id velit ut tortor pretium. Sed pulvinar proin gravida hendrerit lectus. Erat
+						pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Donec enim diam vulputate ut
+						pharetra sit amet aliquam id. Scelerisque varius morbi enim nunc faucibus. Ipsum suspendisse
+						ultrices gravida dictum fusce ut placerat orci nulla. Tellus in metus vulputate eu scelerisque.
+						Dui
+						sapien eget mi proin.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+						tempor
+						incididunt ut labore
+						et dolore magna aliqua. Leo in vitae turpis massa sed. Cursus risus at ultrices mi. Est sit amet
+						facilisis magna etiam tempor. Ultrices dui sapien eget mi proin sed libero enim sed. Ipsum a
+						arcu
+						cursus vitae congue mauris rhoncus aenean vel. Lectus mauris ultrices eros in cursus turpis. Sed
+						sed
+						risus pretium quam vulputate dignissim. Nunc mi ipsum faucibus vitae. Viverra maecenas accumsan
+						lacus vel facilisis volutpat est velit egestas. Aenean euismod elementum nisi quis.
+
+						Mattis ullamcorper velit sed ullamcorper. Bibendum at varius vel pharetra vel turpis nunc eget.
+						Ultrices vitae auctor eu augue. Id nibh tortor id aliquet lectus proin nibh nisl. Pretium fusce
+						id
+						velit ut tortor pretium. Sem nulla pharetra diam sit amet nisl suscipit. Et tortor at risus
+						viverra
+						adipiscing at in tellus integer. Et tortor consequat id porta nibh venenatis cras. Enim nec dui
+						nunc
+						mattis. Amet consectetur adipiscing elit pellentesque. Pretium aenean pharetra magna ac
+						placerat.
+						Donec massa sapien faucibus et. Enim blandit volutpat maecenas volutpat blandit aliquam etiam
+						erat
+						velit. Ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing.
+						Magna
+						sit amet purus gravida quis.
+
+						Quam vulputate dignissim suspendisse in est ante in nibh. Auctor elit sed vulputate mi sit amet
+						mauris. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Purus sit amet luctus
+						venenatis lectus magna fringilla urna porttitor. Ac tortor dignissim convallis aenean et tortor
+						at.
+						Eu lobortis elementum nibh tellus molestie. Tortor posuere ac ut consequat. Semper quis lectus
+						nulla
+						at volutpat diam ut venenatis tellus. Vitae congue eu consequat ac felis donec. Eget duis at
+						tellus
+						at. Nibh ipsum consequat nisl vel. Sem fringilla ut morbi tincidunt augue.
+
+						Lacinia quis vel eros donec ac odio tempor orci dapibus. Gravida quis blandit turpis cursus in
+						hac
+						habitasse. Libero justo laoreet sit amet cursus sit amet. Et netus et malesuada fames ac.
+						Facilisis
+						volutpat est velit egestas dui id ornare arcu odio. Neque volutpat ac tincidunt vitae. Volutpat
+						consequat mauris nunc congue. Sit amet venenatis urna cursus eget nunc scelerisque viverra
+						mauris.
+						Egestas congue quisque egestas diam in arcu cursus euismod. Vulputate odio ut enim blandit
+						volutpat
+						maecenas. Pharetra sit amet aliquam id diam. Lorem ipsum dolor sit amet consectetur adipiscing
+						elit.
+						Magnis dis parturient montes nascetur. Faucibus turpis in eu mi bibendum neque. Et odio
+						pellentesque
+						diam volutpat commodo sed egestas egestas. Eu consequat ac felis donec et odio pellentesque
+						diam.
+						Leo vel orci porta non pulvinar neque laoreet suspendisse interdum.
+
+						Amet purus gravida quis blandit turpis cursus. Netus et malesuada fames ac. Pellentesque massa
+						placerat duis ultricies lacus. Urna porttitor rhoncus dolor purus non enim praesent. Turpis in
+						eu mi
+						bibendum neque. Odio ut enim blandit volutpat maecenas. Vitae turpis massa sed elementum tempus
+						egestas sed. Imperdiet dui accumsan sit amet nulla facilisi morbi. At quis risus sed vulputate
+						odio.
+						Pretium fusce id velit ut tortor pretium. Sed pulvinar proin gravida hendrerit lectus. Erat
+						pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Donec enim diam vulputate ut
+						pharetra sit amet aliquam id. Scelerisque varius morbi enim nunc faucibus. Ipsum suspendisse
+						ultrices gravida dictum fusce ut placerat orci nulla. Tellus in metus vulputate eu scelerisque.
+						Dui
+						sapien eget mi proin.</div>
+				</div>
+				<div id="photography" class="page-group">
+					<div class="block-title">About</div>
+					<div>Blee Blah Dee Dah</div>
+
+				</div>
+				<div id="resume" class="page-group">
+					<div class="block-title">Resume</div>
+					<div>Blee Blah Dee Dah</div>
+
+				</div>
+
 			</div>
-			<div id="about" class="page-group">
-				<div class="block-title">About</div>
-				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-					tempor incididunt ut labore
-					et dolore magna aliqua. Leo in vitae turpis massa sed. Cursus risus at ultrices mi. Est sit amet
-					facilisis magna etiam tempor. Ultrices dui sapien eget mi proin sed libero enim sed. Ipsum a arcu
-					cursus vitae congue mauris rhoncus aenean vel. Lectus mauris ultrices eros in cursus turpis. Sed sed
-					risus pretium quam vulputate dignissim. Nunc mi ipsum faucibus vitae. Viverra maecenas accumsan
-					lacus vel facilisis volutpat est velit egestas. Aenean euismod elementum nisi quis.
-
-					Mattis ullamcorper velit sed ullamcorper. Bibendum at varius vel pharetra vel turpis nunc eget.
-					Ultrices vitae auctor eu augue. Id nibh tortor id aliquet lectus proin nibh nisl. Pretium fusce id
-					velit ut tortor pretium. Sem nulla pharetra diam sit amet nisl suscipit. Et tortor at risus viverra
-					adipiscing at in tellus integer. Et tortor consequat id porta nibh venenatis cras. Enim nec dui nunc
-					mattis. Amet consectetur adipiscing elit pellentesque. Pretium aenean pharetra magna ac placerat.
-					Donec massa sapien faucibus et. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat
-					velit. Ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing. Magna
-					sit amet purus gravida quis.
-
-					Quam vulputate dignissim suspendisse in est ante in nibh. Auctor elit sed vulputate mi sit amet
-					mauris. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Purus sit amet luctus
-					venenatis lectus magna fringilla urna porttitor. Ac tortor dignissim convallis aenean et tortor at.
-					Eu lobortis elementum nibh tellus molestie. Tortor posuere ac ut consequat. Semper quis lectus nulla
-					at volutpat diam ut venenatis tellus. Vitae congue eu consequat ac felis donec. Eget duis at tellus
-					at. Nibh ipsum consequat nisl vel. Sem fringilla ut morbi tincidunt augue.
-
-					Lacinia quis vel eros donec ac odio tempor orci dapibus. Gravida quis blandit turpis cursus in hac
-					habitasse. Libero justo laoreet sit amet cursus sit amet. Et netus et malesuada fames ac. Facilisis
-					volutpat est velit egestas dui id ornare arcu odio. Neque volutpat ac tincidunt vitae. Volutpat
-					consequat mauris nunc congue. Sit amet venenatis urna cursus eget nunc scelerisque viverra mauris.
-					Egestas congue quisque egestas diam in arcu cursus euismod. Vulputate odio ut enim blandit volutpat
-					maecenas. Pharetra sit amet aliquam id diam. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-					Magnis dis parturient montes nascetur. Faucibus turpis in eu mi bibendum neque. Et odio pellentesque
-					diam volutpat commodo sed egestas egestas. Eu consequat ac felis donec et odio pellentesque diam.
-					Leo vel orci porta non pulvinar neque laoreet suspendisse interdum.
-
-					Amet purus gravida quis blandit turpis cursus. Netus et malesuada fames ac. Pellentesque massa
-					placerat duis ultricies lacus. Urna porttitor rhoncus dolor purus non enim praesent. Turpis in eu mi
-					bibendum neque. Odio ut enim blandit volutpat maecenas. Vitae turpis massa sed elementum tempus
-					egestas sed. Imperdiet dui accumsan sit amet nulla facilisi morbi. At quis risus sed vulputate odio.
-					Pretium fusce id velit ut tortor pretium. Sed pulvinar proin gravida hendrerit lectus. Erat
-					pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Donec enim diam vulputate ut
-					pharetra sit amet aliquam id. Scelerisque varius morbi enim nunc faucibus. Ipsum suspendisse
-					ultrices gravida dictum fusce ut placerat orci nulla. Tellus in metus vulputate eu scelerisque. Dui
-					sapien eget mi proin.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-					incididunt ut labore
-					et dolore magna aliqua. Leo in vitae turpis massa sed. Cursus risus at ultrices mi. Est sit amet
-					facilisis magna etiam tempor. Ultrices dui sapien eget mi proin sed libero enim sed. Ipsum a arcu
-					cursus vitae congue mauris rhoncus aenean vel. Lectus mauris ultrices eros in cursus turpis. Sed sed
-					risus pretium quam vulputate dignissim. Nunc mi ipsum faucibus vitae. Viverra maecenas accumsan
-					lacus vel facilisis volutpat est velit egestas. Aenean euismod elementum nisi quis.
-
-					Mattis ullamcorper velit sed ullamcorper. Bibendum at varius vel pharetra vel turpis nunc eget.
-					Ultrices vitae auctor eu augue. Id nibh tortor id aliquet lectus proin nibh nisl. Pretium fusce id
-					velit ut tortor pretium. Sem nulla pharetra diam sit amet nisl suscipit. Et tortor at risus viverra
-					adipiscing at in tellus integer. Et tortor consequat id porta nibh venenatis cras. Enim nec dui nunc
-					mattis. Amet consectetur adipiscing elit pellentesque. Pretium aenean pharetra magna ac placerat.
-					Donec massa sapien faucibus et. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat
-					velit. Ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing. Magna
-					sit amet purus gravida quis.
-
-					Quam vulputate dignissim suspendisse in est ante in nibh. Auctor elit sed vulputate mi sit amet
-					mauris. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Purus sit amet luctus
-					venenatis lectus magna fringilla urna porttitor. Ac tortor dignissim convallis aenean et tortor at.
-					Eu lobortis elementum nibh tellus molestie. Tortor posuere ac ut consequat. Semper quis lectus nulla
-					at volutpat diam ut venenatis tellus. Vitae congue eu consequat ac felis donec. Eget duis at tellus
-					at. Nibh ipsum consequat nisl vel. Sem fringilla ut morbi tincidunt augue.
-
-					Lacinia quis vel eros donec ac odio tempor orci dapibus. Gravida quis blandit turpis cursus in hac
-					habitasse. Libero justo laoreet sit amet cursus sit amet. Et netus et malesuada fames ac. Facilisis
-					volutpat est velit egestas dui id ornare arcu odio. Neque volutpat ac tincidunt vitae. Volutpat
-					consequat mauris nunc congue. Sit amet venenatis urna cursus eget nunc scelerisque viverra mauris.
-					Egestas congue quisque egestas diam in arcu cursus euismod. Vulputate odio ut enim blandit volutpat
-					maecenas. Pharetra sit amet aliquam id diam. Lorem ipsum dolor sit amet consectetur adipiscing elit.
-					Magnis dis parturient montes nascetur. Faucibus turpis in eu mi bibendum neque. Et odio pellentesque
-					diam volutpat commodo sed egestas egestas. Eu consequat ac felis donec et odio pellentesque diam.
-					Leo vel orci porta non pulvinar neque laoreet suspendisse interdum.
-
-					Amet purus gravida quis blandit turpis cursus. Netus et malesuada fames ac. Pellentesque massa
-					placerat duis ultricies lacus. Urna porttitor rhoncus dolor purus non enim praesent. Turpis in eu mi
-					bibendum neque. Odio ut enim blandit volutpat maecenas. Vitae turpis massa sed elementum tempus
-					egestas sed. Imperdiet dui accumsan sit amet nulla facilisi morbi. At quis risus sed vulputate odio.
-					Pretium fusce id velit ut tortor pretium. Sed pulvinar proin gravida hendrerit lectus. Erat
-					pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Donec enim diam vulputate ut
-					pharetra sit amet aliquam id. Scelerisque varius morbi enim nunc faucibus. Ipsum suspendisse
-					ultrices gravida dictum fusce ut placerat orci nulla. Tellus in metus vulputate eu scelerisque. Dui
-					sapien eget mi proin.</div>
-			</div>
-			<div id="photography" class="page-group">
-				<div class="block-title">About</div>
-				<div>Blee Blah Dee Dah</div>
-
-			</div>
-			<div id="resume" class="page-group">
-				<div class="block-title">Resume</div>
-				<div>Blee Blah Dee Dah</div>
-
-			</div>
-
 		</div>
-		<!-- 		
-		<article class="page-group" data-index="0" data-status="active">
-
-			<img id="cover_image"
-				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
-		</article>
-		<article class="page-group" data-index="1" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-		</article>
-		<article class="page-group" data-index="2" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article>
-		<article class="page-group" data-index="3" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article> -->
-
-		<!-- </div> -->
 	</div>
 </template>
 <script>
@@ -208,47 +231,12 @@
 					activeIndex = nextIndex;
 				});
 			}
-			/* 
-						// const handleLeftPageClick = () => {
-						// 	const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
-			
-						// 	const currentGroup = document.querySelector('[data-index="${activeIndex}"]'),
-						// 		nextGroup = document.querySelector('[data-index="${nextIndex}"]');
-			
-						// 	currentGroup.dataset.status = "before";
-			
-						// 	nextGroup.dataset.status = "becoming-active-from-after"
-			
-						// 	setTimeout(() => {
-						// 		nextGroup.dataset.status = "active";
-						// 		activeIndex = nextIndex;
-						// 	});
-						// }
-			
-						// const handleRightPageClick = () => {
-						// 	const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
-			
-						// 	const currentGroup = document.querySelector('[data-index="${activeIndex}"]'),
-						// 		nextGroup = document.querySelector('[data-index="${nextIndex}"]');
-			
-						// 	currentGroup.dataset.status = "after";
-			
-						// 	nextGroup.dataset.status = "becoming-active-from-before"
-			
-						// 	setTimeout(() => {
-						// 		nextGroup.dataset.status = "active";
-						// 		activeIndex = nextIndex;
-						// 	});
-						// }
-			 */
-
-
 
 			// Screen Size - mobile menu open resize
 			function resizeWindowCheckMenu() {
 				if (mobileViewOpen() && window.innerWidth >= 992)
 					toggleMenu();
-				console.log(window.innerWidth, window.innerHeight)
+				// console.log(window.innerWidth, window.innerHeight)
 			}
 
 			window.addEventListener('resize', resizeWindowCheckMenu);
@@ -266,25 +254,12 @@
 
 			for (let i = 0; i < selectors.length; i++) {
 				selectors[i].onclick = function () {
+					document.getElementById(selectors[i].dataset.target).scrollIntoView();
 					selectors[i].classList.add('active');
 					clearOthers(i);
 					if (mobileViewOpen())
 						toggleMenu();
-					slideTo('resume')
-
-					// handlePageClick(i)
 				}
-			}
-
-			function slideTo(id) {
-				var element = document.getElementById(id);
-				// window.scrollTo({
-				// 	top: 0,
-				// 	left: element.offsetLeft,
-				// 	behavior: 'smooth'
-				// });
-				window.scrollBy(100, 100)
-				console.log(window, element.offsetLeft)
 			}
 
 			// Nav Menu - onclick mobile menu
@@ -320,29 +295,6 @@
 
 
 
-
-			// Something using href tags
-			$("a[href^='#']").click(function (e) {
-				// e.preventDefault();
-				// 944
-
-				let el = $($(this).attr("href"));
-				var position = el.offset().left;
-
-				let test = $('.page-scroller');
-				// console.log(position, test, $($(this).attr("href")).offset())
-				// console.log(test[1])
-				// console.log(el.scrollLeft())
-				// $('html, body')[1]({
-				test.animate({
-					scrollTo: position
-				}, 0, function () {
-
-					console.log('finished')
-					// Add hash(#) to URL when done scrolling(default click behavior)
-					window.location.hash = hash;
-				});
-			});
 
 		})
 		return $render;
