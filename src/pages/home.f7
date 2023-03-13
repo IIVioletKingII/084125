@@ -7,19 +7,19 @@
 			</a>
 			<div class="mobile-nav-background"></div>
 			<nav id="navbar" class="navbar nav-menu">
-				<a href="#home" class="nav-link scrollto active">
+				<a class="nav-link scrollto active" data-target="home">
 					<i class="icon fa-solid fa-home"></i>
 					<span>Home</span>
 				</a>
-				<a href="#about" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="about">
 					<i class="icon fa-solid fa-user"></i>
 					<span>About</span>
 				</a>
-				<a href="#photography" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="photography">
 					<i class="fa-solid fa-camera"></i>
 					<span>Photography</span>
 				</a>
-				<a href="#resume" class="nav-link scrollto">
+				<a class="nav-link scrollto" data-target="resume">
 					<i class="icon fa-solid fa-file"></i>
 					<span>Resume</span>
 				</a>
@@ -33,14 +33,14 @@
 
 			<div class="page-scroller">
 
-
-				<div id="home" class="page-group hero-picture lazy lazy-fade-in">
+				<div id="home" class="page-group">
+					<div class="hero-picture lazy lazy-fade-in"></div>
 					<!-- <div class="hero-title">Hi there! I'm Sam DePoule</div> -->
 					<!-- <img id="cover_image"
 					data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
 					class="lazy lazy-fade-in picture cover" alt="Picture of Sam" /> -->
 				</div>
-				<div id="about" class="page-group">
+				<div id="about" class="page-group page-panel">
 					<div class="block-title">About</div>
 					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 						tempor incididunt ut labore
@@ -171,42 +171,223 @@
 						Dui
 						sapien eget mi proin.</div>
 				</div>
-				<div id="photography" class="page-group">
-					<div class="block-title">About</div>
+				<div id="photography" class="page-group page-panel">
+					<div class="block-title">Photography</div>
 					<div>Blee Blah Dee Dah</div>
 
 				</div>
-				<div id="resume" class="page-group">
-					<div class="block-title">Resume</div>
-					<div>Blee Blah Dee Dah</div>
+
+
+				<div id="resume" class="page-group" style="display: flex; flex-wrap: wrap; justify-content: center;">
+
+					<!-- https://bootstrapmade.com/demo/BizLand/ -->
+					<div class="page-panel" style="max-width: 2000px;">
+
+						<div class="block-title">Resume</div>
+
+						<div class="resume-header">Education</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section" data-sections="2">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-graduation-cap"></i>
+								</div>
+								<div class="resume-subheader">Hazen High School</div>
+								<div class="resume-info">
+									<span>Expected graduation June 2023</span>
+									<span>GPA: 3.9</span>
+									<div class="resume-list" data-columns="4">
+										<ul>
+											<li>
+												<span>AP Physics</span>
+											</li>
+											<li>
+												<span>AP Computer Science</span>
+											</li>
+											<li>
+												<span>Program Solving</span>
+											</li>
+											<li>
+												<span>Trigonometry</span>
+											</li>
+											<li>
+												<span>University of Washington's CSE163 Data Science</span>
+											</li>
+											<li>
+												<span>Programming leader in the Robotics Team</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-school"></i>
+								</div>
+								<div class="resume-subheader">Bellevue College</div>
+								<div class="resume-info">
+									<span>Bellevue • September 2021 - Present</span>
+									<div class="resume-list" data-columns="4">
+										<ul>
+											<li>
+												<span>Calc I through III</span>
+											</li>
+											<li>
+												<span>PHYS121 Calc Physics</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Work Experience</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section" data-sections="2">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-brands fa-android"></i>
+								</div>
+								<div class="resume-subheader">Programming Lead</div>
+								<div class="resume-info">
+									<span>Hazen Robotics</span>
+									<span>Renton • August 2022 - Present</span>
+									<div class="resume-list">
+										<ul>
+											<li>
+												<span>Teaching new members how to program and work in an organized
+													fashion</span>
+											</li>
+											<li>
+												<span>Organize team members' projects/assignments based on skills and
+													time commitment</span>
+											</li>
+											<li>
+												<span>Mentoring elementary/middle school robotics team (FIRST Lego
+													League)</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-chalkboard-user"></i>
+								</div>
+								<div class="resume-subheader">Web Developer</div>
+								<div class="resume-info">
+									<span>HD Fowler Co.</span>
+									<span>Bellevue, Washington, United States • June 2022 - Present</span>
+									<div class="resume-list">
+										<ul>
+											<li>
+												<span>Worked with back-end developers to connect data to users, with a
+													device friendly
+													interface, via the web</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Volunteer Experience</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-sliders"></i>
+								</div>
+								<div class="resume-subheader">Audio Engineer</div>
+								<div class="resume-info">
+									<span>New Life Church</span>
+									<span>Renton, Washington, United States • February 2020 - Present (1500+
+										hours)</span>
+									<div class="resume-list">
+										<ul>
+											<li>
+												<span>Volunteer with whatever help may be needed. I.e. Camera, Lighting
+													(Vista 3, GrandMA 3), Video Slides (ProPresenter), Audio (dLive
+													S5000), etc.</span>
+											</li>
+											<li>
+												<span>Volunteer 3-4 times per week with Sunday Services and rehearsals,
+													Youth Group, and other events like funerals, weddings, school
+													events, etc.</span>
+											</li>
+
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Awards and Achievements</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-id-badge"></i>
+								</div>
+								<div class="resume-info">
+									<div class="resume-list" data-columns="2">
+										<ul>
+											<li>
+												<span>High School Lettered in Robotics and Band</span>
+											</li>
+											<li>
+												<span>Eagle Scout, May 2021</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Activities and Interests</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-brain"></i>
+								</div>
+								<div class="resume-info">
+									<div class="resume-list" data-columns="2">
+										<ul>
+											<li>
+												<span>Computer Programming</span>
+											</li>
+											<li>
+												<span>Band (Marching Percussion)</span>
+											</li>
+											<li>
+												<span>Choir</span>
+											</li>
+											<li>
+												<span>Robotics (FIRST Tech Challenge)</span>
+											</li>
+											<li>
+												<span>Bellevue Youth Symphony Orchestra (Bassoon)</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
 
 				</div>
+
 
 			</div>
 		</div>
-		<!-- 		
-		<article class="page-group" data-index="0" data-status="active">
-
-			<img id="cover_image"
-				data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-				class="lazy lazy-fade-in picture cover" alt="Picture of Sam" />
-		</article>
-		<article class="page-group" data-index="1" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-		</article>
-		<article class="page-group" data-index="2" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article>
-		<article class="page-group" data-index="3" data-status="inactive">
-			<div id="about" class="block-title">About</div>
-			<div>Blee Blah Dee Dah</div>
-
-		</article> -->
-
-		<!-- </div> -->
 	</div>
 </template>
 <script>
@@ -257,9 +438,9 @@
 
 			// Screen Size - mobile menu open resize
 			function resizeWindowCheckMenu() {
-				if (mobileViewOpen() && window.innerWidth >= 992)
+				if (window.innerWidth >= 992 && mobileViewOpen())
 					toggleMenu();
-				console.log(window.innerWidth, window.innerHeight)
+				// console.log(window.innerWidth, window.innerHeight)
 			}
 
 			window.addEventListener('resize', resizeWindowCheckMenu);
@@ -275,27 +456,80 @@
 						selectors.item(j).classList.remove('active');
 			}
 
+			function clear() {
+				let actives = document.getElementsByClassName('nav-link active');
+				for (let j = 0; j < actives.length; j++)
+					actives.item(j).classList.remove('active');
+			}
+
+			function select(i) {
+				clear();
+				selectors[i].classList.add('active');
+			}
+
+			var observers = Array.apply(null, Array(4));
+
 			for (let i = 0; i < selectors.length; i++) {
 				selectors[i].onclick = function () {
-					selectors[i].classList.add('active');
-					clearOthers(i);
+					document.getElementById(selectors[i].dataset.target).scrollIntoView();
+					select(i);
 					if (mobileViewOpen())
 						toggleMenu();
-					slideTo('resume')
 
-					// handlePageClick(i)
 				}
 			}
 
-			function slideTo(id) {
-				var element = document.getElementById(id);
-				// window.scrollTo({
-				// 	top: 0,
-				// 	left: element.offsetLeft,
-				// 	behavior: 'smooth'
-				// });
-				window.scrollBy(100, 100)
-				console.log(window, element.offsetLeft)
+			for (let i = 0; i < observers.length; i++) {
+				observers[i] = new IntersectionObserver(function (entries) {
+					if (entries[0].isIntersecting === true) {
+						console.log(entries[0].target, 'Item has just APPEARED!');
+						select(i);
+					} else {
+						console.log('Item has just DISAPPEARED!');
+
+					}
+				}, { threshold: [0.25] });
+			}
+
+			var startPoses = Array.apply(null, Array(4));
+			for (let i = 0; i < startPoses.length; i++)
+				startPoses[i] = document.getElementById(selectors[i].dataset.target).getBoundingClientRect().left;
+
+			console.log('startPoses', startPoses)
+
+			var prevScroll = 0;
+			var lastPose = 0;
+			document.getElementsByClassName('page-scroller')[0].onscroll = function (e) {
+				if (e.currentTarget.scrollLeft != prevScroll) {
+					prevScroll = e.currentTarget.scrollLeft;
+					let val = nearPose(prevScroll, startPoses, 70);
+					if (val != lastPose && val >= 0) {
+						lastPose = val;
+						select(lastPose);
+						// console.log('near', lastPose);
+					}
+				}
+			}
+
+			function nearPose(x, poses, range) {
+				for (let i = 0; i < poses.length; i++)
+					if (withinRange(x, poses[i], range))
+						return i;
+				return -1;
+			}
+
+			function withinRange(x, num, range, incMin, incMax) {
+				return withinNums(x, num - range / 2, num + range / 2, incMin, incMax);
+			}
+
+			function withinNums(x, min, max, incMin, incMax) {
+				if (incMin == undefined)
+					incMin = true;
+				if (incMax == undefined)
+					incMax = true;
+
+				return ((incMin && x >= min) || x > min)
+					&& ((incMax && x <= max) || x < max)
 			}
 
 			// Nav Menu - onclick mobile menu
@@ -311,7 +545,6 @@
 
 			function toggleMenu(setMobile) {
 				let isUndefined = setMobile == undefined;
-				console.log(isUndefined, setMobile)
 				if ((!isUndefined && setMobile) || swapClassName(linesEl, 'fa-bars', 'fa-bars-staggered')) {
 					navBg.classList.add('mobile-nav-active');
 					swapClassName(navMenu, 'nav-menu', 'mobile-nav-menu')
@@ -331,29 +564,6 @@
 
 
 
-
-			// Something using href tags
-			$("a[href^='#']").click(function (e) {
-				// e.preventDefault();
-				// 944
-
-				let el = $($(this).attr("href"));
-				var position = el.offset().left;
-
-				let test = $('.page-scroller');
-				// console.log(position, test, $($(this).attr("href")).offset())
-				// console.log(test[1])
-				// console.log(el.scrollLeft())
-				// $('html, body')[1]({
-				test.animate({
-					scrollTo: position
-				}, 0, function () {
-
-					console.log('finished')
-					// Add hash(#) to URL when done scrolling(default click behavior)
-					window.location.hash = hash;
-				});
-			});
 
 		})
 		return $render;
