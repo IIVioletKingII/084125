@@ -2,8 +2,8 @@
 :root {
 	--f7-theme-color: #0055d4;
 	--f7-theme-color-rgb: 0, 85, 212;
-	--f7-theme-color-shade: #0045ab;
-	--f7-theme-color-tint: #0065fd;
+	--f7-theme-color-shade: #0043a7;
+	--f7-theme-color-tint: #297eff;
 
 	--f7-block-strong-bg-color: rgb(231, 231, 231);
 
@@ -22,14 +22,15 @@
 	color-scheme: light;
 
 	/* --f7 */
-	--f7-theme-color: #0055d4;
-	--f7-theme-color-rgb: 0, 85, 212;
-	--f7-theme-color-shade: #0045ab;
-	--f7-theme-color-tint: #0065fd;
+	--theme-color-back: #7a9fd6;
+	--theme-color-accent: #2e90ff;
+	--theme-color-tint: #0066da;
 
 	--f7-list-bg-color: rgb(231, 231, 231);
 
 	--accent-color: var(--f7-block-strong-bg-color);
+
+	--scheme-color: white;
 
 
 	--f7-text-color: black;
@@ -60,6 +61,11 @@
 :root.dark {
 	color-scheme: dark;
 
+	/* --f7 */
+	--theme-color-back: #003f9c;
+	--theme-color-accent: #004ec2;
+	--theme-color-tint: #0065fd;
+
 	--f7-text-color: white;
 	--f7-block-text-color: white;
 	--f7-block-strong-text-color: white;
@@ -68,6 +74,8 @@
 	--f7-label-text-color: var(--f7-text-color);
 
 	--gradiant: None;
+
+	--scheme-color: black;
 
 	--transparent-overlaw: var(--dark-overlaw);
 	--transparent-underlaw: var(--light-overlaw);
@@ -143,8 +151,8 @@ div {
 	overflow-y: hidden;
 	background: url('https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg') center center;
 	background-size: cover;
-	position: relative;
 	background-attachment: fixed;
+	height: 100%;
 }
 
 .page-scroller {
@@ -158,94 +166,32 @@ div {
 	height: 100svh;
 }
 
-.page-group {
+.page-panel {
 	font-size: 1.5rem;
 	line-height: 1.75rem;
-	scroll-snap-align: start;
 	padding: 2rem;
-	padding-top: 86px;
+	padding-top: 100px;
+}
+
+.page-group {
+	scroll-snap-align: start;
 	box-sizing: border-box;
 	transition: transform 400ms ease;
 	border-right: 5px rgba(255, 255, 255, 0.35);
 }
 
+.block-title {
+	width: 100%;
+	text-align: center;
+	font-size: 3rem;
+	font-weight: 500;
+	margin: 0;
+	line-height: normal;
+}
+
 // =============================================================
 
 
-
-.d-flex {
-	display: flex !important;
-}
-
-.flex-column {
-	flex-direction: column !important;
-}
-
-.flex-row {
-	flex-direction: row !important;
-}
-
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-.back-to-top {
-	position: fixed;
-	visibility: hidden;
-	opacity: 0;
-	right: 15px;
-	bottom: 15px;
-	z-index: 996;
-	background: var(--f7-theme-color);
-	width: 40px;
-	height: 40px;
-	border-radius: 50px;
-	transition: all 0.4s;
-}
-
-.back-to-top i {
-	font-size: 28px;
-	color: #fff;
-	line-height: 0;
-}
-
-.back-to-top:hover {
-	background: var(--f7-theme-color);
-	color: #fff;
-}
-
-.back-to-top.active {
-	visibility: visible;
-	opacity: 1;
-}
-
-/*--------------------------------------------------------------
-  # Preloader
-  --------------------------------------------------------------*/
-#preloader {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 9999;
-	overflow: hidden;
-	background: #fff;
-}
-
-#preloader:before {
-	content: "";
-	position: fixed;
-	top: calc(50% - 30px);
-	left: calc(50% - 30px);
-	border: 6px solid #0563bb;
-	border-top-color: #fff;
-	border-bottom-color: #fff;
-	border-radius: 50%;
-	width: 60px;
-	height: 60px;
-	-webkit-animation: animate-preloader 1s linear infinite;
-	animation: animate-preloader 1s linear infinite;
-}
 
 @-webkit-keyframes animate-preloader {
 	0% {
@@ -328,12 +274,25 @@ div {
 // 	}
 // }
 
+
+
+
+
+
 // ==============================================================
 // =====                  Navigation Menu                   =====
 // ==============================================================
+
+
 /**
   * Desktop Navigation 
   */
+
+.nav-link {
+
+	filter: drop-shadow(0px 0px 2px var(--transparent-underlaw));
+}
+
 .nav-menu * {
 	margin: 0;
 	padding: 0;
@@ -435,9 +394,10 @@ div {
 
 .mobile-nav-menu {
 
-	height: auto;
+	height: 100vh;
 	gap: 8px;
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
 }
 
@@ -523,9 +483,9 @@ div {
 
 .mobile-nav-toggle i {
 	color: var(--accent-color);
-	filter: drop-shadow(0px 0px 1px var(--f7-text-color)) drop-shadow(0px 0px 5px var(--transparent-underlaw));
-}
+	filter: drop-shadow(0px 0px 1px var(--f7-text-color)) drop-shadow(0px 0px 2px var(--transparent-underlaw));
 
+}
 
 .mobile-nav-active .mobile-nav-toggle {
 	color: #fff;
@@ -542,6 +502,112 @@ div {
 	background-color: var(--transparent-overlaw);
 	opacity: 0.7;
 	transition: all 0.4s;
+}
+
+
+
+
+
+// ===============================================================
+// =====                   Resume Section                    =====
+// ===============================================================
+
+.resume-section {
+	padding: 1.5rem 0;
+	display: flex;
+	gap: 1.25rem;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+
+.resume-header {
+	font-size: 30px;
+	line-height: normal;
+}
+
+
+.resume-section[data-sections="2"]>* {
+	flex: 1 1 500px;
+}
+
+.resume-tile {
+	border-radius: 15px;
+	border: 1px solid var(--scheme-color);
+	// border: 1px solid var(--f7-theme-color-shade);
+	background: var(--f7-list-bg-color);
+	padding: 25px 25px;
+	width: 100%;
+}
+
+.resume-tile>* {
+	line-height: 130%;
+}
+
+.resume-tile:hover .resume-icon {
+	border-color: var(--theme-color-tint);
+}
+
+.resume-icon {
+	margin: 0 auto;
+	margin-bottom: 0px;
+	width: 64px;
+	height: 64px;
+	background: var(--theme-color-back);
+	border-radius: 4px;
+	border: 1px solid var(--theme-color-accent);
+	// border-top-color: rgb(222, 235, 253);
+	// border-right-color: rgb(222, 235, 253);
+	// border-bottom-color: rgb(222, 235, 253);
+	// border-left-color: rgb(222, 235, 253);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	transition: ease-in-out 0.3s;
+	color: white;
+}
+
+.resume-icon[color-scheme=dark] {
+	background-color: green;
+}
+
+.resume-tile:hover {
+	transition: ease-in-out 0.3s;
+	box-shadow: 0px 0 25px 0 rgba(2, 57, 128, 0.1);
+}
+
+.resume-subheader {
+	font-size: 27px;
+	line-height: normal;
+	text-align: center;
+	margin-bottom: 10px;
+	transition: ease-in-out 0.3s;
+}
+
+.resume-info {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.resume-list>ul {
+	margin: 10px 0;
+}
+
+@media (min-width: 1200px) {
+
+	.resume-list[data-columns="2"]>ul {
+		column-count: 2;
+	}
+}
+
+
+@media (min-width: 1800px) {
+
+	.resume-list[data-columns="4"]>ul {
+		column-count: 2;
+	}
 }
 
 

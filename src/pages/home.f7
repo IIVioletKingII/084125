@@ -33,14 +33,14 @@
 
 			<div class="page-scroller">
 
-
-				<div id="home" class="page-group hero-picture lazy lazy-fade-in">
+				<div id="home" class="page-group">
+					<div class="hero-picture lazy lazy-fade-in"></div>
 					<!-- <div class="hero-title">Hi there! I'm Sam DePoule</div> -->
 					<!-- <img id="cover_image"
 					data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
 					class="lazy lazy-fade-in picture cover" alt="Picture of Sam" /> -->
 				</div>
-				<div id="about" class="page-group">
+				<div id="about" class="page-group page-panel">
 					<div class="block-title">About</div>
 					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 						tempor incididunt ut labore
@@ -171,16 +171,221 @@
 						Dui
 						sapien eget mi proin.</div>
 				</div>
-				<div id="photography" class="page-group">
-					<div class="block-title">About</div>
+				<div id="photography" class="page-group page-panel">
+					<div class="block-title">Photography</div>
 					<div>Blee Blah Dee Dah</div>
 
 				</div>
-				<div id="resume" class="page-group">
-					<div class="block-title">Resume</div>
-					<div>Blee Blah Dee Dah</div>
+
+
+				<div id="resume" class="page-group" style="display: flex; flex-wrap: wrap; justify-content: center;">
+
+					<!-- https://bootstrapmade.com/demo/BizLand/ -->
+					<div class="page-panel" style="max-width: 2000px;">
+
+						<div class="block-title">Resume</div>
+
+						<div class="resume-header">Education</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section" data-sections="2">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-graduation-cap"></i>
+								</div>
+								<div class="resume-subheader">Hazen High School</div>
+								<div class="resume-info">
+									<span>Expected graduation June 2023</span>
+									<span>GPA: 3.9</span>
+									<div class="resume-list" data-columns="4">
+										<ul>
+											<li>
+												<span>AP Physics</span>
+											</li>
+											<li>
+												<span>AP Computer Science</span>
+											</li>
+											<li>
+												<span>Program Solving</span>
+											</li>
+											<li>
+												<span>Trigonometry</span>
+											</li>
+											<li>
+												<span>University of Washington's CSE163 Data Science</span>
+											</li>
+											<li>
+												<span>Programming leader in the Robotics Team</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-school"></i>
+								</div>
+								<div class="resume-subheader">Bellevue College</div>
+								<div class="resume-info">
+									<span>Bellevue • September 2021 - Present</span>
+									<span>GPA: 3.9</span>
+									<div class="resume-list" data-columns="4">
+										<ul>
+											<li>
+												<span>Calc I through III</span>
+											</li>
+											<li>
+												<span>PHYS121 Calc Physics</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Work Experience</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section" data-sections="2">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-brands fa-android"></i>
+								</div>
+								<div class="resume-subheader">Programming Lead</div>
+								<div class="resume-info">
+									<span>Hazen Robotics</span>
+									<span>Renton • August 2022 - Present</span>
+									<div class="resume-list">
+										<ul>
+											<li>
+												<span>Teaching new members how to program and work in an organized
+													fashion</span>
+											</li>
+											<li>
+												<span>Organize team members' projects/assignments based on skills and
+													time commitment</span>
+											</li>
+											<li>
+												<span>Mentoring elementary/middle school robotics team (FIRST Lego
+													League)</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-chalkboard-user"></i>
+								</div>
+								<div class="resume-subheader">Web Developer</div>
+								<div class="resume-info">
+									<span>HD Fowler Co.</span>
+									<span>Bellevue, Washington, United States • June 2022 - Present</span>
+									<div class="resume-list">
+										<ul>
+											<li>
+												<span>Worked with back-end developers to connect data to users, with a
+													device friendly
+													interface, via the web</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Volunteer Experience</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-sliders"></i>
+								</div>
+								<div class="resume-subheader">Audio Engineer</div>
+								<div class="resume-info">
+									<span>New Life Church</span>
+									<span>Renton, Washington, United States • February 2020 - Present (1500+
+										hours)</span>
+									<div class="resume-list">
+										<ul>
+											<li>
+												<span>Volunteer with whatever help may be needed. I.e. Camera, Lighting
+													(Vista 3, GrandMA 3), Video Slides (ProPresenter), Audio (dLive
+													S5000), etc.</span>
+											</li>
+											<li>
+												<span>Volunteer 3-4 times per week with Sunday Services and rehearsals,
+													Youth Group, and other events like funerals, weddings, school
+													events, etc.</span>
+											</li>
+
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Awards and Achievements</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-id-badge"></i>
+								</div>
+								<div class="resume-info">
+									<div class="resume-list" data-columns="2">
+										<ul>
+											<li>
+												<span>High School Lettered in Robotics and Band</span>
+											</li>
+											<li>
+												<span>Eagle Scout, May 2021</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="resume-header">Activities and Interests</div>
+						<!-- the whole section with 1+ tiles -->
+						<div class="resume-section">
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="fa-solid fa-brain"></i>
+								</div>
+								<div class="resume-info">
+									<div class="resume-list" data-columns="2">
+										<ul>
+											<li>
+												<span>Computer Programming</span>
+											</li>
+											<li>
+												<span>Band (Marching Percussion)</span>
+											</li>
+											<li>
+												<span>Choir</span>
+											</li>
+											<li>
+												<span>Robotics (FIRST Tech Challenge)</span>
+											</li>
+											<li>
+												<span>Bellevue Youth Symphony Orchestra (Bassoon)</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
 
 				</div>
+
 
 			</div>
 		</div>
@@ -234,7 +439,7 @@
 
 			// Screen Size - mobile menu open resize
 			function resizeWindowCheckMenu() {
-				if (mobileViewOpen() && window.innerWidth >= 992)
+				if (window.innerWidth >= 992 && mobileViewOpen())
 					toggleMenu();
 				// console.log(window.innerWidth, window.innerHeight)
 			}

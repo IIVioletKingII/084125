@@ -30,7 +30,7 @@ var app = new Framework7({
 	routes: routes,
 
 	// autoDarkMode: true,
-	// // darkModeChange: true,
+	darkModeChange: true,
 
 	// view: {
 	// 	browserHistory: true,
