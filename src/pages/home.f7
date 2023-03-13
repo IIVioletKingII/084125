@@ -252,19 +252,81 @@
 						selectors.item(j).classList.remove('active');
 			}
 
+			function clear() {
+				let actives = document.getElementsByClassName('nav-link active');
+				for (let j = 0; j < actives.length; j++)
+					actives.item(j).classList.remove('active');
+			}
+
+			function select(i) {
+				clear();
+				selectors[i].classList.add('active');
+			}
+
+			var observers = Array.apply(null, Array(4));
+
 			for (let i = 0; i < selectors.length; i++) {
 				selectors[i].onclick = function () {
 					document.getElementById(selectors[i].dataset.target).scrollIntoView();
-					selectors[i].classList.add('active');
-					clearOthers(i);
+					select(i);
 					if (mobileViewOpen())
 						toggleMenu();
+
 				}
 			}
 
-			document.getElementById('resume').addEventListener("focus", (event) => {
+			for (let i = 0; i < observers.length; i++) {
+				observers[i] = new IntersectionObserver(function (entries) {
+					if (entries[0].isIntersecting === true) {
+						console.log(entries[0].target, 'Item has just APPEARED!');
+						select(i);
+					} else {
+						console.log('Item has just DISAPPEARED!');
 
-			});
+					}
+				}, { threshold: [0.25] });
+			}
+
+			var startPoses = Array.apply(null, Array(4));
+			for (let i = 0; i < startPoses.length; i++)
+				startPoses[i] = document.getElementById(selectors[i].dataset.target).getBoundingClientRect().left;
+
+			console.log('startPoses', startPoses)
+
+			var prevScroll = 0;
+			var lastPose = 0;
+			document.getElementsByClassName('page-scroller')[0].onscroll = function (e) {
+				if (e.currentTarget.scrollLeft != prevScroll) {
+					prevScroll = e.currentTarget.scrollLeft;
+					let val = nearPose(prevScroll, startPoses, 70);
+					if (val != lastPose && val >= 0) {
+						lastPose = val;
+						select(lastPose);
+						// console.log('near', lastPose);
+					}
+				}
+			}
+
+			function nearPose(x, poses, range) {
+				for (let i = 0; i < poses.length; i++)
+					if (withinRange(x, poses[i], range))
+						return i;
+				return -1;
+			}
+
+			function withinRange(x, num, range, incMin, incMax) {
+				return withinNums(x, num - range / 2, num + range / 2, incMin, incMax);
+			}
+
+			function withinNums(x, min, max, incMin, incMax) {
+				if (incMin == undefined)
+					incMin = true;
+				if (incMax == undefined)
+					incMax = true;
+
+				return ((incMin && x >= min) || x > min)
+					&& ((incMax && x <= max) || x < max)
+			}
 
 			// Nav Menu - onclick mobile menu
 			var navBg = document.getElementsByClassName('mobile-nav-background')[0];
@@ -279,7 +341,6 @@
 
 			function toggleMenu(setMobile) {
 				let isUndefined = setMobile == undefined;
-				console.log(isUndefined, setMobile)
 				if ((!isUndefined && setMobile) || swapClassName(linesEl, 'fa-bars', 'fa-bars-staggered')) {
 					navBg.classList.add('mobile-nav-active');
 					swapClassName(navMenu, 'nav-menu', 'mobile-nav-menu')
