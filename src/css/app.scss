@@ -18,7 +18,6 @@
 	--transparent-overlaw: var(--light-overlaw);
 	--transparent-underlaw: var(--dark-overlaw);
 
-
 	color-scheme: light;
 
 	/* --f7 */
@@ -85,6 +84,8 @@
 	--light-visible: None;
 	--dark-visible: inherit;
 }
+
+$mobile-view-break: 991px;
 
 body {
 	margin: 0;
@@ -170,14 +171,22 @@ div {
 	font-size: 1.5rem;
 	line-height: 1.75rem;
 	padding: 2rem;
-	padding-top: 100px;
+	padding-top: 90px;
+}
+
+@media (max-width: calc($mobile-view-break)) {
+
+	.page-panel {
+		padding-top: 16px;
+	}
 }
 
 .page-group {
 	scroll-snap-align: start;
 	box-sizing: border-box;
 	transition: transform 400ms ease;
-	border-right: 5px rgba(255, 255, 255, 0.35);
+	border-right: 0.5px solid var(--scheme-color);
+	// rgba(0, 0, 0, 0.35)
 }
 
 .block-title {
@@ -231,14 +240,14 @@ div {
 	gap: 8px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: $mobile-view-break) {
 	#header {
 		width: 100%;
 	}
 
 }
 
-@media (min-width: 992px) {
+@media (min-width: $mobile-view-break) {
 	.nav-menu {
 		justify-content: center;
 		flex-direction: row;
@@ -246,7 +255,7 @@ div {
 
 }
 
-@media (min-width: 992px) {
+@media (min-width: $mobile-view-break) {
 
 	.nav-menu {
 		height: auto;
@@ -254,7 +263,7 @@ div {
 }
 
 
-@media (max-width: 991px) {
+@media (max-width: calc($mobile-view-break)) {
 	#header {
 		height: 100%;
 		max-width: 256px;
@@ -268,7 +277,7 @@ div {
 	}
 }
 
-// @media (min-width: 991px) {
+// @media (min-width: $mobile-view-break) {
 // 	#main {
 // 		margin-left: 100px;
 // 	}
@@ -370,7 +379,7 @@ div {
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: $mobile-view-break) {
 
 	.nav-menu a,
 	.nav-menu a:focus {
@@ -426,7 +435,6 @@ div {
 
 .mobile-nav-menu a span,
 .mobile-nav-menu a:focus span {
-	// padding: 0 5px 0 7px;
 	padding: 0 5px;
 }
 
@@ -453,7 +461,7 @@ div {
 	display: block;
 }
 
-@media (max-width: 992px) {
+@media (max-width: calc($mobile-view-break)) {
 
 	.nav-menu a,
 	.nav-menu a:focus span {
@@ -462,7 +470,7 @@ div {
 }
 
 
-@media (min-width: 993px) {
+@media (min-width: $mobile-view-break) {
 
 	.mobile-nav-menu a,
 	.mobile-nav-menu a:focus span {
@@ -508,6 +516,66 @@ div {
 
 
 
+
+
+
+// ===============================================================
+// =====                   Resume Section                    =====
+// ===============================================================
+
+.photo-gallery {
+	padding-top: 20px;
+	// display: flex;
+	columns: 3 500px;
+	column-gap: 1.5rem;
+	// flex-wrap: wrap;
+	width: 100%;
+}
+
+.photo-hidden {
+	display: none;
+}
+
+.photo-tile {
+	overflow: hidden;
+	// position: relative;
+	width: 300px;
+	border-radius: 15px;
+	border: 1px solid var(--scheme-color);
+	margin-bottom: 1.5rem;
+	width: 100%;
+	aspect-ratio: 3 / 2;
+
+	// for testing:
+	// min-height: 100px;
+	// flex-grow: 1;
+
+	img {
+
+		background-position: 5px 50px;
+		// opacity: 0.015;
+	}
+}
+
+.portrait {
+	aspect-ratio: 2 / 3 !important;
+}
+
+.spotlight {
+	// flex-grow: 3;
+	width: calc(100% / 33%)
+}
+
+.picture {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+
+
+
+
 // ===============================================================
 // =====                   Resume Section                    =====
 // ===============================================================
@@ -526,15 +594,17 @@ div {
 	line-height: normal;
 }
 
-
 .resume-section[data-sections="2"]>* {
 	flex: 1 1 500px;
+}
+
+.resume-section[data-sections="3"]>* {
+	flex: 1 1 1 1000px;
 }
 
 .resume-tile {
 	border-radius: 15px;
 	border: 1px solid var(--scheme-color);
-	// border: 1px solid var(--f7-theme-color-shade);
 	background: var(--f7-list-bg-color);
 	padding: 25px 25px;
 	width: 100%;
@@ -568,13 +638,15 @@ div {
 	color: white;
 }
 
-.resume-icon[color-scheme=dark] {
-	background-color: green;
+.resume-tile:hover {
+	transition: ease-in-out 0.25s;
+	box-shadow: 0px 0 25px 0 rgba(2, 57, 128, 0.1);
+	transform: scale(101%);
 }
 
-.resume-tile:hover {
-	transition: ease-in-out 0.3s;
-	box-shadow: 0px 0 25px 0 rgba(2, 57, 128, 0.1);
+.resume-tile:hover .resume-subheader {
+	transition: ease-in-out 0.1s;
+	color: var(--f7-theme-color);
 }
 
 .resume-subheader {
@@ -605,7 +677,7 @@ div {
 
 @media (min-width: 1800px) {
 
-	.resume-list[data-columns="4"]>ul {
+	.resume-section[data-sections="2"]>.resume-tile>.resume-info>.resume-list[data-columns="2"]>ul {
 		column-count: 2;
 	}
 }
@@ -680,7 +752,7 @@ div {
 // 	color: #0563bb;
 // }
 
-// @media (max-width: 992px) {
+// @media (max-width: calc($mobile-view-break)) {
 // 	#hero {
 // 		text-align: center;
 // 	}
