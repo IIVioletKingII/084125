@@ -526,7 +526,7 @@ div {
 .photo-gallery {
 	padding-top: 20px;
 	// display: flex;
-	columns: 3 500px;
+	columns: 5 350px;
 	column-gap: 1.5rem;
 	// flex-wrap: wrap;
 	width: 100%;
@@ -539,31 +539,33 @@ div {
 .photo-tile {
 	overflow: hidden;
 	// position: relative;
-	width: 300px;
+	// width: 300px;
 	border-radius: 15px;
 	border: 1px solid var(--scheme-color);
 	margin-bottom: 1.5rem;
 	width: 100%;
 	aspect-ratio: 3 / 2;
-
-	// for testing:
-	// min-height: 100px;
-	// flex-grow: 1;
-
-	img {
-
-		background-position: 5px 50px;
-		// opacity: 0.015;
-	}
 }
 
 .portrait {
-	aspect-ratio: 2 / 3 !important;
+	aspect-ratio: 2 / 3;
+}
+
+.tall {
+	aspect-ratio: 9 / 16;
+}
+
+.wide {
+	aspect-ratio: 16 / 9;
+}
+
+.square {
+	aspect-ratio: 1 / 1;
 }
 
 .spotlight {
 	// flex-grow: 3;
-	width: calc(100% / 33%)
+	// width: calc(100% / 33%)
 }
 
 .picture {

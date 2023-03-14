@@ -32,121 +32,9 @@
 		<div class="page-content">
 
 			<div class="page-scroller">
-				<!-- 
-favorite senior pictures:
-
-
-268
-260
-258
-253
-249
-239
-236
-234
-231
-
-
-204
-203
-200
-199
-198
-197
-184
-179
-178
-177
-176
-172
-171
-165
-164
-162
-159
-157
-
-
-153
-151
-148
-
-
-144
-137
-136
-135
-134
-133
-128
-127
-126
-
-
-125
-124
-123
-122
-121
-120
-118
-117
-116
-114
-111
-110
-109
-
-
-107
-104
-102
-101
-94
-91
-88
-87
-
-
-80
-77
-72
-71
-68
-67
-66
-64
-62
-61
-
-
-49
-48
-47
-46
-29
-26
-25
-24
-23
-19
-18
-17
-3
-2
-1
-
-
-
-
- -->
 
 				<div id="home" class="page-group">
 					<div class="hero-picture lazy lazy-fade-in"></div>
-					<!-- <div class="hero-title">Hi there! I'm Sam DePoule</div> -->
-					<!-- <img id="cover_image"
-					data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-					class="lazy lazy-fade-in picture cover" alt="Picture of Sam" /> -->
 				</div>
 				<div id="about" class="page-group page-panel">
 					<div class="block-title">About</div>
@@ -154,364 +42,7 @@ favorite senior pictures:
 				</div>
 				<div id="photography" class="page-group page-panel">
 					<div class="block-title">Photography</div>
-					<div class="photo-gallery">
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-268.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-260.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-258.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-253.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-249.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-239.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-236.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-234.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-231.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-
-
-
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-204.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-203.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-200.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-199.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-198.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-197.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-184.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-179.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-178.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-177.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-176.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-172.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-171.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-165.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-164.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-162.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-159.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-157.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-153.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-151.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-148.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-144.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-137.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-136.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-135.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-134.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-133.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-128.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-127.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-126.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-125.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-124.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-123.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-122.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-121.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-120.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-118.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-117.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-116.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-114.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-111.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-110.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-109.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-107.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-104.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-102.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-101.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-94.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-91.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-88.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-87.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-80.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-77.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-72.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-71.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-67.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-66.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-64.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-62.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-61.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-
-
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-49.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-48.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-47.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-46.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-29.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-26.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-25.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-24.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-23.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-19.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-18.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-17.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-3.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-2.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
-						<div class="photo-tile portrait">
-							<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-1.jpg"
-								class="lazy lazy-fade-in picture" alt="Picture of Sam" />
-						</div>
+					<div id="gallery" class="photo-gallery">
 
 					</div>
 				</div>
@@ -749,6 +280,36 @@ favorite senior pictures:
 		}
 
 		$on('pageInit', (e) => {
+
+			// create gallery
+			var gallery = document.getElementById('gallery');
+			let children = '';
+			const picturesList = [268, 260, 258, 253, 249, 239, 236, 234, 231, 204, 203, 200, 199, 198, 197, 184, 179, 178, 177, 176, 172, 171, 165, 164, 162, 159, 157, 155, 153, 151, 148, 144, 137, 136, 135, 134, 133, 128, 127, 126, 125, 124, 123, 122, 121, 120, 118, 117, 116, 114, 111, 110, 109, 107, 104, 102, 101, 94, 91, 88, 87, 80, 77, 72, 71, 68, 67, 66, 64, 62, 61, 49, 48, 47, 46, 29, 26, 25, 24, 23, 19, 18, 17, 3, 2, 1];
+			const specialList = {
+				wide: [234, 204, 203, 184, 172, 165, 164, 159, 157, 153, 151, 148, 144, 136, 135, 134, 125, 122, 121, 114, 107, 67, 49, 48, 24, 23, 2, 1],
+				tall: [231, 137, 128, 127, 110, 47, 46, 26, 3],
+				extraWide: [],
+				square: [258, 249]
+			};
+			for (let i = 0; i < picturesList.length; i++) {
+
+				let viewType = 'portrait';
+				if (specialList['wide'].includes(picturesList[i]))
+					viewType = ''
+				else if (specialList['tall'].includes(picturesList[i]))
+					viewType = 'tall'
+				else if (specialList['square'].includes(picturesList[i]))
+					viewType = 'square'
+				else if (specialList['extraWide'].includes(picturesList[i]))
+					viewType = 'wide'
+
+				children += '<div id="photo-sam-' + picturesList[i] + '" class="photo-tile' + (viewType == '' ? '' : ' ') + viewType + '">'
+					+ '<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-' + picturesList[i] + '.jpg"'
+					+ 'class="lazy lazy-fade-in picture" alt="Picture of Sam" />'
+					+ '</div>\n';
+			}
+			gallery.innerHTML = children;
+
 
 			// Page Navigation
 			let activeIndex = 0;
