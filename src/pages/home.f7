@@ -43,6 +43,11 @@
 				<div id="gallery" class="page-group page-panel">
 					<div class="block-title">Gallery</div>
 					<div id="photo-gallery" class="photo-gallery">
+					</div>
+					<div id="photo-viewer">
+						<i class="fa-solid fa-xmark"></i>
+						<img id="fullscreen-image" class="lazy lazy-fade-in" alt="Picture of Sam"
+							data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-258.jpg" />
 
 					</div>
 				</div>
@@ -281,6 +286,8 @@
 
 		$on('pageInit', (e) => {
 
+			const imageString = 'https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-';
+
 			// create gallery
 			var gallery = document.getElementById('photo-gallery');
 			let children = '';
@@ -304,43 +311,35 @@
 					viewType = 'wide'
 
 				children += '<div id="photo-sam-' + picturesList[i] + '" class="photo-tile' + (viewType == '' ? '' : ' ') + viewType + '">'
-					+ '<img data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-scaled-' + picturesList[i] + '.jpg"'
+					+ '<img data-src="' + imageString + 'scaled-' + picturesList[i] + '.jpg"'
 					+ 'class="lazy lazy-fade-in picture" alt="Picture of Sam" />'
 					+ '</div>\n';
 			}
 			gallery.innerHTML = children;
 
 
-			// Page Navigation
-			let activeIndex = 0;
-			const groups = document.getElementsByClassName('page-group');
-
-			const handlePageClick = (nextIndex) => {
-
-				const currentGroup = document.querySelector('[data-index="' + activeIndex + '"]'),
-					nextGroup = document.querySelector('[data-index="' + nextIndex + '"]');
-
-				// console.log(currentGroup)
-
-				if (nextIndex > activeIndex) {
-					currentGroup.dataset.status = "before";
-					nextGroup.dataset.status = "becoming-active-from-after";
-				} else {
-					currentGroup.dataset.status = "after";
-					nextGroup.dataset.status = "becoming-active-from-before";
+			// View Gallery Image
+			let pictureViewer = document.getElementById('photo-viewer');
+			let pictureView = document.getElementById('fullscreen-image');
+			for (let i = 0; i < picturesList.length; i++) {
+				document.getElementById('photo-sam-' + picturesList[i]).onclick = function (event) {
+					// console.log(event);
+					pictureView.src = imageString + picturesList[i] + '.jpg';
+					pictureViewer.style.display = 'flex';
 				}
-
-				setTimeout(() => {
-					nextGroup.dataset.status = "active";
-					activeIndex = nextIndex;
-				});
 			}
+
+			pictureViewer.onclick = function (event) {
+				// console.log(event)
+				pictureViewer.style.display = 'none';
+			}
+
 
 			// Screen Size - mobile menu open resize
 			function resizeWindowCheckMenu() {
+				initStartPoses();
 				if (window.innerWidth >= 994 && mobileViewOpen())
 					toggleMenu();
-				// console.log(window.innerWidth, window.innerHeight)
 			}
 
 			window.addEventListener('resize', resizeWindowCheckMenu);
@@ -375,7 +374,6 @@
 					select(i);
 					if (mobileViewOpen())
 						toggleMenu();
-
 				}
 			}
 
@@ -388,14 +386,17 @@
 						console.log('Item has just DISAPPEARED!');
 
 					}
-				}, { threshold: [0.25] });
+				}, { threshold: [0/* .25 */] });
 			}
 
 			var startPoses = Array.apply(null, Array(4));
-			for (let i = 0; i < startPoses.length; i++)
-				startPoses[i] = document.getElementById(selectors[i].dataset.target).getBoundingClientRect().left;
+			function initStartPoses() {
+				let width = document.getElementById('home').offsetWidth;
+				for (let i = 0; i < startPoses.length; i++)
+					startPoses[i] = width * i;
+			}
 
-			console.log('startPoses', startPoses)
+			initStartPoses();
 
 			var prevScroll = 0;
 			var lastPose = 0;
@@ -406,7 +407,6 @@
 					if (val != lastPose && val >= 0) {
 						lastPose = val;
 						select(lastPose);
-						// console.log('near', lastPose);
 					}
 				}
 			}

@@ -50,7 +50,7 @@ public class Resize {
 			replace = replace ? !has(fileNames, name.replace("-", "-scaled-")) : true;
 
 			if (listOfFiles[i].isFile() && name.contains(".jpg")
-					&& !name.contains("scaled") && replace) {
+					&& !name.contains("scaled") && replace && name.contains("sam-68")) {
 				System.out.print(", starting");
 
 				BufferedImage image = null;
@@ -64,9 +64,10 @@ public class Resize {
 				}
 
 				String newName = name.replace("-", "-scaled-");
+				newName = "cover.jpg";
 
 				try {
-					ImageIO.write(scaleImage(image, Res.P1080), "JPG", new File(path + newName));
+					ImageIO.write(scaleImage(image, 2560), "JPG", new File(path + newName));
 				} catch (Exception e) {
 					System.out.println("-write-");
 					e.printStackTrace();
@@ -93,8 +94,12 @@ public class Resize {
 	}
 
 	static BufferedImage scaleImage(BufferedImage image, Res prefferedRes) {
+		return scaleImage(image, prefferedRes.width);
+	}
+
+	static BufferedImage scaleImage(BufferedImage image, double max) {
 		int width = image.getWidth(), height = image.getHeight();
-		double max = prefferedRes.width;
+		// double max = prefferedRes.width;
 		if (width > max || height > max) {
 			if (width >= height) { // wide
 				height = (int) Math.round(height * max / width);
