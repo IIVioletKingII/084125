@@ -526,7 +526,7 @@ div {
 .photo-gallery {
 	padding-top: 20px;
 	// display: flex;
-	columns: 5 350px;
+	columns: 8 300px;
 	column-gap: 1.5rem;
 	// flex-wrap: wrap;
 	width: 100%;
@@ -538,8 +538,6 @@ div {
 
 .photo-tile {
 	overflow: hidden;
-	// position: relative;
-	// width: 300px;
 	border-radius: 15px;
 	border: 1px solid var(--scheme-color);
 	margin-bottom: 1.5rem;

@@ -6,16 +6,39 @@ import java.awt.Graphics2D;
 
 public class Resize {
 
+	enum Res {
+		UHD(3840, 2160),
+		P1080(1920, 1080),
+		P720(1280, 720),
+		P480(720, 480),
+		P240(480, 720);
+
+		Res(int w, int h) {
+			width = w;
+			height = h;
+		}
+
+		int width;
+		int height;
+	}
+
 	public static void main(String[] args) {
 		System.out.println("---------------------");
-		// System.out.println(" 'hi'");
+		String path = "";
 
-		String path = "/Users/Surface/Desktop/image-test/";
+		try {
+			path = new File(".").getCanonicalPath() + "\\src\\assets\\";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		File folder = new File(path);
 		File[] listOfFiles = folder.listFiles();
 
-		// scaleImage(null, 3900, 3900);
+		String[] fileNames = new String[listOfFiles.length];
+
+		for (int i = 0; i < listOfFiles.length; i++)
+			fileNames[i] = listOfFiles[i].getName();
 
 		for (int i = 0; i < listOfFiles.length; i++) {
 
@@ -23,14 +46,19 @@ public class Resize {
 
 			System.out.print("(" + (int) ((i + 1.0) * 100 / listOfFiles.length) + "%) found: " + name);
 
-			if (listOfFiles[i].isFile() && name.contains(".jpg")) {
+			boolean replace = false;
+			replace = replace ? !has(fileNames, name.replace("-", "-scaled-")) : true;
+
+			if (listOfFiles[i].isFile() && name.contains(".jpg")
+					&& !name.contains("scaled") && replace) {
 				System.out.print(", starting");
 
 				BufferedImage image = null;
+
 				try {
 					image = ImageIO.read(new File(path + name));
 				} catch (Exception e) {
-					System.out.println("--");
+					System.out.println("-read-");
 					e.printStackTrace();
 					System.out.println("--");
 				}
@@ -38,12 +66,14 @@ public class Resize {
 				String newName = name.replace("-", "-scaled-");
 
 				try {
-					ImageIO.write(scaleImage(image), "JPG", new File(path + newName));
+					ImageIO.write(scaleImage(image, Res.P1080), "JPG", new File(path + newName));
 				} catch (Exception e) {
-					System.out.println("--");
+					System.out.println("-write-");
 					e.printStackTrace();
 					System.out.println("--");
 				}
+			} else {
+				System.out.print(", not necessary");
 			}
 			System.out.println(", finished.");
 
@@ -51,15 +81,27 @@ public class Resize {
 		System.out.println("---------------------");
 	}
 
+	static boolean has(String[] arr, String input) {
+		for (String string : arr)
+			if (string.equals(input))
+				return true;
+		return false;
+	}
+
 	static BufferedImage scaleImage(BufferedImage image) {
+		return scaleImage(image, Res.P1080);
+	}
+
+	static BufferedImage scaleImage(BufferedImage image, Res prefferedRes) {
 		int width = image.getWidth(), height = image.getHeight();
-		if (width > 1920 || height > 1920) {
+		double max = prefferedRes.width;
+		if (width > max || height > max) {
 			if (width >= height) { // wide
-				height = (int) Math.round(height * 1920.0 / width);
-				width = 1920;
+				height = (int) Math.round(height * max / width);
+				width = (int) max;
 			} else { // portrait
-				width = (int) Math.round(width * 1920.0 / height);
-				height = 1920;
+				width = (int) Math.round(width * max / height);
+				height = (int) max;
 			}
 		}
 
