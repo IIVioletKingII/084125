@@ -38,7 +38,7 @@
 				</div>
 				<div id="about" class="page-group page-panel">
 					<div class="block-title">About</div>
-					<div>Blee Blah Dee Dah</div>
+					<div>Greetings! I'm Sam DePoule! I am a programmer, musician, and technology/production volunteer. I love to play bassoon, piano, sing, work on sites or apps, and mix audio.</div>
 				</div>
 				<div id="gallery" class="page-group page-panel">
 					<div class="block-title">Gallery</div>
@@ -321,18 +321,24 @@
 			// View Gallery Image
 			let pictureViewer = document.getElementById('photo-viewer');
 			let pictureView = document.getElementById('fullscreen-image');
+			var header = document.getElementById('header');
 			for (let i = 0; i < picturesList.length; i++) {
 				document.getElementById('photo-sam-' + picturesList[i]).onclick = function (event) {
 					// console.log(event);
 					pictureView.src = imageString + picturesList[i] + '.jpg';
 					pictureViewer.style.display = 'flex';
+					header.style.display = 'none';
 				}
 			}
 
 			pictureViewer.onclick = function (event) {
 				// console.log(event)
 				pictureViewer.style.display = 'none';
+				header.style.display = 'flex';
 			}
+
+
+
 
 
 			// Screen Size - mobile menu open resize
@@ -436,7 +442,6 @@
 			var navBg = document.getElementsByClassName('mobile-nav-background')[0];
 			var navMenu = document.getElementsByClassName('nav-menu')[0];
 			var mobileNavToggle = document.getElementsByClassName('mobile-nav-toggle')[0];
-			var header = document.getElementById('header');
 			let linesEl = mobileNavToggle.firstChild;
 
 			function mobileViewOpen() {
