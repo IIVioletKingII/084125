@@ -1,0 +1,388 @@
+<template>
+	<div class="page">
+		<!-- <div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner">
+				<div class="title">Sam DePoule</div>
+			</div>
+		</div> -->
+		<div class="toolbar tabbar toolbar-top">
+			<div class="toolbar-inner">
+				<a href="/" class="tab-link" data-route-tab-id="hero">Home</a>
+				<a href="/about/" class="tab-link" data-route-tab-id="about">About</a>
+				<a href="/pictures/" class="tab-link" data-route-tab-id="pictures">Pictures</a>
+				<a href="/resume/" class="tab-link" data-route-tab-id="resume">Resume</a>
+			</div>
+		</div>
+		<!-- <div class="tabs tabs-routable">
+			<div class="tab page-content" id="hero"></div>
+			<div class="tab page-content" id="about"></div>
+			<div class="tab page-content" id="pictures"></div>
+			<div class="tab page-content" id="resume"></div>
+		</div> -->
+		<!-- <div class="page-content">
+			<swiper-container class="tabs tabs-routable ">
+				<swiper-slide class="tab" id="hero"></swiper-slide>
+				<swiper-slide class="tab" id="about"></swiper-slide>
+				<swiper-slide class="tab" id="pictures"></swiper-slide>
+				<swiper-slide class="tab" id="resume"></swiper-slide>
+			</swiper-container>
+		</div> -->
+		<!-- <swiper-container class="tabs tabs-routable ">
+			<swiper-slide class="tab page-content" id="hero"></swiper-slide>
+			<swiper-slide class="tab page-content" id="about"></swiper-slide>
+			<swiper-slide class="tab page-content" id="pictures"></swiper-slide>
+			<swiper-slide class="tab page-content" id="resume"></swiper-slide>
+		</swiper-container> -->
+		<swiper-container class="tabs">
+			<swiper-slide id="tab-1" class="page-content tab tab-active">
+				<div class="block">
+					<!-- <p> -->
+					<div class="block-title">
+
+						Tab 1 content
+					</div>
+					<!-- </p> -->
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam enim quia molestiae facilis
+						laudantium
+						voluptates obcaecati officia cum, sit libero commodi. Ratione illo suscipit temporibus sequi
+						iure ad
+						laboriosam accusamus?</p>
+					<p>Saepe explicabo voluptas ducimus provident, doloremque quo totam molestias! Suscipit blanditiis
+						eaque
+						exercitationem praesentium reprehenderit, fuga accusamus possimus sed, sint facilis ratione
+						quod, qui
+						dignissimos voluptas! Aliquam rerum consequuntur deleniti.</p>
+					<p>Totam reprehenderit amet commodi ipsum nam provident doloremque possimus odio itaque, est animi
+						culpa
+						modi
+						consequatur reiciendis corporis libero laudantium sed eveniet unde delectus a maiores nihil
+						dolores?
+						Natus,
+						perferendis.</p>
+					<p>Atque quis totam repellendus omnis alias magnam corrupti, possimus aspernatur perspiciatis quae
+						provident
+						consequatur minima doloremque blanditiis nihil maxime ducimus earum autem. Magni animi
+						blanditiis
+						similique
+						iusto, repellat sed quisquam!</p>
+					<p>Suscipit, facere quasi atque totam. Repudiandae facilis at optio atque, rem nam, natus ratione
+						cum enim
+						voluptatem suscipit veniam! Repellat, est debitis. Modi nam mollitia explicabo, unde aliquid
+						impedit!
+						Adipisci!</p>
+					<p>Deserunt adipisci tempora asperiores, quo, nisi ex delectus vitae consectetur iste fugiat iusto
+						dolorem
+						autem. Itaque, ipsa voluptas, a assumenda rem, dolorum porro accusantium, officiis veniam
+						nostrum cum
+						cumque
+						impedit.</p>
+					<p>Laborum illum ipsa voluptatibus possimus nesciunt ex consequatur rem, natus ad praesentium rerum
+						libero
+						consectetur temporibus cupiditate atque aspernatur, eaque provident eligendi quaerat ea soluta
+						doloremque.
+						Iure fugit, minima facere.</p>
+				</div>
+			</swiper-slide>
+			<swiper-slide id="tab-2" class="page-content tab">
+				<div class="block">
+					<p>Tab 2 content</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam enim quia molestiae facilis
+						laudantium
+						voluptates obcaecati officia cum, sit libero commodi. Ratione illo suscipit temporibus sequi
+						iure ad
+						laboriosam accusamus?</p>
+					<p>Saepe explicabo voluptas ducimus provident, doloremque quo totam molestias! Suscipit blanditiis
+						eaque
+						exercitationem praesentium reprehenderit, fuga accusamus possimus sed, sint facilis ratione
+						quod, qui
+						dignissimos voluptas! Aliquam rerum consequuntur deleniti.</p>
+					<p>Totam reprehenderit amet commodi ipsum nam provident doloremque possimus odio itaque, est animi
+						culpa
+						modi
+						consequatur reiciendis corporis libero laudantium sed eveniet unde delectus a maiores nihil
+						dolores?
+						Natus,
+						perferendis.</p>
+					<p>Atque quis totam repellendus omnis alias magnam corrupti, possimus aspernatur perspiciatis quae
+						provident
+						consequatur minima doloremque blanditiis nihil maxime ducimus earum autem. Magni animi
+						blanditiis
+						similique
+						iusto, repellat sed quisquam!</p>
+					<p>Suscipit, facere quasi atque totam. Repudiandae facilis at optio atque, rem nam, natus ratione
+						cum enim
+						voluptatem suscipit veniam! Repellat, est debitis. Modi nam mollitia explicabo, unde aliquid
+						impedit!
+						Adipisci!</p>
+					<p>Deserunt adipisci tempora asperiores, quo, nisi ex delectus vitae consectetur iste fugiat iusto
+						dolorem
+						autem. Itaque, ipsa voluptas, a assumenda rem, dolorum porro accusantium, officiis veniam
+						nostrum cum
+						cumque
+						impedit.</p>
+					<p>Laborum illum ipsa voluptatibus possimus nesciunt ex consequatur rem, natus ad praesentium rerum
+						libero
+						consectetur temporibus cupiditate atque aspernatur, eaque provident eligendi quaerat ea soluta
+						doloremque.
+						Iure fugit, minima facere.</p>
+				</div>
+			</swiper-slide>
+			<swiper-slide id="tab-3" class="page-content tab">
+				<div class="block">
+					<p>Tab 3 content</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam enim quia molestiae facilis
+						laudantium
+						voluptates obcaecati officia cum, sit libero commodi. Ratione illo suscipit temporibus sequi
+						iure ad
+						laboriosam accusamus?</p>
+					<p>Saepe explicabo voluptas ducimus provident, doloremque quo totam molestias! Suscipit blanditiis
+						eaque
+						exercitationem praesentium reprehenderit, fuga accusamus possimus sed, sint facilis ratione
+						quod, qui
+						dignissimos voluptas! Aliquam rerum consequuntur deleniti.</p>
+					<p>Totam reprehenderit amet commodi ipsum nam provident doloremque possimus odio itaque, est animi
+						culpa
+						modi
+						consequatur reiciendis corporis libero laudantium sed eveniet unde delectus a maiores nihil
+						dolores?
+						Natus,
+						perferendis.</p>
+					<p>Atque quis totam repellendus omnis alias magnam corrupti, possimus aspernatur perspiciatis quae
+						provident
+						consequatur minima doloremque blanditiis nihil maxime ducimus earum autem. Magni animi
+						blanditiis
+						similique
+						iusto, repellat sed quisquam!</p>
+					<p>Suscipit, facere quasi atque totam. Repudiandae facilis at optio atque, rem nam, natus ratione
+						cum enim
+						voluptatem suscipit veniam! Repellat, est debitis. Modi nam mollitia explicabo, unde aliquid
+						impedit!
+						Adipisci!</p>
+					<p>Deserunt adipisci tempora asperiores, quo, nisi ex delectus vitae consectetur iste fugiat iusto
+						dolorem
+						autem. Itaque, ipsa voluptas, a assumenda rem, dolorum porro accusantium, officiis veniam
+						nostrum cum
+						cumque
+						impedit.</p>
+					<p>Laborum illum ipsa voluptatibus possimus nesciunt ex consequatur rem, natus ad praesentium rerum
+						libero
+						consectetur temporibus cupiditate atque aspernatur, eaque provident eligendi quaerat ea soluta
+						doloremque.
+						Iure fugit, minima facere.</p>
+				</div>
+			</swiper-slide>
+		</swiper-container>
+
+	</div>
+</template>
+<script>
+
+	export default (props, { $, $on, $f7, $store }) => {
+
+
+		function swapClassNames(element, swap1, swap2) {
+			if (swapClassName(element, swap1, swap2));
+			else if (swapClassName(element, swap2, swap1));
+		}
+
+		function swapClassName(element, remove, add) {
+			let containsRemove = element.classList.contains(remove);
+			if (containsRemove) {
+				element.classList.remove(remove);
+				element.classList.add(add);
+			}
+			return containsRemove;
+		}
+
+		$on('pageInit', (e) => {
+			/* 
+						const imageString = 'https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-';
+			
+						// create gallery
+						var gallery = document.getElementById('photo-gallery');
+						let children = '';
+						const picturesList = [268, 260, 258, 253, 249, 239, 236, 234, 231, 204, 203, 200, 199, 198, 197, 184, 179, 178, 177, 176, 172, 171, 165, 164, 162, 159, 157, 155, 153, 151, 148, 144, 137, 136, 135, 134, 133, 128, 127, 126, 125, 124, 123, 122, 121, 120, 118, 117, 116, 114, 111, 110, 109, 107, 104, 102, 101, 94, 91, 88, 87, 80, 77, 72, 71, 68, 67, 66, 64, 62, 61, 49, 48, 47, 46, 29, 26, 25, 24, 23, 19, 18, 17, 3, 2, 1];
+						const specialList = {
+							wide: [234, 204, 203, 184, 172, 165, 164, 159, 157, 155, 153, 151, 148, 144, 136, 134, 125, 122, 121, 114, 107, 67, 24, 23, 2, 1],
+							tall: [231, 137, 128, 127, 110, 47, 46, 26, 3],
+							extraWide: [],
+							square: [258, 249, 72, 71, 68]
+						};
+						for (let i = 0; i < picturesList.length; i++) {
+			
+							let viewType = 'portrait';
+							if (specialList['wide'].includes(picturesList[i]))
+								viewType = ''
+							else if (specialList['tall'].includes(picturesList[i]))
+								viewType = 'tall'
+							else if (specialList['square'].includes(picturesList[i]))
+								viewType = 'square'
+							else if (specialList['extraWide'].includes(picturesList[i]))
+								viewType = 'wide'
+			
+							children += '<div id="photo-sam-' + picturesList[i] + '" class="photo-tile' + (viewType == '' ? '' : ' ') + viewType + '">'
+								+ '<img data-src="' + imageString + 'scaled-' + picturesList[i] + '.jpg"'
+								+ 'class="lazy lazy-fade-in picture" alt="Picture of Sam" />'
+								+ '</div>\n';
+						}
+						gallery.innerHTML = children;
+			
+			
+						// View Gallery Image
+						let pictureViewer = document.getElementById('photo-viewer');
+						let pictureView = document.getElementById('fullscreen-image');
+						var header = document.getElementById('header');
+						for (let i = 0; i < picturesList.length; i++) {
+							document.getElementById('photo-sam-' + picturesList[i]).onclick = function (event) {
+								// console.log(event);
+								pictureView.src = imageString + picturesList[i] + '.jpg';
+								pictureViewer.style.display = 'flex';
+								header.style.display = 'none';
+							}
+						}
+			
+						pictureViewer.onclick = function (event) {
+							// console.log(event)
+							pictureViewer.style.display = 'none';
+							header.style.display = 'flex';
+						}
+			
+			
+			
+			
+			
+						// Screen Size - mobile menu open resize
+						function resizeWindowCheckMenu() {
+							initStartPoses();
+							if (window.innerWidth >= 994 && mobileViewOpen())
+								toggleMenu();
+						}
+			
+						window.addEventListener('resize', resizeWindowCheckMenu);
+			
+			
+						// Nav Menu - onclick nav-links
+						var selectors = document.getElementsByClassName('nav-link');
+			
+						function clearOthers(i) {
+							selectors = document.getElementsByClassName('nav-link');
+							for (let j = 0; j < selectors.length; j++)
+								if (i != j)
+									selectors.item(j).classList.remove('active');
+						}
+			
+						function clear() {
+							let actives = document.getElementsByClassName('nav-link active');
+							for (let j = 0; j < actives.length; j++)
+								actives.item(j).classList.remove('active');
+						}
+			
+						function select(i) {
+							clear();
+							selectors[i].classList.add('active');
+						}
+			
+						var observers = Array.apply(null, Array(4));
+			
+						for (let i = 0; i < selectors.length; i++) {
+							selectors[i].onclick = function () {
+								document.getElementById(selectors[i].dataset.target).scrollIntoView();
+								select(i);
+								if (mobileViewOpen())
+									toggleMenu();
+							}
+						}
+			
+						for (let i = 0; i < observers.length; i++) {
+							observers[i] = new IntersectionObserver(function (entries) {
+								if (entries[0].isIntersecting === true) {
+									console.log(entries[0].target, 'Item has just APPEARED!');
+									select(i);
+								} else {
+									console.log('Item has just DISAPPEARED!');
+			
+								}
+							}, { threshold: [0] });
+							// }, { threshold: [ .25] });
+						}
+			
+						var startPoses = Array.apply(null, Array(4));
+						function initStartPoses() {
+							let width = document.getElementById('home').offsetWidth;
+							for (let i = 0; i < startPoses.length; i++)
+								startPoses[i] = width * i;
+						}
+			
+						initStartPoses();
+			
+						var prevScroll = 0;
+						var lastPose = 0;
+						document.getElementsByClassName('page-scroller')[0].onscroll = function (e) {
+							if (e.currentTarget.scrollLeft != prevScroll) {
+								prevScroll = e.currentTarget.scrollLeft;
+								let val = nearPose(prevScroll, startPoses, 70);
+								if (val != lastPose && val >= 0) {
+									lastPose = val;
+									select(lastPose);
+								}
+							}
+						}
+			
+						function nearPose(x, poses, range) {
+							for (let i = 0; i < poses.length; i++)
+								if (withinRange(x, poses[i], range))
+									return i;
+							return -1;
+						}
+			
+						function withinRange(x, num, range, incMin, incMax) {
+							return withinNums(x, num - range / 2, num + range / 2, incMin, incMax);
+						}
+			
+						function withinNums(x, min, max, incMin, incMax) {
+							if (incMin == undefined)
+								incMin = true;
+							if (incMax == undefined)
+								incMax = true;
+			
+							return ((incMin && x >= min) || x > min)
+								&& ((incMax && x <= max) || x < max)
+						}
+			
+						// Nav Menu - onclick mobile menu
+						var navBg = document.getElementsByClassName('mobile-nav-background')[0];
+						var navMenu = document.getElementsByClassName('nav-menu')[0];
+						var mobileNavToggle = document.getElementsByClassName('mobile-nav-toggle')[0];
+						let linesEl = mobileNavToggle.firstChild;
+			
+						function mobileViewOpen() {
+							return navMenu.classList.contains('mobile-nav-menu')
+						}
+			
+						function toggleMenu(setMobile) {
+							let isUndefined = setMobile == undefined;
+							if ((!isUndefined && setMobile) || swapClassName(linesEl, 'fa-bars', 'fa-bars-staggered')) {
+								navBg.classList.add('mobile-nav-active');
+								swapClassName(navMenu, 'nav-menu', 'mobile-nav-menu')
+							} else if ((!isUndefined && !setMobile) || swapClassName(linesEl, 'fa-bars-staggered', 'fa-bars')) {
+								navBg.classList.remove('mobile-nav-active');
+								swapClassName(navMenu, 'mobile-nav-menu', 'nav-menu')
+							}
+						}
+			
+						mobileNavToggle.onclick = function () {
+							toggleMenu();
+						}
+						navBg.onclick = function () {
+							if (mobileViewOpen())
+								toggleMenu();
+						}
+			
+			 */
+
+
+		})
+		return $render;
+	}
+</script>

@@ -5,15 +5,16 @@
 	--f7-theme-color-shade: #0043a7;
 	--f7-theme-color-tint: #297eff;
 
-	--f7-block-strong-bg-color: rgb(231, 231, 231);
+	// --f7-block-strong-bg-color: rgb(231, 231, 231);
+	--f7-block-strong-bg-color: var(--f7-bars-bg-color);
 
 	--gradiant: linear-gradient(to bottom, rgba(255, 255, 255, 0) 2%, rgb(255, 255, 255, 1) 15%);
 
 	--light-visible: inherit;
 	--dark-visible: None;
 
-	--light-overlaw: rgba(255, 255, 255, 0.5);
-	--dark-overlaw: rgba(0, 0, 0, 0.7);
+	--light-overlaw: rgba(255, 255, 255, 0.1);
+	--dark-overlaw: rgba(0, 0, 0, 0.3);
 
 	--transparent-overlaw: var(--light-overlaw);
 	--transparent-underlaw: var(--dark-overlaw);
@@ -27,7 +28,7 @@
 
 	--f7-list-bg-color: rgb(231, 231, 231);
 
-	--accent-color: var(--f7-block-strong-bg-color);
+	--accent-color: var(--f7-bars-bg-color);
 
 	--scheme-color: white;
 
@@ -167,25 +168,25 @@ div {
 	height: 100svh;
 }
 
-.page-panel {
+
+.page-panel,
+swiper-slide .block {
 	font-size: 1.5rem;
 	line-height: 1.75rem;
-	padding: 2rem;
-	padding-top: 90px;
+	// padding: 2rem;
+	// padding-top: 90px;
 }
 
-@media (max-width: calc($mobile-view-break)) {
 
-	.page-panel {
-		padding-top: 16px;
-	}
+.navbar-margin {
+	margin-top: 6rem;
 }
 
 .page-group {
-	scroll-snap-align: start;
-	box-sizing: border-box;
-	transition: transform 400ms ease;
-	border-right: 0.5px solid var(--scheme-color);
+	// scroll-snap-align: start;
+	// box-sizing: border-box;
+	// transition: transform 400ms ease;
+	// border-right: 0.5px solid var(--scheme-color);
 	// rgba(0, 0, 0, 0.35)
 }
 
@@ -297,9 +298,10 @@ div {
   * Desktop Navigation 
   */
 
-.nav-link {
+.tab-link {
 
-	filter: drop-shadow(0px 0px 2px var(--transparent-underlaw));
+	// filter: drop-shadow(0px 0px 2px var(--transparent-underlaw));
+	border: solid 3px var(--transparent-underlaw);
 }
 
 .nav-menu * {
@@ -588,7 +590,6 @@ div {
 	align-content: center;
 	justify-content: center;
 	flex-wrap: wrap;
-	width: 100%;
 	display: none;
 
 	i {
@@ -622,17 +623,17 @@ div {
 // ===============================================================
 
 .resume-section {
-	padding: 1.5rem 0;
+	margin: 1rem 0;
 	display: flex;
-	gap: 1.25rem;
+	gap: 1rem;
 	flex-wrap: wrap;
 	width: 100%;
 }
 
-
 .resume-header {
 	font-size: 30px;
 	line-height: normal;
+
 }
 
 .resume-section[data-sections="2"]>* {
@@ -646,9 +647,14 @@ div {
 .resume-tile {
 	border-radius: 15px;
 	border: 1px solid var(--scheme-color);
-	background: var(--f7-list-bg-color);
-	padding: 25px 25px;
+	background: var(--f7-card-bg-color);
+	padding: 2rem;
 	width: 100%;
+}
+
+.block {
+	padding-right: 1.5rem;
+	padding-left: 1.5rem;
 }
 
 .resume-tile>* {

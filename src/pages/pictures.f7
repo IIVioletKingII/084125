@@ -1,0 +1,14 @@
+<template>
+	<div class="page" data-name="pictures">
+
+		<div class="page-content">
+			<div class="block-title">pictures</div>
+
+		</div>
+	</div>
+</template>
+<script>
+	export default () => {
+		return $render;
+	};
+</script>

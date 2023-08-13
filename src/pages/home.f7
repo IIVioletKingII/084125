@@ -7,19 +7,19 @@
 			</a>
 			<div class="mobile-nav-background"></div>
 			<nav id="navbar" class="navbar nav-menu">
-				<a class="nav-link scrollto active" data-target="home">
+				<a class="tab-link active" href="#hero">
 					<i class="icon fa-solid fa-home"></i>
 					<span>Home</span>
 				</a>
-				<a class="nav-link scrollto" data-target="about">
+				<a class="tab-link" href="#about">
 					<i class="icon fa-solid fa-user"></i>
 					<span>About</span>
 				</a>
-				<a class="nav-link scrollto" data-target="gallery">
+				<a class="tab-link" href="#gallery">
 					<i class="fa-solid fa-camera"></i>
 					<span>Gallery</span>
 				</a>
-				<a class="nav-link scrollto" data-target="resume">
+				<a class="tab-link" href="#resume">
 					<i class="icon fa-solid fa-file"></i>
 					<span>Resume</span>
 				</a>
@@ -27,247 +27,87 @@
 			</nav>
 		</header>
 
-		<!-- <div class="page-content"> -->
+		<div class="page-content ">
+			<swiper-container class="tabs">
+				<swiper-slide id="hero" class="page-content tab tab-active hero-picture">
 
-		<div class="page-content">
+				</swiper-slide>
+				<swiper-slide id="about" class="page-content tab">
 
-			<div class="page-scroller">
+					<div class="block if-not-md if-not-ios"></div>
+					<div class="block${$f7.device.desktop ? ' navbar-margin' : ''}">
 
-				<div id="home" class="page-group">
-					<div class="hero-picture lazy lazy-fade-in"></div>
-				</div>
-				<div id="about" class="page-group page-panel">
-					<div class="block-title">About</div>
-					<div>Greetings! I'm Sam DePoule! I am a programmer, musician, and technology/production volunteer. I love to play bassoon, piano, sing, work on sites or apps, and mix audio.</div>
-				</div>
-				<div id="gallery" class="page-group page-panel">
-					<div class="block-title">Gallery</div>
-					<div id="photo-gallery" class="photo-gallery">
+						<div class="block-title">About</div>
+						<p>Greetings! I'm Sam DePoule! I am a programmer, musician, and technology/production
+							volunteer. I love to play bassoon, piano, sing, work on sites or apps, and mix audio.
+						</p>
 					</div>
-					<div id="photo-viewer">
-						<i class="fa-solid fa-xmark"></i>
-						<img id="fullscreen-image" class="lazy lazy-fade-in" alt="Picture of Sam"
-							data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-258.jpg" />
 
+				</swiper-slide>
+				<swiper-slide id="gallery" class="page-content tab">
+					<div class="block${$f7.device.desktop ? ' navbar-margin' : ''}">
+						<div class="block-title">Gallery</div>
+						<div id="photo-gallery" class="photo-gallery">
+						</div>
+						<div id="photo-viewer">
+							<i class="fa-solid fa-xmark"></i>
+							<img id="fullscreen-image" class="lazy lazy-fade-in" alt="Picture of Sam"
+								data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-258.jpg" />
+						</div>
 					</div>
-				</div>
+				</swiper-slide>
+				<swiper-slide id="resume" class="page-content tab tab">
+					<div class="block${$f7.device.desktop ? ' navbar-margin' : ''}"
+						style="display: flex; flex-wrap: wrap; justify-content: center;">
 
-
-				<div id="resume" class="page-group" style="display: flex; flex-wrap: wrap; justify-content: center;">
-
-					<!-- https://bootstrapmade.com/demo/BizLand/ -->
-					<div class="page-panel" style="max-width: 2000px;">
+						<!-- https://bootstrapmade.com/demo/BizLand/ -->
 
 						<div class="block-title">Resume</div>
 
-						<div class="resume-header">Education</div>
-						<!-- the whole section with 1+ tiles -->
-						<div class="resume-section" data-sections="2">
+
+						${resumeSections.map((resumeSection) => $h`
+						<div class="resume-header">${resumeSection.sectionTitle}</div>
+						<div class="resume-section" data-sections="${resumeSection.sections}">
+							${resumeSection.tiles?.map((tile) => $h`
+
 							<div class="resume-tile">
 								<div class="resume-icon">
-									<i class="fa-solid fa-graduation-cap"></i>
+									<i class="${tile.icon}"></i>
 								</div>
-								<div class="resume-subheader">Hazen High School</div>
+
+								<div class="resume-subheader">${tile.title}</div>
 								<div class="resume-info">
-									<span>Expected graduation June 2023</span>
-									<span>GPA: 3.9</span>
-									<div class="resume-list" data-columns="2">
+									${tile.subtitles?.map((subtitle) => $h`
+									<span>${subtitle}</span>
+									`)}
+									<div class="resume-list" data-columns="${tile.detailsListColumns}">
 										<ul>
-											<li>
-												<span>AP Physics</span>
-											</li>
-											<li>
-												<span>AP Computer Science</span>
-											</li>
-											<li>
-												<span>Program Solving</span>
-											</li>
-											<li>
-												<span>Trigonometry</span>
-											</li>
-											<li>
-												<span>University of Washington's CSE163 Data Science</span>
-											</li>
-											<li>
-												<span>Programming leader in the Robotics Team</span>
-											</li>
+											${tile.detailsList?.map((detail) => $h`
+											<li><span>${detail}</span></li>
+											`)}
 										</ul>
 									</div>
 								</div>
 
 							</div>
-							<div class="resume-tile">
-								<div class="resume-icon">
-									<i class="fa-solid fa-school"></i>
-								</div>
-								<div class="resume-subheader">Bellevue College</div>
-								<div class="resume-info">
-									<span>Bellevue • September 2021 - Present</span>
-									<div class="resume-list" data-columns="2">
-										<ul>
-											<li>
-												<span>Calc I through III</span>
-											</li>
-											<li>
-												<span>PHYS121 Calc Physics</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-							</div>
+							`)}
 						</div>
 
-						<div class="resume-header">Work Experience</div>
-						<!-- the whole section with 1+ tiles -->
-						<div class="resume-section" data-sections="2">
-							<div class="resume-tile">
-								<div class="resume-icon">
-									<i class="fa-brands fa-android"></i>
-								</div>
-								<div class="resume-subheader">Programming Lead</div>
-								<div class="resume-info">
-									<span>Hazen Robotics</span>
-									<span>Renton • August 2022 - Present</span>
-									<div class="resume-list">
-										<ul>
-											<li>
-												<span>Teaching new members how to program and work in an organized
-													fashion</span>
-											</li>
-											<li>
-												<span>Organize team members' projects/assignments based on skills and
-													time commitment</span>
-											</li>
-											<li>
-												<span>Mentoring elementary/middle school robotics team (FIRST Lego
-													League)</span>
-											</li>
-										</ul>
-									</div>
-								</div>
+						`)}
 
-							</div>
-							<div class="resume-tile">
-								<div class="resume-icon">
-									<i class="fa-solid fa-chalkboard-user"></i>
-								</div>
-								<div class="resume-subheader">Web Developer</div>
-								<div class="resume-info">
-									<span>HD Fowler Co.</span>
-									<span>Bellevue, Washington, United States • June 2022 - Present</span>
-									<div class="resume-list">
-										<ul>
-											<li>
-												<span>Worked with back-end developers to connect data to users, with a
-													device friendly
-													interface, via the web</span>
-											</li>
-										</ul>
-									</div>
-								</div>
 
-							</div>
-						</div>
-
-						<div class="resume-header">Volunteer Experience</div>
-						<!-- the whole section with 1+ tiles -->
-						<div class="resume-section">
-							<div class="resume-tile">
-								<div class="resume-icon">
-									<i class="fa-solid fa-sliders"></i>
-								</div>
-								<div class="resume-subheader">Audio Engineer</div>
-								<div class="resume-info">
-									<span>New Life Church</span>
-									<span>Renton, Washington, United States • February 2020 - Present (1500+
-										hours)</span>
-									<div class="resume-list">
-										<ul>
-											<li>
-												<span>Volunteer with whatever help may be needed. I.e. Camera, Lighting
-													(Vista 3, GrandMA 3), Video Slides (ProPresenter), Audio (dLive
-													S5000), etc.</span>
-											</li>
-											<li>
-												<span>Volunteer 3-4 times per week with Sunday Services and rehearsals,
-													Youth Group, and other events like funerals, weddings, school
-													events, etc.</span>
-											</li>
-
-										</ul>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-						<div class="resume-header">Awards and Achievements</div>
-						<!-- the whole section with 1+ tiles -->
-						<div class="resume-section">
-							<div class="resume-tile">
-								<div class="resume-icon">
-									<i class="fa-solid fa-id-badge"></i>
-								</div>
-								<div class="resume-info">
-									<div class="resume-list" data-columns="2">
-										<ul>
-											<li>
-												<span>High School Lettered in Robotics and Band</span>
-											</li>
-											<li>
-												<span>Eagle Scout, May 2021</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-						<div class="resume-header">Activities and Interests</div>
-						<!-- the whole section with 1+ tiles -->
-						<div class="resume-section">
-							<div class="resume-tile">
-								<div class="resume-icon">
-									<i class="fa-solid fa-brain"></i>
-								</div>
-								<div class="resume-info">
-									<div class="resume-list" data-columns="2">
-										<ul>
-											<li>
-												<span>Computer Programming</span>
-											</li>
-											<li>
-												<span>Band (Marching Percussion)</span>
-											</li>
-											<li>
-												<span>Choir</span>
-											</li>
-											<li>
-												<span>Robotics (FIRST Tech Challenge)</span>
-											</li>
-											<li>
-												<span>Bellevue Youth Symphony Orchestra (Bassoon)</span>
-											</li>
-										</ul>
-									</div>
-								</div>
-
-							</div>
-						</div>
 					</div>
+				</swiper-slide>
+			</swiper-container>
 
-				</div>
-
-
-			</div>
 		</div>
 	</div>
 </template>
 <script>
 
 	export default (props, { $, $on, $f7, $store }) => {
+
+		let resumeSections = $store.state.resumeSections;
 
 
 		function swapClassNames(element, swap1, swap2) {
@@ -289,39 +129,36 @@
 			const imageString = 'https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-';
 
 			// create gallery
-			var gallery = document.getElementById('photo-gallery');
 			let children = '';
-			const picturesList = [268, 260, 258, 253, 249, 239, 236, 234, 231, 204, 203, 200, 199, 198, 197, 184, 179, 178, 177, 176, 172, 171, 165, 164, 162, 159, 157, 155, 153, 151, 148, 144, 137, 136, 135, 134, 133, 128, 127, 126, 125, 124, 123, 122, 121, 120, 118, 117, 116, 114, 111, 110, 109, 107, 104, 102, 101, 94, 91, 88, 87, 80, 77, 72, 71, 68, 67, 66, 64, 62, 61, 49, 48, 47, 46, 29, 26, 25, 24, 23, 19, 18, 17, 3, 2, 1];
-			const specialList = {
+			let picturesList = [268, 260, 258, 253, 249, 239, 236, 234, 231, 204, 203, 200, 199, 198, 197, 184, 179, 178, 177, 176, 172, 171, 165, 164, 162, 159, 157, 155, 153, 151, 148, 144, 137, 136, 135, 134, 133, 128, 127, 126, 125, 124, 123, 122, 121, 120, 118, 117, 116, 114, 111, 110, 109, 107, 104, 102, 101, 94, 91, 88, 87, 80, 77, 72, 71, 68, 67, 66, 64, 62, 61, 49, 48, 47, 46, 29, 26, 25, 24, 23, 19, 18, 17, 3, 2, 1];
+			let specialList = {
 				wide: [234, 204, 203, 184, 172, 165, 164, 159, 157, 155, 153, 151, 148, 144, 136, 134, 125, 122, 121, 114, 107, 67, 24, 23, 2, 1],
 				tall: [231, 137, 128, 127, 110, 47, 46, 26, 3],
 				extraWide: [],
 				square: [258, 249, 72, 71, 68]
 			};
-			for (let i = 0; i < picturesList.length; i++) {
 
+			document.getElementById('photo-gallery').innerHTML = picturesList.map((pictureNum) => {
 				let viewType = 'portrait';
-				if (specialList['wide'].includes(picturesList[i]))
+				if (specialList.wide.includes(pictureNum))
 					viewType = ''
-				else if (specialList['tall'].includes(picturesList[i]))
+				else if (specialList.tall.includes(pictureNum))
 					viewType = 'tall'
-				else if (specialList['square'].includes(picturesList[i]))
+				else if (specialList.square.includes(pictureNum))
 					viewType = 'square'
-				else if (specialList['extraWide'].includes(picturesList[i]))
+				else if (specialList.extraWide.includes(pictureNum))
 					viewType = 'wide'
 
-				children += '<div id="photo-sam-' + picturesList[i] + '" class="photo-tile' + (viewType == '' ? '' : ' ') + viewType + '">'
-					+ '<img data-src="' + imageString + 'scaled-' + picturesList[i] + '.jpg"'
-					+ 'class="lazy lazy-fade-in picture" alt="Picture of Sam" />'
-					+ '</div>\n';
-			}
-			gallery.innerHTML = children;
-
+				return `<div id="photo-sam-${pictureNum}" class="photo-tile${(viewType == '' ? '' : ' ') + viewType}">
+					<img src="${imageString}scaled-${pictureNum}.jpg"
+					class="lazy lazy-fade-in picture" alt="Picture of Sam" />
+					</div>`;
+			}).join('');
 
 			// View Gallery Image
 			let pictureViewer = document.getElementById('photo-viewer');
 			let pictureView = document.getElementById('fullscreen-image');
-			var header = document.getElementById('header');
+			let header = document.getElementById('header');
 			for (let i = 0; i < picturesList.length; i++) {
 				document.getElementById('photo-sam-' + picturesList[i]).onclick = function (event) {
 					// console.log(event);
@@ -338,31 +175,18 @@
 			}
 
 
-
-
-
-			// Screen Size - mobile menu open resize
-			function resizeWindowCheckMenu() {
-				initStartPoses();
-				if (window.innerWidth >= 994 && mobileViewOpen())
-					toggleMenu();
-			}
-
-			window.addEventListener('resize', resizeWindowCheckMenu);
-
-
-			// Nav Menu - onclick nav-links
-			var selectors = document.getElementsByClassName('nav-link');
+			// Nav Menu - onclick tab-links
+			var selectors = document.getElementsByClassName('tab-link');
 
 			function clearOthers(i) {
-				selectors = document.getElementsByClassName('nav-link');
+				selectors = document.getElementsByClassName('tab-link');
 				for (let j = 0; j < selectors.length; j++)
 					if (i != j)
 						selectors.item(j).classList.remove('active');
 			}
 
 			function clear() {
-				let actives = document.getElementsByClassName('nav-link active');
+				let actives = document.getElementsByClassName('tab-link active');
 				for (let j = 0; j < actives.length; j++)
 					actives.item(j).classList.remove('active');
 			}
@@ -376,7 +200,6 @@
 
 			for (let i = 0; i < selectors.length; i++) {
 				selectors[i].onclick = function () {
-					document.getElementById(selectors[i].dataset.target).scrollIntoView();
 					select(i);
 					if (mobileViewOpen())
 						toggleMenu();
@@ -393,28 +216,6 @@
 
 					}
 				}, { threshold: [0/* .25 */] });
-			}
-
-			var startPoses = Array.apply(null, Array(4));
-			function initStartPoses() {
-				let width = document.getElementById('home').offsetWidth;
-				for (let i = 0; i < startPoses.length; i++)
-					startPoses[i] = width * i;
-			}
-
-			initStartPoses();
-
-			var prevScroll = 0;
-			var lastPose = 0;
-			document.getElementsByClassName('page-scroller')[0].onscroll = function (e) {
-				if (e.currentTarget.scrollLeft != prevScroll) {
-					prevScroll = e.currentTarget.scrollLeft;
-					let val = nearPose(prevScroll, startPoses, 70);
-					if (val != lastPose && val >= 0) {
-						lastPose = val;
-						select(lastPose);
-					}
-				}
 			}
 
 			function nearPose(x, poses, range) {

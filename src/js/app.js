@@ -5,7 +5,7 @@ import Framework7 from 'framework7/bundle';
 import 'framework7/css/bundle';
 
 // Import Icons and App Custom Styles
-
+import '../css/icons.css';
 import '../css/app.scss';
 
 
@@ -24,6 +24,7 @@ var app = new Framework7({
 	el: '#app', // App root element
 	component: App, // App main component
 
+	darkMode: 'auto',
 	// App store
 	store: store,
 	// App routes
@@ -32,9 +33,12 @@ var app = new Framework7({
 	autoDarkMode: true,
 	// darkModeChange: true,
 
-	// view: {
-	// 	browserHistory: true,
-	// 	browserHistorySeparator: ""
-	// },
+	view: {
+		browserHistory: true,
+		browserHistorySeparator: "", // #app
+	},
 
+	serviceWorker: process.env.NODE_ENV === 'production' ? {
+		path: '/service-worker.js',
+	} : {},
 });

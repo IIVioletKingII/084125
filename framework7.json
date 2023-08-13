@@ -1,19 +1,19 @@
 {
-  "cwd": "C:\\Users\\Surface\\git\\sam-depoule",
+  "cwd": "C:\\Users\\Sam\\git\\sam-depoule",
   "type": [
+    "pwa",
     "web"
   ],
-  "name": "Sam-DePoule",
+  "name": "Sam DePoule",
   "framework": "core",
   "template": "tabs",
   "bundler": "vite",
   "cssPreProcessor": "scss",
   "theming": {
     "customColor": true,
-    "color": "#0055d4",
-    "darkTheme": true,
-    "iconFonts": true,
-    "fillBars": false
+    "color": "#007aff",
+    "darkMode": true,
+    "iconFonts": true
   },
   "customBuild": false
 }
