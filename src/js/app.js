@@ -39,8 +39,4 @@ var app = new Framework7({
 		browserHistory: true,
 		browserHistorySeparator: "#app", // #app
 	},
-
-	serviceWorker: process.env.NODE_ENV === 'production' ? {
-		path: '/service-worker.js',
-	} : {},
 });

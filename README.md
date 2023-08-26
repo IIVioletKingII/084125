@@ -8,7 +8,6 @@ Framework7 app created with following options:
 {
   "cwd": "C:\\Users\\Sam\\git\\sam-depoule",
   "type": [
-    "pwa",
     "web"
   ],
   "name": "Sam DePoule",
@@ -46,6 +45,7 @@ Initial Dependancies:
 [FontAwesome](https://fontawesome.com/docs/web/setup/packages)
 ```
 npm install --save @fortawesome/fontawesome-free
+npm install cropperjs
 ```
 Only Required:
 ```
@@ -61,10 +61,6 @@ npm install
 ## Vite
 
 There is a [Vite](https://vitejs.dev) bundler setup. It compiles and bundles all "front-end" resources. You should work only with files located in `/src` folder. Vite config located in `vite.config.js`.
-
-## PWA
-
-This is a PWA. Don't forget to check what is inside of your `service-worker.js`. It is also recommended that you disable service worker (or enable "Update on reload") in browser dev tools during development.
 
 ## Assets
 
