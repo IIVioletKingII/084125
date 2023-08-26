@@ -8,6 +8,8 @@ import 'framework7/css/bundle';
 import '../css/icons.css';
 import '../css/app.scss';
 
+import Cropper from 'cropperjs';
+window.Cropper = Cropper;
 
 // Import Routes
 import routes from './routes.js';
@@ -35,7 +37,7 @@ var app = new Framework7({
 
 	view: {
 		browserHistory: true,
-		browserHistorySeparator: "", // #app
+		browserHistorySeparator: "#app", // #app
 	},
 
 	serviceWorker: process.env.NODE_ENV === 'production' ? {

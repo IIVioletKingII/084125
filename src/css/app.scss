@@ -278,14 +278,66 @@ swiper-slide .block {
 	}
 }
 
-// @media (min-width: $mobile-view-break) {
-// 	#main {
-// 		margin-left: 100px;
-// 	}
-// }
+.flex {
+	display: flex;
+}
+
+.flex.row {
+	flex-direction: row;
+}
+
+.flex.col {
+	flex-direction: column;
+}
+
+.flex.gap {
+	gap: 16px;
+}
+
+$sizes: 10, 12, 14, 16, 18, 20, 22, 24, 26, 30;
+
+@each $size in $sizes {
+	.size-#{$size} {
+		font-size: #{$size}px;
+	}
+}
 
 
+.number-input {
+	padding-right: 0 !important;
+}
 
+.popover .item-content.item-input {
+	margin: 0;
+}
+
+
+.navbar .item-input .item-title.item-label {
+	background-color: var(--f7-navbar-bg-color, var(--f7-bars-bg-color));
+	margin: calc(0px - 16px - var(--label-height) / 2) -4px 4px;
+	// margin-top: -32px;
+	// margin-bottom: 16px;
+	// --label-height: 32px;
+	top: 10px
+}
+
+.popover .item-input .item-title.item-label {
+	background-color: var(--f7-popover-bg-color, var(--f7-bars-bg-color));
+	margin: calc(0px - 16px - var(--label-height) / 2) -4px 4px;
+	// margin-top: -32px;
+	// margin-bottom: 16px;
+	// --label-height: 32px;
+	top: 8px
+}
+
+.popover .small-item {
+	// max-width: 150px !important;
+}
+
+.popover .item-input .item-inner {
+	padding-top: 8px !important;
+	padding-bottom: 8px !important;
+}
 
 
 
