@@ -176,9 +176,9 @@
 			}
 
 			function withinNums(x, min, max, incMin, incMax) {
-				if (incMin == undefined)
+				if (typeof incMin == "undefined")
 					incMin = true;
-				if (incMax == undefined)
+				if (typeof incMax == "undefined")
 					incMax = true;
 
 				return ((incMin && x >= min) || x > min)
