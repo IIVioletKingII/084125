@@ -43,6 +43,7 @@ First of all we need to install dependencies, run in terminal
 
 Initial Dependancies:
 [FontAwesome](https://fontawesome.com/docs/web/setup/packages)
+[Cropper](https://github.com/fengyuanchen/cropperjs)
 ```
 npm install --save @fortawesome/fontawesome-free
 npm install cropperjs
