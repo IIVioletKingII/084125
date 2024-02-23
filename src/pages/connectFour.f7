@@ -19,7 +19,7 @@
 
 		<div class="page-content">
 
-			<div class="winner" style="display: none;" @click="${reset}">
+			<div class="winner" @click="${reset}">
 				<div class="text">
 					${winner} won!
 				</div>
@@ -71,13 +71,18 @@
 	.winner {
 		width: 100%;
 		height: 100%;
+		display: flex;
 		align-items: center;
 		justify-content: center;
+		opacity: 0;
 
 		font-size: 56px;
 		position: absolute;
-		background: rgba(104, 104, 104, 0.26);
+		/* background: rgba(104, 104, 104, 0.26); */
+		transition: 1200ms;
+		backdrop-filter: blur(3px);
 		z-index: 10000;
+		pointer-events: none;
 	}
 
 	th,
@@ -93,7 +98,7 @@
 		let winner = '';
 		let dim = {
 			width: 7,
-			height: 7
+			height: 6
 		}
 		let xs = [0, 1, 1, 1];
 		let ys = [1, -1, 0, 1];
@@ -105,19 +110,29 @@
 			resizeGrid();
 		});
 
+		function round(num, decimals) {
+			return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
+		}
+
 		function resizeGrid() {
 			let table = $('#gameTable');
-			let w = table.width();
-			let h = table.height();
-			if (h > w)
-				table.css('height', `${w}px`)
-			else
-				table.css('width', `${h}px`)
+			let parent = table.parent();
+			let w = parent.width();
+			let h = parent.height();
+			let r = dim.width / dim.height;
+			if (w / r >= h) { // wider than ration (side black bars)
+				table.css('height', `${h}px`);
+				table.css('width', `${h * r}px`);
+			} else { //  if (tW / r >= h)
+				table.css('height', `${w / r}px`);
+				table.css('width', `${w}px`)
+			}
 		}
 
 		function reset() {
 			$('.tile.filled').removeClass('filled').removeClass('blue').removeClass('red');
-			$('.winner').css('display', 'none');
+			$('.winner').css('opacity', '0');
+			$('.winner').css('pointer-events', 'none');
 			turn = 'blue';
 			winner = '';
 		}
@@ -151,7 +166,8 @@
 					let win = checkWin(curX, curY)
 					if (win) {
 						winner = turn[0].toUpperCase() + turn.substring(1);
-						$('.winner').css('display', 'flex');
+						$('.winner').css('opacity', '1');
+						$('.winner').css('pointer-events', 'all');
 						turn = 'over';
 						$update();
 					}
@@ -164,15 +180,15 @@
 			for (let i = 0; i < 4; i++) {
 				let x = xs[i];
 				let y = ys[i];
-				let length = 1 + numColorsInDir(startX, startY, x, y, 0) + numColorsInDir(startX, startY, -x, -y, 0);
+				let connectLength = 1 + connectLengthInDir(startX, startY, x, y, 0) + connectLengthInDir(startX, startY, -x, -y, 0);
 
-				if (length >= 4)
+				if (connectLength >= 4)
 					return true;
 			}
 			return false;
 		}
 
-		function numColorsInDir(curX, curY, dirX, dirY, length) {
+		function connectLengthInDir(curX, curY, dirX, dirY, length) {
 			// console.log('numColorsInDir', curX, curY, dirX, dirY, length);
 			let testX = curX + dirX;
 			let testY = curY + dirY;
@@ -180,7 +196,7 @@
 				let testTile = $(`.tile[data-x="${testX}"][data-y="${testY}"]`)
 				// console.log('test tile', testX, testY, testTile.hasClass(turn));
 				if (testTile.hasClass(turn))
-					return numColorsInDir(testX, testY, dirX, dirY, length + 1)
+					return connectLengthInDir(testX, testY, dirX, dirY, length + 1)
 			}
 			return length;
 		}
