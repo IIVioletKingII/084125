@@ -136,7 +136,7 @@ https://fontawesome.com/search
 
 		$on('pageInit', (e) => {
 
-			console.log('Heyyy', 'what are you doing here??');
+			console.log('%cHeyyy what are you doing here??', 'color: cyan;');
 
 			// addCSSRule(`
 			// .page[data-name="hero2"] .section-intro .spacer {
@@ -206,7 +206,7 @@ https://fontawesome.com/search
 			let $el = $(el.target);
 			let target = $($el.attr('href'));
 			target.scrollTop(2000, 500)
-			console.log('scroolto', $el, $el.attr('href'), target, target.scrollTop());
+			// console.log('scrollto', $el, $el.attr('href'), target, target.scrollTop());
 			$(document.body).scrollTop(0, target.scrollTop(), 2000);
 		}
 
