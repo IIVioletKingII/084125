@@ -14,6 +14,8 @@
 					<a href="#intro" class="button button-fill" @click="${scrollTo}">About</a>
 					<a href="#resume" class="button button-fill" @click="${scrollTo}">Resume</a>
 					<a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a>
+					<a href="/settings/" class="button button-fill color-green">Settings</a>
+					<a href="/picture-editor/" class="button button-fill color-green">Editor</a>
 				</div>
 				<div class="right no-margin">
 

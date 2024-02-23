@@ -8,8 +8,6 @@ import HeroPage from '../pages/newHero.f7';
 // import ResumePage from '../pages/resume.f7';
 import PictureEditor from '../pages/pictureEditor.f7';
 
-import SettingsPage from '../pages/settings.f7';
-
 import NotFoundPage from '../pages/404.f7';
 
 let routes = [
@@ -20,13 +18,6 @@ let routes = [
 	{
 		path: '/picture-editor/',
 		component: PictureEditor
-	},
-	{
-		path: '/settings/',
-		component: SettingsPage,
-		options: {
-
-		}
 	},
 	{
 		path: '(.*)',
