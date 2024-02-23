@@ -6,7 +6,8 @@ import HeroPage from '../pages/newHero.f7';
 // import AboutPage from '../pages/about.f7';
 import PicturesPage from '../pages/pictures.f7';
 import ResumePage from '../pages/resume.f7';
-import PictureEditor from '../pages/picture-editor.f7';
+import PictureEditor from '../pages/pictureEditor.f7';
+import ConnectFourGame from '../pages/connectFour.f7';
 
 import SettingsPage from '../pages/settings.f7';
 
@@ -47,6 +48,10 @@ var routes = [
 	{
 		path: '/picture-editor/',
 		component: PictureEditor
+	},
+	{
+		path: '/connect-four/',
+		component: ConnectFourGame
 	},
 	{
 		path: '/settings/',

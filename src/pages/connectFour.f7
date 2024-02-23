@@ -1,0 +1,200 @@
+<template>
+	<div class="page" data-name="connectFour">
+
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a href="#" class="link back">
+						<i class="icon icon-back"></i>
+						<span class="if-not-md">Back</span>
+					</a>
+				</div>
+				<div class="title">Connect Four Game!</div>
+				<div class="right margin-right">
+					<a href="#" class="button button-tonal" @click="${reset}">Reset</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+			<div class="winner" style="display: none;" @click="${reset}">
+				<div class="text">
+					${winner} won!
+				</div>
+			</div>
+			<div class="flex row" style="align-items: center; justify-content: center; height: 100%; height: 100%;">
+				<table id="gameTable">
+				</table>
+			</div>
+		</div>
+
+	</div>
+</template>
+<style>
+	#gameTable {
+
+		width: 100%;
+		height: 100%;
+		border-collapse: collapse;
+		table-layout: fixed;
+		overflow: hidden;
+	}
+
+	.team-red,
+	.red {
+		--color: rgb(255, 48, 48);
+	}
+
+	.team-blue,
+	.blue {
+		--color: rgb(27, 61, 255);
+	}
+
+	.tile.filled {
+		position: relative;
+	}
+
+
+	.tile.filled:after {
+		content: '';
+		width: 90%;
+		height: 90%;
+		border-radius: 50%;
+		position: absolute;
+		top: 5%;
+		left: 5%;
+		background: var(--color);
+	}
+
+	.winner {
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 56px;
+		position: absolute;
+		background: rgba(104, 104, 104, 0.26);
+		z-index: 10000;
+	}
+
+	th,
+	td {
+		border: 1px solid;
+	}
+</style>
+<script>
+
+	export default (props, { $, $on, $f7, $store, $update }) => {
+
+		let turn = 'blue';
+		let winner = '';
+		let dim = {
+			width: 7,
+			height: 7
+		}
+		let xs = [0, 1, 1, 1];
+		let ys = [1, -1, 0, 1];
+
+		$on('pageInit', (e) => {
+
+			createGameTable(dim.width, dim.height);
+			window.addEventListener('resize', resizeGrid);
+			resizeGrid();
+		});
+
+		function resizeGrid() {
+			let table = $('#gameTable');
+			let w = table.width();
+			let h = table.height();
+			if (h > w)
+				table.css('height', `${w}px`)
+			else
+				table.css('width', `${h}px`)
+		}
+
+		function reset() {
+			$('.tile.filled').removeClass('filled').removeClass('blue').removeClass('red');
+			$('.winner').css('display', 'none');
+			turn = 'blue';
+			winner = '';
+		}
+
+		function createGameTable(width, height) {
+			$('#gameTable').html(`
+				<tbody>
+					${Array.from({ length: height }, (y, i) => `
+					<tr>
+						${Array.from({ length: width }, (x, j) => `
+						<td class="tile" data-x="${j}" data-y="${i}">
+							<!-- Cell ${j}, ${i} -->
+						</td>
+						`).join('')}
+					</tr>
+					`).join('')}
+				</tbody>
+			`);
+
+			document.querySelector("#gameTable tbody").addEventListener("click", (event) => {
+				let $td = $(event.target);
+				let col = $td.data('x');
+				let rows = $(`.tile:not(.filled)[data-x="${col}"]`)
+
+				if (rows.length > 0 && turn != 'over') {
+
+					let bottom = rows.eq(rows.length - 1)
+					bottom.addClass('filled').addClass(turn);
+					let curX = parseInt(bottom.data('x'));
+					let curY = parseInt(bottom.data('y'));
+					let win = checkWin(curX, curY)
+					if (win) {
+						winner = turn[0].toUpperCase() + turn.substring(1);
+						$('.winner').css('display', 'flex');
+						turn = 'over';
+						$update();
+					}
+					turn = (turn == 'blue' ? 'red' : 'blue');
+					// console.log(`pos ${curX}, ${curY}:`, win, bottom);
+				}
+
+
+				// console.log(turn + "'s turn", $td, col, rows);
+			});
+		}
+
+		function checkWin(startX, startY) {
+			for (let i = 0; i < 4; i++) {
+				let x = xs[i];
+				let y = ys[i];
+				let length = 1 + numColorsInDir(startX, startY, x, y, 0) + numColorsInDir(startX, startY, -x, -y, 0);
+
+				if (length >= 4)
+					return true;
+
+
+			}
+			return false;
+		}
+
+		function numColorsInDir(curX, curY, dirX, dirY, length) {
+			// console.log('numColorsInDir', curX, curY, dirX, dirY, length);
+			let testX = curX + dirX;
+			let testY = curY + dirY;
+			if (between(testX, 0, dim.width - 1, true) && between(testY, 0, dim.height - 1, true)) {
+				let testTile = $(`.tile[data-x="${testX}"][data-y="${testY}"]`)
+				// console.log('test tile', testX, testY, testTile.hasClass(turn));
+				if (testTile.hasClass(turn))
+					return numColorsInDir(testX, testY, dirX, dirY, length + 1)
+			}
+			return length;
+		}
+
+		function between(num, min, max, inc) {
+			return (inc && (num >= min && num <= max)) | (!inc && (num > min && num < max));
+		}
+
+		return $render;
+	}
+</script>
