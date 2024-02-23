@@ -30,12 +30,13 @@ const store = createStore({
 						title: 'Bellevue College',
 						subtitles: [
 							'Bellevue • September 2021 - Present',
-							'GPA: 3.8',
+							'GPA: 3.9',
 						],
 						detailsListColumns: 2,
 						detailsList: [
 							'Calculus I - IV',
-							'PHYS121 Calculus Physics'
+							'PHYS121 Calculus Physics',
+							'First-Year Theory I'
 						]
 					},
 				],
@@ -88,8 +89,19 @@ const store = createStore({
 						],
 						detailsListColumns: 2,
 						detailsList: [
-							'Volunteer with whatever help may be needed. I.e. Camera, Lighting(Vista 3, GrandMA 3), Video Slides(ProPresenter), Audio (dLive S5000), etc.',
+							'Volunteer with whatever help may be needed. I.e. Camera, Lighting (Vista 3, GrandMA 3), Video Slides(ProPresenter), Audio (dLive S5000), etc.',
 							'Volunteer 3-4 times per week with Sunday Services and rehearsals, Youth Group, and other events like funerals, weddings, school events, etc.',
+						]
+					},
+					{
+						icon: 'fa-solid fa-sliders',
+						title: 'FLL Mentor',
+						subtitles: [
+							'Dimmit Middle School robotics',
+						],
+						detailsListColumns: 2,
+						detailsList: [
+							'...',
 						]
 					}
 				]
