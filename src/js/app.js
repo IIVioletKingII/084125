@@ -32,11 +32,9 @@ var app = new Framework7({
 	// App routes
 	routes: routes,
 
-	// darkModeChange: true,
-
 	view: {
 		// browserHistory: true,
-		// browserHistorySeparator: "#", // #app
+		browserHistorySeparator: "#", // #app
 	},
 	on: {
 		init: function () {
@@ -51,29 +49,32 @@ function onAfterInit($f7) {
 	// console.log('hash', hash, $f7.views);
 	// if (hash.length > 0 && hash.startsWith('#')) {
 	// 	let page = hash.substring(0);
+
 	// }
+
+
 }
 
 
 window.removeCookie = (cookie) => {
-	// console.log('removie cookie', cookie, 'from', document.cookie);
+	console.log('removie cookie', cookie, 'from', document.cookie);
 	document.cookie = `${cookie}=; expires=${new Date().toUTCString()}`
 }
 
 window.setCookie = (key, value, expireDays) => {
 
 	let time = new Date(new Date().getTime() + expireDays * 24 * 60 * 60 * 1000);
-	// console.log('set cookie', { key: key, value: value, time: time.toString() });
+	console.log('set cookie', { key: key, value: value, time: time.toString() });
 	document.cookie = `${key}=${value}; expires=${time.toUTCString()}; path=/`;
 }
 
 window.splitCookies = (cookies) => {
-	cookies = cookies.split(/; ?/);
+	cookies = cookies.split(/; ?/)
 	let cookieOb = {};
 	for (const cookie of cookies) {
 		let params = cookie.split('=');
 		if (params.length == 2)
-			cookieOb[params[0]] = params[1];
+			cookieOb[params[0]] = params[1]
 	}
 	return cookieOb;
 }

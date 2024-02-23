@@ -1,13 +1,6 @@
 <template>
 	<div class="page" data-name="hero2">
 
-		<!-- 
-
-https://codepen.io/sosuke/pen/Pjoqqp
-https://fontawesome.com/search
-
-		 -->
-
 		<div class="navbar"
 			style="--f7-navbar-text-color: white; --f7-list-item-title-text-color: white; --f7-navbar-link-color: white;">
 			<div class="navbar-inner sliding" style="padding: 0 1rem; justify-content: space-between; gap: 16px;">
@@ -18,10 +11,11 @@ https://fontawesome.com/search
 				</div>
 				<div class="quick-jump flex row gap" style="--f7-button-height: 32px; --f7-button-font-size: 16px;">
 
-					<a href="#intro" class="button button-fill" @click="${scrollTo}">About</a>
+					<!-- <a href="#intro" class="button button-fill" @click="${scrollTo}">About</a>
 					<a href="#resume" class="button button-fill" @click="${scrollTo}">Resume</a>
-					<a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a>
+					<a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a> -->
 					<a href="/connect-four/" class="button button-fill color-green">Connect Four</a>
+					<a href="/picture-editor/" class="button button-fill color-green">Picture Editor</a>
 				</div>
 				<div class="right no-margin">
 
