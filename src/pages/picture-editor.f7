@@ -1,0 +1,278 @@
+<template>
+	<div class="page">
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding" style="flex-direction: row; justify-content: space-between;  padding: 0;">
+
+				<div class="title">Picture Editor</div>
+				<div class="right flex row gap" style="margin-right: 16px;">
+					<label class="button button-tonal">Select photo
+						<i class="f7-icons" style="font-size: 20px; padding: 0 4px;">search</i>
+						<input type="file" name="photo" id="upload-photo" accept="image/*" style="display: none"
+							onchange="${onPhotoAdd}" />
+					</label>
+					<a id="download" class="button button-tonal link external"
+						style="padding: 0; aspect-ratio: 8/7; height: auto; justify-content: center;">
+						<i class="f7-icons font-size-22">tray_arrow_down</i>
+					</a>
+
+					<div class="button button-tonal popover-open" data-popover="#settingsPopover"
+						onclick="${togglePopover}" style="padding: 0; aspect-ratio: 8/7;">
+						<i class="f7-icons">chevron_down</i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content" style="overflow: clip;">
+			<div style="height: 100%; display: flex; width: 100%; align-content: center; justify-content: center;">
+				<div id="box" style="position: absolute;"></div>
+				<img id="imagePreview" src="" style="display: none;" alt="Image preview" />
+			</div>
+		</div>
+
+		<div id="settingsPopover" class="popover" data-animate="true" data-arrow="false" data-vertical-position="bottom"
+			data-close-by-outside-click="false" data-backdrop="false">
+			<!-- <div class="popover-arrow"></div> -->
+
+			<!-- Popover content -->
+			<div class="popover-inner" style="padding: 24px;">
+				<div class="flex row" style="justify-content: flex-start; align-items: center;">
+					<div class="list no-margin" style="overflow: hidden;">
+						<ul>
+							<li class="flex row gap" style="align-items: center;">
+								<div class="item-content item-input item-input-outline small-item">
+									<div class="item-inner">
+										<div class="item-title item-label">
+											(Ratio: W <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i>
+											H)
+										</div>
+										<div class="item-input-wrap flex row" style="align-items: center;">
+											<input type="number" class="number-input" id="rWidthInput" min="0" value="2"
+												onchange="${onRatioChange}" onfocusout="${onRatioChange}" />
+											<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
+
+											<input type="number" class="number-input" id="rHeightInput" min="0"
+												value="1" onchange="${onRatioChange}" onfocusout="${onRatioChange}" />
+											<!-- <span class="input-clear-button"></span> -->
+										</div>
+									</div>
+								</div>
+								<div id="lockButton" class="button button-tonal" onclick="${togglRatioLock}"
+									style="padding: 0 18px;">
+									<i class="f7-icons">lock</i>
+								</div>
+							</li>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-title item-label">
+										(X <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i> Y)
+									</div>
+									<div class="item-input-wrap flex row" style="align-items: center;">
+										<input type="number" class="number-input" id="xInput" min="0" value="0"
+											onchange="${onChangeX}" onfocusout="${onChangeX}" />
+										<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
+
+										<input type="number" class="number-input" id="yInput" min="0" value="0"
+											onchange="${onChangeY}" onfocusout="${onChangeY}" />
+										<!-- <span class="input-clear-button"></span> -->
+									</div>
+								</div>
+							</li>
+							<li class="item-content item-input item-input-outline">
+								<div class="item-inner">
+									<div class="item-title item-label">
+										(Width <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i> Height)
+									</div>
+									<div class="item-input-wrap flex row" style="align-items: center;">
+										<input type="number" class="number-input" id="widthInput" min="0" value="0"
+											onchange="${onChangeWidth}" onfocusout="${onChangeWidth}" />
+										<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
+
+										<input type="number" class="number-input" id="heightInput" min="0" value="0"
+											onchange="${onChangeHeight}" onfocusout="${onChangeHeight}" />
+										<!-- <span class="input-clear-button"></span> -->
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<style>
+	#imagePreview {
+		object-fit: contain;
+		max-width: 100%;
+	}
+</style>
+<script>
+	export default (props, { $, $on, $f7, $store }) => {
+
+		// console.log('cropper', Cropper);
+
+		let editing = false;
+		let ratio;
+		let cropper;
+		let popover;
+		let imageExportType = 'jpeg';
+		let cropperData;
+		let ratioLocked = true;
+
+		$on('pageInit', () => {
+			ratio = getRatio();
+		});
+
+		function togglePopover(e) {
+			let targetEl = $(e.target).closest('.button');
+			// console.log('target', targetEl);
+			let isOpen = targetEl.hasClass('popover-open');
+
+			targetEl.removeClass(isOpen ? 'popover-open' : 'popover-close');
+			targetEl.addClass(isOpen ? 'popover-close' : 'popover-open');
+
+			targetEl.children('.f7-icons').text('chevron_' + (isOpen ? 'up' : 'down'));
+
+			// popover = popover?.opened ? $f7.popover.close('#settingsPopover', true) : $f7.popover.open('#settingsPopover', e.target, true);
+
+		};
+
+		function togglRatioLock() {
+			ratioLocked = !ratioLocked;
+
+			let buttonEl = $('#lockButton');
+			buttonEl.children('.f7-icons')?.text('lock' + (ratioLocked ? '' : '_open'));
+			$('#rWidthInput').val(ratioLocked ? 2 : '');
+			$('#rHeightInput').val(ratioLocked ? 1 : '');
+
+			if (ratioLocked) {
+				let newWidth = $('#widthInput').val();
+				onRatioChange();
+				onChangeWidth({ target: { value: newWidth } });
+			} else
+				onRatioChange();
+		};
+
+		function getRatio() {
+			return parseFloat($('#rWidthInput').val()) / parseFloat($('#rHeightInput').val());
+		};
+
+		function onChangeX(e) {
+			let newX = parseFloat(e.target.value);
+			console.log('newX', newX);
+
+			cropper?.setData({ x: newX });
+		};
+
+		function setX(x) {
+			$('#xInput').val(x);
+		};
+
+		function onChangeY(e) {
+			let newY = parseFloat(e.target.value);
+			console.log('newY', newY);
+
+			cropper?.setData({ y: newY });
+		};
+
+		function setY(y) {
+			$('#yInput').val(y);
+		}
+
+		function onChangeWidth(e) {
+			console.log('chjange width', e);
+			let newParams = { width: parseFloat(e.target.value) };
+			if (ratioLocked) {
+				newParams.height = newParams.width / ratio;
+				setHeight(newParams.height);
+			}
+			console.log('newParams', newParams);
+
+			cropper?.setData(newParams);
+		};
+
+		function setWidth(width) {
+			$('#widthInput').val(width);
+		}
+
+		function onChangeHeight(e) {
+			let newParams = { height: parseFloat(e.target.value) };
+			if (ratioLocked) {
+				newParams.width = newParams.height * ratio;
+				setWidth(newParams.width);
+			}
+			console.log('newParams', newParams);
+
+			cropper?.setData(newParams);
+		};
+
+		function setHeight(height) {
+			$('#heightInput').val(height);
+		}
+
+		function onRatioChange() {
+			ratio = getRatio();
+			console.log('new ratio:', ratio);
+			cropper?.setAspectRatio(ratio);
+		};
+
+		function onPhotoAdd(event) {
+			console.log('photo change', event);
+
+			let preview = $('#imagePreview')[0];
+			let file = event.target.files[0];
+			let reader = new FileReader();
+			let download = $('#download')
+
+			reader.onloadend = function () {
+				preview.src = reader.result;
+				preview.style = "";
+				// console.log('reader', reader);
+				// console.log('result', reader.result);
+				// console.log('input width', $(preview).width());
+				// console.log('input width', $(preview).height());
+
+				// cropperData = cropper.getData();
+
+				cropper = new Cropper(preview, {
+					aspectRatio: ratio,
+					crop(event) {
+						// console.log(event.detail.x);
+						// console.log(event.detail.y);
+						// console.log(event.detail.width);
+						// console.log(event.detail.height);
+						setX(event.detail.x);
+						setY(event.detail.y);
+						setWidth(event.detail.width);
+						setHeight(event.detail.height);
+						// console.log(event.detail.rotate);
+						// console.log(event.detail.scaleX);
+						// console.log(event.detail.scaleY);
+
+
+						let croppedData = cropper.getCroppedCanvas({ maxWidth: 4096, maxHeight: 4096 }).toDataURL('image/' + imageExportType);
+						// console.log('blob', cropper, test);
+						download.attr('href', croppedData);
+						download.attr('download', 'cropped.' + imageExportType);
+
+					},
+				});
+			}
+
+			if (file)
+				reader.readAsDataURL(file);
+			else {
+				preview.src = "";
+				preview.style = "display: none;";
+			}
+
+			// let box = $('#box');
+			// console.log('ratio', getRatio());
+		};
+
+
+		return $render;
+	};
+</script>

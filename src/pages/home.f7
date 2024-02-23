@@ -1,5 +1,6 @@
 <template>
 	<div class="page" data-name="home">
+
 		<header id="header" class="d-flex justify-content-center">
 
 			<a class="mobile-nav-toggle">
@@ -7,19 +8,19 @@
 			</a>
 			<div class="mobile-nav-background"></div>
 			<nav id="navbar" class="navbar nav-menu">
-				<a class="nav-link scrollto active" data-target="home">
+				<a class="tab-link active" href="#hero">
 					<i class="icon fa-solid fa-home"></i>
 					<span>Home</span>
 				</a>
-				<a class="nav-link scrollto" data-target="about">
+				<a class="tab-link" href="#about">
 					<i class="icon fa-solid fa-user"></i>
 					<span>About</span>
 				</a>
-				<a class="nav-link scrollto" data-target="photography">
+				<a class="tab-link" href="#gallery">
 					<i class="fa-solid fa-camera"></i>
-					<span>Photography</span>
+					<span>Gallery</span>
 				</a>
-				<a class="nav-link scrollto" data-target="resume">
+				<a class="tab-link" href="#resume">
 					<i class="icon fa-solid fa-file"></i>
 					<span>Resume</span>
 				</a>
@@ -27,168 +28,167 @@
 			</nav>
 		</header>
 
-		<!-- <div class="page-content"> -->
-
 		<div class="page-content">
 
-			<div class="page-scroller">
-
-
-				<div id="home" class="page-group hero-picture lazy lazy-fade-in">
-					<!-- <div class="hero-title">Hi there! I'm Sam DePoule</div> -->
-					<!-- <img id="cover_image"
-					data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-68.jpg"
-					class="lazy lazy-fade-in picture cover" alt="Picture of Sam" /> -->
+			<div class="popup popup-tablet-fullscreen popup-photo-viewer" data-close-on-escape="true">
+				<a class="link popup-close font-16">
+					<i class="fa-solid fa-xmark"></i>
+				</a>
+				<div class="immage-wrapper">
+					<img id="fullscreen-image" class="lazy lazy-fade-in" alt="Picture of Sam"
+						data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-258.jpg" />
 				</div>
-				<div id="about" class="page-group">
-					<div class="block-title">About</div>
-					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-						tempor incididunt ut labore
-						et dolore magna aliqua. Leo in vitae turpis massa sed. Cursus risus at ultrices mi. Est sit amet
-						facilisis magna etiam tempor. Ultrices dui sapien eget mi proin sed libero enim sed. Ipsum a
-						arcu
-						cursus vitae congue mauris rhoncus aenean vel. Lectus mauris ultrices eros in cursus turpis. Sed
-						sed
-						risus pretium quam vulputate dignissim. Nunc mi ipsum faucibus vitae. Viverra maecenas accumsan
-						lacus vel facilisis volutpat est velit egestas. Aenean euismod elementum nisi quis.
+				<!-- <div class="view">
+					<div class="page">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="title">Popup</div>
+								<div class="right">
+									
 
-						Mattis ullamcorper velit sed ullamcorper. Bibendum at varius vel pharetra vel turpis nunc eget.
-						Ultrices vitae auctor eu augue. Id nibh tortor id aliquet lectus proin nibh nisl. Pretium fusce
-						id
-						velit ut tortor pretium. Sem nulla pharetra diam sit amet nisl suscipit. Et tortor at risus
-						viverra
-						adipiscing at in tellus integer. Et tortor consequat id porta nibh venenatis cras. Enim nec dui
-						nunc
-						mattis. Amet consectetur adipiscing elit pellentesque. Pretium aenean pharetra magna ac
-						placerat.
-						Donec massa sapien faucibus et. Enim blandit volutpat maecenas volutpat blandit aliquam etiam
-						erat
-						velit. Ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing.
-						Magna
-						sit amet purus gravida quis.
-
-						Quam vulputate dignissim suspendisse in est ante in nibh. Auctor elit sed vulputate mi sit amet
-						mauris. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Purus sit amet luctus
-						venenatis lectus magna fringilla urna porttitor. Ac tortor dignissim convallis aenean et tortor
-						at.
-						Eu lobortis elementum nibh tellus molestie. Tortor posuere ac ut consequat. Semper quis lectus
-						nulla
-						at volutpat diam ut venenatis tellus. Vitae congue eu consequat ac felis donec. Eget duis at
-						tellus
-						at. Nibh ipsum consequat nisl vel. Sem fringilla ut morbi tincidunt augue.
-
-						Lacinia quis vel eros donec ac odio tempor orci dapibus. Gravida quis blandit turpis cursus in
-						hac
-						habitasse. Libero justo laoreet sit amet cursus sit amet. Et netus et malesuada fames ac.
-						Facilisis
-						volutpat est velit egestas dui id ornare arcu odio. Neque volutpat ac tincidunt vitae. Volutpat
-						consequat mauris nunc congue. Sit amet venenatis urna cursus eget nunc scelerisque viverra
-						mauris.
-						Egestas congue quisque egestas diam in arcu cursus euismod. Vulputate odio ut enim blandit
-						volutpat
-						maecenas. Pharetra sit amet aliquam id diam. Lorem ipsum dolor sit amet consectetur adipiscing
-						elit.
-						Magnis dis parturient montes nascetur. Faucibus turpis in eu mi bibendum neque. Et odio
-						pellentesque
-						diam volutpat commodo sed egestas egestas. Eu consequat ac felis donec et odio pellentesque
-						diam.
-						Leo vel orci porta non pulvinar neque laoreet suspendisse interdum.
-
-						Amet purus gravida quis blandit turpis cursus. Netus et malesuada fames ac. Pellentesque massa
-						placerat duis ultricies lacus. Urna porttitor rhoncus dolor purus non enim praesent. Turpis in
-						eu mi
-						bibendum neque. Odio ut enim blandit volutpat maecenas. Vitae turpis massa sed elementum tempus
-						egestas sed. Imperdiet dui accumsan sit amet nulla facilisi morbi. At quis risus sed vulputate
-						odio.
-						Pretium fusce id velit ut tortor pretium. Sed pulvinar proin gravida hendrerit lectus. Erat
-						pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Donec enim diam vulputate ut
-						pharetra sit amet aliquam id. Scelerisque varius morbi enim nunc faucibus. Ipsum suspendisse
-						ultrices gravida dictum fusce ut placerat orci nulla. Tellus in metus vulputate eu scelerisque.
-						Dui
-						sapien eget mi proin.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-						tempor
-						incididunt ut labore
-						et dolore magna aliqua. Leo in vitae turpis massa sed. Cursus risus at ultrices mi. Est sit amet
-						facilisis magna etiam tempor. Ultrices dui sapien eget mi proin sed libero enim sed. Ipsum a
-						arcu
-						cursus vitae congue mauris rhoncus aenean vel. Lectus mauris ultrices eros in cursus turpis. Sed
-						sed
-						risus pretium quam vulputate dignissim. Nunc mi ipsum faucibus vitae. Viverra maecenas accumsan
-						lacus vel facilisis volutpat est velit egestas. Aenean euismod elementum nisi quis.
-
-						Mattis ullamcorper velit sed ullamcorper. Bibendum at varius vel pharetra vel turpis nunc eget.
-						Ultrices vitae auctor eu augue. Id nibh tortor id aliquet lectus proin nibh nisl. Pretium fusce
-						id
-						velit ut tortor pretium. Sem nulla pharetra diam sit amet nisl suscipit. Et tortor at risus
-						viverra
-						adipiscing at in tellus integer. Et tortor consequat id porta nibh venenatis cras. Enim nec dui
-						nunc
-						mattis. Amet consectetur adipiscing elit pellentesque. Pretium aenean pharetra magna ac
-						placerat.
-						Donec massa sapien faucibus et. Enim blandit volutpat maecenas volutpat blandit aliquam etiam
-						erat
-						velit. Ultrices eros in cursus turpis massa tincidunt. Eget sit amet tellus cras adipiscing.
-						Magna
-						sit amet purus gravida quis.
-
-						Quam vulputate dignissim suspendisse in est ante in nibh. Auctor elit sed vulputate mi sit amet
-						mauris. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Purus sit amet luctus
-						venenatis lectus magna fringilla urna porttitor. Ac tortor dignissim convallis aenean et tortor
-						at.
-						Eu lobortis elementum nibh tellus molestie. Tortor posuere ac ut consequat. Semper quis lectus
-						nulla
-						at volutpat diam ut venenatis tellus. Vitae congue eu consequat ac felis donec. Eget duis at
-						tellus
-						at. Nibh ipsum consequat nisl vel. Sem fringilla ut morbi tincidunt augue.
-
-						Lacinia quis vel eros donec ac odio tempor orci dapibus. Gravida quis blandit turpis cursus in
-						hac
-						habitasse. Libero justo laoreet sit amet cursus sit amet. Et netus et malesuada fames ac.
-						Facilisis
-						volutpat est velit egestas dui id ornare arcu odio. Neque volutpat ac tincidunt vitae. Volutpat
-						consequat mauris nunc congue. Sit amet venenatis urna cursus eget nunc scelerisque viverra
-						mauris.
-						Egestas congue quisque egestas diam in arcu cursus euismod. Vulputate odio ut enim blandit
-						volutpat
-						maecenas. Pharetra sit amet aliquam id diam. Lorem ipsum dolor sit amet consectetur adipiscing
-						elit.
-						Magnis dis parturient montes nascetur. Faucibus turpis in eu mi bibendum neque. Et odio
-						pellentesque
-						diam volutpat commodo sed egestas egestas. Eu consequat ac felis donec et odio pellentesque
-						diam.
-						Leo vel orci porta non pulvinar neque laoreet suspendisse interdum.
-
-						Amet purus gravida quis blandit turpis cursus. Netus et malesuada fames ac. Pellentesque massa
-						placerat duis ultricies lacus. Urna porttitor rhoncus dolor purus non enim praesent. Turpis in
-						eu mi
-						bibendum neque. Odio ut enim blandit volutpat maecenas. Vitae turpis massa sed elementum tempus
-						egestas sed. Imperdiet dui accumsan sit amet nulla facilisi morbi. At quis risus sed vulputate
-						odio.
-						Pretium fusce id velit ut tortor pretium. Sed pulvinar proin gravida hendrerit lectus. Erat
-						pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Donec enim diam vulputate ut
-						pharetra sit amet aliquam id. Scelerisque varius morbi enim nunc faucibus. Ipsum suspendisse
-						ultrices gravida dictum fusce ut placerat orci nulla. Tellus in metus vulputate eu scelerisque.
-						Dui
-						sapien eget mi proin.</div>
-				</div>
-				<div id="photography" class="page-group">
-					<div class="block-title">About</div>
-					<div>Blee Blah Dee Dah</div>
-
-				</div>
-				<div id="resume" class="page-group">
-					<div class="block-title">Resume</div>
-					<div>Blee Blah Dee Dah</div>
-
-				</div>
-
+								</div>
+							</div>
+						</div>
+						<div class="page-content">
+							
+						</div>
+					</div>
+				</div> -->
 			</div>
+
+			<swiper-container class="tabs">
+				<swiper-slide id="hero" class="page-content tab tab-active hero-picture">
+
+				</swiper-slide>
+				<swiper-slide id="about" class="page-content tab">
+
+					<div class="block if-not-md if-not-ios"></div>
+					<div class="block${$f7.device.desktop ? ' 9' : ''}">
+
+						<div class="block-title">About</div>
+						<p>Greetings! I'm Sam DePoule! I am a programmer, musician, and technology/production
+							volunteer. I love to play bassoon, piano, sing, work on sites or apps, and mix audio.
+						</p>
+					</div>
+
+				</swiper-slide>
+				<swiper-slide id="gallery" class="page-content tab">
+					<div class="block${$f7.device.desktop ? ' navbar-margin' : ''}">
+						<div class="block-title">Gallery</div>
+						<div id="photo-gallery" class="photo-gallery">
+						</div>
+						<!-- <div id="photo-viewer">
+							
+							
+						</div> -->
+					</div>
+				</swiper-slide>
+				<swiper-slide id="resume" class="page-content tab tab">
+					<div class="block${$f7.device.desktop ? ' navbar-margin' : ''}"
+						style="display: flex; flex-wrap: wrap; justify-content: center;">
+
+						<!-- https://bootstrapmade.com/demo/BizLand/ -->
+
+						<div class="block-title">Resume</div>
+
+
+						${resumeSections.map((resumeSection) => $h`
+						<div class="resume-header">${resumeSection.sectionTitle}</div>
+						<div class="resume-section" data-sections="${resumeSection.sections}">
+							${resumeSection.tiles?.map((tile) => $h`
+
+							<div class="resume-tile">
+								<div class="resume-icon">
+									<i class="${tile.icon}"></i>
+								</div>
+
+								<div class="resume-subheader">${tile.title}</div>
+								<div class="resume-info">
+									${tile.subtitles?.map((subtitle) => $h`
+									<span>${subtitle}</span>
+									`)}
+									<div class="resume-list" data-columns="${tile.detailsListColumns}">
+										<ul>
+											${tile.detailsList?.map((detail) => $h`
+											<li><span>${detail}</span></li>
+											`)}
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							`)}
+						</div>
+
+						`)}
+
+
+					</div>
+				</swiper-slide>
+			</swiper-container>
+
 		</div>
 	</div>
 </template>
+<style>
+	.popup-photo-viewer {
+		background: transparent !important;
+		--border: 4rem;
+		max-width: calc(100vw - var(--border) * 2) !important;
+		max-height: calc(100vh - var(--border) * 2) !important;
+		width: auto !important;
+		height: auto !important;
+		/* top: var(--border) !important;
+		left: var(--border) !important; */
+		top: 50%;
+		left: 50%;
+		margin: 0 !important;
+		transform: translate(-50%, -50%) !important;
+		overflow: visible;
+	}
+
+	.immage-wrapper {
+
+		border-radius: 2rem;
+		overflow: clip;
+		/* padding: var(--border);
+		display: flex;
+		justify-content: center;
+		height: 100%; */
+	}
+
+
+	#fullscreen-image {
+		max-width: calc(100vw - var(--border) * 2) !important;
+		max-height: calc(100vh - var(--border) * 2) !important;
+		/* max-width: 100%;
+		max-height: 100%; */
+		object-fit: contain;
+		pointer-events: auto;
+	}
+
+
+	.popup-photo-viewer img {
+
+		/* width: auto !important;
+		height: auto !important; */
+	}
+
+	.popup-photo-viewer .popup-close {
+		position: absolute;
+		right: calc(var(--border) / -2);
+		top: calc(var(--border) / -2);
+		font-size: 28px;
+		/* font-weight: 100; */
+		transform: translate(50%, -50%) !important;
+	}
+</style>
 <script>
 
 	export default (props, { $, $on, $f7, $store }) => {
+
+		let resumeSections = $store.state.resumeSections;
 
 
 		function swapClassNames(element, swap1, swap2) {
@@ -207,66 +207,138 @@
 
 		$on('pageInit', (e) => {
 
-			// Page Navigation
-			let activeIndex = 0;
-			const groups = document.getElementsByClassName('page-group');
+			const imageString = 'https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-';
 
-			const handlePageClick = (nextIndex) => {
+			// create gallery
+			let children = '';
+			let picturesList = [268, 260, 258, 253, 249, 239, 236, 234, 231, 204, 203, 200, 199, 198, 197, 184, 179, 178, 177, 176, 172, 171, 165, 164, 162, 159, 157, 155, 153, 151, 148, 144, 137, 136, 135, 134, 133, 128, 127, 126, 125, 124, 123, 122, 121, 120, 118, 117, 116, 114, 111, 110, 109, 107, 104, 102, 101, 94, 91, 88, 87, 80, 77, 72, 71, 68, 67, 66, 64, 62, 61, 49, 48, 47, 46, 29, 26, 25, 24, 23, 19, 18, 17, 3, 2, 1];
+			let specialList = {
+				wide: [234, 204, 203, 184, 172, 165, 164, 159, 157, 155, 153, 151, 148, 144, 136, 134, 125, 122, 121, 114, 107, 67, 24, 23, 2, 1],
+				tall: [231, 137, 128, 127, 110, 47, 46, 26, 3],
+				extraWide: [],
+				square: [258, 249, 72, 71, 68]
+			};
 
-				const currentGroup = document.querySelector('[data-index="' + activeIndex + '"]'),
-					nextGroup = document.querySelector('[data-index="' + nextIndex + '"]');
+			document.getElementById('photo-gallery').innerHTML = picturesList.map((pictureNum) => {
+				let viewType = 'portrait';
+				if (specialList.wide.includes(pictureNum))
+					viewType = ''
+				else if (specialList.tall.includes(pictureNum))
+					viewType = 'tall'
+				else if (specialList.square.includes(pictureNum))
+					viewType = 'square'
+				else if (specialList.extraWide.includes(pictureNum))
+					viewType = 'wide'
 
-				// console.log(currentGroup)
+				return `<div id="photo-sam-${pictureNum}" class="photo-tile${(viewType == '' ? '' : ' ') + viewType}">
+					<img src="${imageString}scaled-${pictureNum}.jpg"
+					class="popup-open lazy lazy-fade-in picture" data-popup=".popup-photo-viewer" alt="Picture of Sam" />
+					</div>`;
+			}).join('');
 
-				if (nextIndex > activeIndex) {
-					currentGroup.dataset.status = "before";
-					nextGroup.dataset.status = "becoming-active-from-after";
-				} else {
-					currentGroup.dataset.status = "after";
-					nextGroup.dataset.status = "becoming-active-from-before";
+			$('.picture').on('click', (e) => {
+				let src = e.target.src ? e.target.src : '';
+				$('#fullscreen-image').attr('src', src.replace('-scaled', ''))
+			})
+
+			$f7.popup.create({
+				el: '.popup-photo-viewer',
+				// swipeToClose: true,
+				on: {
+					open: (popup) => {
+						console.log('Popup open', popup)
+					}
 				}
+			});
 
-				setTimeout(() => {
-					nextGroup.dataset.status = "active";
-					activeIndex = nextIndex;
-				});
-			}
+			// View Gallery Image
+			// let pictureViewer = document.getElementById('photo-viewer');
+			// let pictureView = document.getElementById('fullscreen-image');
+			// let header = document.getElementById('header');
+			// for (let i = 0; i < picturesList.length; i++) {
+			// 	document.getElementById('photo-sam-' + picturesList[i]).onclick = function (event) {
+			// 		// console.log(event);
+			// 		pictureView.src = imageString + picturesList[i] + '.jpg';
+			// 		pictureViewer.style.display = 'flex';
+			// 		header.style.display = 'none';
+			// 	}
+			// }
 
-			// Screen Size - mobile menu open resize
-			function resizeWindowCheckMenu() {
-				if (mobileViewOpen() && window.innerWidth >= 992)
-					toggleMenu();
-				// console.log(window.innerWidth, window.innerHeight)
-			}
-
-			window.addEventListener('resize', resizeWindowCheckMenu);
+			// pictureViewer.onclick = function (event) {
+			// 	// console.log(event)
+			// 	pictureViewer.style.display = 'none';
+			// 	header.style.display = 'flex';
+			// }
 
 
-			// Nav Menu - onclick nav-links
-			var selectors = document.getElementsByClassName('nav-link');
+			// Nav Menu - onclick tab-links
+			var selectors = document.getElementsByClassName('tab-link');
 
 			function clearOthers(i) {
-				selectors = document.getElementsByClassName('nav-link');
+				selectors = document.getElementsByClassName('tab-link');
 				for (let j = 0; j < selectors.length; j++)
 					if (i != j)
 						selectors.item(j).classList.remove('active');
 			}
 
+			function clear() {
+				let actives = document.getElementsByClassName('tab-link active');
+				for (let j = 0; j < actives.length; j++)
+					actives.item(j).classList.remove('active');
+			}
+
+			function select(i) {
+				clear();
+				selectors[i].classList.add('active');
+			}
+
+			var observers = Array.apply(null, Array(4));
+
 			for (let i = 0; i < selectors.length; i++) {
 				selectors[i].onclick = function () {
-					document.getElementById(selectors[i].dataset.target).scrollIntoView();
-					selectors[i].classList.add('active');
-					clearOthers(i);
+					select(i);
 					if (mobileViewOpen())
 						toggleMenu();
 				}
+			}
+
+			for (let i = 0; i < observers.length; i++) {
+				observers[i] = new IntersectionObserver(function (entries) {
+					if (entries[0].isIntersecting === true) {
+						console.log(entries[0].target, 'Item has just APPEARED!');
+						select(i);
+					} else {
+						console.log('Item has just DISAPPEARED!');
+
+					}
+				}, { threshold: [0/* .25 */] });
+			}
+
+			function nearPose(x, poses, range) {
+				for (let i = 0; i < poses.length; i++)
+					if (withinRange(x, poses[i], range))
+						return i;
+				return -1;
+			}
+
+			function withinRange(x, num, range, incMin, incMax) {
+				return withinNums(x, num - range / 2, num + range / 2, incMin, incMax);
+			}
+
+			function withinNums(x, min, max, incMin, incMax) {
+				if (typeof incMin == "undefined")
+					incMin = true;
+				if (typeof incMax == "undefined")
+					incMax = true;
+
+				return ((incMin && x >= min) || x > min)
+					&& ((incMax && x <= max) || x < max)
 			}
 
 			// Nav Menu - onclick mobile menu
 			var navBg = document.getElementsByClassName('mobile-nav-background')[0];
 			var navMenu = document.getElementsByClassName('nav-menu')[0];
 			var mobileNavToggle = document.getElementsByClassName('mobile-nav-toggle')[0];
-			var header = document.getElementById('header');
 			let linesEl = mobileNavToggle.firstChild;
 
 			function mobileViewOpen() {
@@ -275,7 +347,6 @@
 
 			function toggleMenu(setMobile) {
 				let isUndefined = setMobile == undefined;
-				console.log(isUndefined, setMobile)
 				if ((!isUndefined && setMobile) || swapClassName(linesEl, 'fa-bars', 'fa-bars-staggered')) {
 					navBg.classList.add('mobile-nav-active');
 					swapClassName(navMenu, 'nav-menu', 'mobile-nav-menu')
