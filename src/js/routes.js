@@ -1,5 +1,5 @@
 
-import HeroPage from '../pages/newHero.f7';
+import HeroPage from '../pages/hero.f7';
 import ConnectFourGame from '../pages/connectFour.f7';
 import PictureEditor from '../pages/pictureEditor.f7';
 

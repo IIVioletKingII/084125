@@ -156,11 +156,7 @@
 						$update();
 					}
 					turn = (turn == 'blue' ? 'red' : 'blue');
-					// console.log(`pos ${curX}, ${curY}:`, win, bottom);
 				}
-
-
-				// console.log(turn + "'s turn", $td, col, rows);
 			});
 		}
 

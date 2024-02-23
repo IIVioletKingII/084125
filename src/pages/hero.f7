@@ -1,5 +1,5 @@
 <template>
-	<div class="page" data-name="hero2">
+	<div class="page" data-name="hero">
 
 		<div class="navbar"
 			style="--f7-navbar-text-color: white; --f7-list-item-title-text-color: white; --f7-navbar-link-color: white;">
@@ -132,7 +132,7 @@
 			console.log('%cHeyyy what are you doing here??', 'color: cyan;');
 
 			// addCSSRule(`
-			// .page[data-name="hero2"] .section-intro .spacer {
+			// .page[data-name="hero"] .section-intro .spacer {
 			// 	padding-right: 620px;
 			// }
 			// `);
@@ -214,15 +214,15 @@
 
 			let padding = 0;
 			if (ratio < 0.7) {
-				$(`.page[data-name="hero2"] .section-intro`).addClass('small');
+				$(`.page[data-name=""] .section-intro`).addClass('small');
 			} else {
-				$(`.page[data-name="hero2"] .section-intro`).removeClass('small');
+				$(`.page[data-name="hero"] .section-intro`).removeClass('small');
 
 				let scaledWidth = (3930 * winHeight) / 3744;
 				padding = 0.4 * (ratio > 1 ? winWidth : scaledWidth);
 			}
 			// console.log('', scaledWidth, padding);
-			$(`.page[data-name="hero2"] .section-intro .spacer`).css('padding-right', `${padding}px`);
+			$(`.page[data-name="hero"] .section-intro .spacer`).css('padding-right', `${padding}px`);
 		}
 
 
