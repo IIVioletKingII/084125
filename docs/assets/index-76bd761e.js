@@ -278,11 +278,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 				</div>
 				<div class="quick-jump flex row gap" style="--f7-button-height: 32px; --f7-button-font-size: 16px;">
 
-					<a href="#intro" class="button button-fill" @click="${o}">About</a>
+					<!-- <a href="#intro" class="button button-fill" @click="${o}">About</a>
 					<a href="#resume" class="button button-fill" @click="${o}">Resume</a>
-					<a href="#gallery" class="button button-fill" @click="${o}">Photos</a>
+					<a href="#gallery" class="button button-fill" @click="${o}">Photos</a> -->
 					<a href="/connect-four/" class="button button-fill color-green">Connect Four</a>
-					<a href="/picture-editor/" class="button button-fill color-green">Editor</a>
+					<a href="/picture-editor/" class="button button-fill color-green">Picture Editor</a>
 				</div>
 				<div class="right no-margin">
 
@@ -413,7 +413,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		</div>
 
 	</div>
-`}}Xs.id="1993d2b28f";Xs.style=`
+`}}Xs.id="1e8fe61d7b";Xs.style=`
 
 
 `;function _s(s,{$:e,$on:a,$f7:t,$store:r,$update:i}){let n="blue",o="",l={width:7,height:7},c=[0,1,1,1],d=[1,-1,0,1];a("pageInit",b=>{f(l.width,l.height),window.addEventListener("resize",p),p()});function p(){let b=e("#gameTable"),g=b.width(),w=b.height();w>g?b.css("height",`${g}px`):b.css("width",`${w}px`)}function u(){e(".tile.filled").removeClass("filled").removeClass("blue").removeClass("red"),e(".winner").css("display","none"),n="blue",o=""}function f(b,g){e("#gameTable").html(`
@@ -429,7 +429,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 					`).join("")}
 				</tbody>
 			`),document.querySelector("#gameTable tbody").addEventListener("click",w=>{let $=e(w.target).data("x"),y=e(`.tile:not(.filled)[data-x="${$}"]`);if(y.length>0&&n!="over"){let x=y.eq(y.length-1);x.addClass("filled").addClass(n);let P=parseInt(x.data("x")),k=parseInt(x.data("y"));m(P,k)&&(o=n[0].toUpperCase()+n.substring(1),e(".winner").css("display","flex"),n="over",i()),n=n=="blue"?"red":"blue"}})}function m(b,g){for(let w=0;w<4;w++){let C=c[w],$=d[w];if(1+h(b,g,C,$,0)+h(b,g,-C,-$,0)>=4)return!0}return!1}function h(b,g,w,C,$){let y=b+w,x=g+C;return v(y,0,l.width-1,!0)&&v(x,0,l.height-1,!0)&&e(`.tile[data-x="${y}"][data-y="${x}"]`).hasClass(n)?h(y,x,w,C,$+1):$}function v(b,g,w,C){return(C&&b>=g&&b<=w)|(!C&&b>g&&b<w)}return function(b){var g=b.$,w=b.$h,C=b.$root,$=b.$f7,y=b.$f7route,x=b.$f7router,P=b.$theme,k=b.$update,D=b.$store;return w`
-	<div class="page" data-name="connectFour">
+	<div class="page" data-name="connect-four">
 
 		<div class="navbar">
 			<div class="navbar-bg"></div>
@@ -461,7 +461,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		</div>
 
 	</div>
-`}}_s.id="85ce04c2dd";_s.style=`
+`}}_s.id="095f8c70ec";_s.style=`
 	#gameTable {
 
 		width: 100%;
@@ -514,7 +514,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		border: 1px solid;
 	}
 `;function Gs(s,{$:e,$on:a,$f7:t,$store:r}){let i=!1,n,o,l,c="jpeg",d,p=!0;a("pageInit",()=>{n=m()});function u(k){let D=e(k.target).closest(".button"),S=D.hasClass("popover-open");D.removeClass(S?"popover-open":"popover-close"),D.addClass(S?"popover-close":"popover-open"),D.children(".f7-icons").text("chevron_"+(S?"up":"down"))}function f(){var D;if(p=!p,(D=e("#lockButton").children(".f7-icons"))==null||D.text("lock"+(p?"":"_open")),e("#rWidthInput").val(p?2:""),e("#rHeightInput").val(p?1:""),p){let S=e("#widthInput").val();x(),w({target:{value:S}})}else x()}function m(){return parseFloat(e("#rWidthInput").val())/parseFloat(e("#rHeightInput").val())}function h(k){let D=parseFloat(k.target.value);console.log("newX",D),o==null||o.setData({x:D})}function v(k){e("#xInput").val(k)}function b(k){let D=parseFloat(k.target.value);console.log("newY",D),o==null||o.setData({y:D})}function g(k){e("#yInput").val(k)}function w(k){console.log("chjange width",k);let D={width:parseFloat(k.target.value)};p&&(D.height=D.width/n,y(D.height)),console.log("newParams",D),o==null||o.setData(D)}function C(k){e("#widthInput").val(k)}function $(k){let D={height:parseFloat(k.target.value)};p&&(D.width=D.height*n,C(D.width)),console.log("newParams",D),o==null||o.setData(D)}function y(k){e("#heightInput").val(k)}function x(){n=m(),console.log("new ratio:",n),o==null||o.setAspectRatio(n)}function P(k){console.log("photo change",k);let D=e("#imagePreview")[0],S=k.target.files[0],O=new FileReader,I=e("#download");O.onloadend=function(){D.src=O.result,D.style="",o=new Cropper(D,{aspectRatio:n,crop(M){v(M.detail.x),g(M.detail.y),C(M.detail.width),y(M.detail.height);let B=o.getCroppedCanvas({maxWidth:4096,maxHeight:4096}).toDataURL("image/"+c);I.attr("href",B),I.attr("download","cropped."+c)}})},S?O.readAsDataURL(S):(D.src="",D.style="display: none;")}return function(k){var D=k.$,S=k.$h,O=k.$root,I=k.$f7,M=k.$f7route,B=k.$f7router,F=k.$theme,R=k.$update,L=k.$store;return S`
-	<div class="page">
+	<div class="page" data-name="picture-editor">
 		<div class="navbar">
 			<div class="navbar-bg"></div>
 			<div class="navbar-inner sliding" style="flex-direction: row; justify-content: space-between;  padding: 0;">
@@ -621,7 +621,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 			</div>
 		</div>
 	</div>
-`}}Gs.id="936f68df7a";Gs.style=`
+`}}Gs.id="d32ce65731";Gs.style=`
 	#imagePreview {
 		object-fit: contain;
 		max-width: 100%;
@@ -650,7 +650,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		</div>
 
 	</div>
-`}}gn.id="ee3dcc02a1";let lh=[{path:"/",component:Xs},{path:"/picture-editor/",component:Gs},{path:"/connect-four/",component:_s},{path:"(.*)",component:gn}];je.use([Mi]);ze.use([wi,yi,Ei,Ci,$i,Si,Rs,Li,Bi,Ri,Hi,zi,Fi,Vi,Ni,Yi,Wi,qi]);const ch=ms({state:{resumeSections:[{sectionTitle:"Education",sections:2,tiles:[{icon:"fa-solid fa-graduation-cap",title:"Hazen High School",subtitles:["Renton • September 2020 - June 2023","GPA: 3.9"],detailsListColumns:2,detailsList:["AP Physics","AP Computer Science","Program Solving","Trigonometry","Networking I-III","University of Washington's CSE163 Data Science","Programming lead in the Robotics Team"]},{icon:"fa-solid fa-school",title:"Bellevue College",subtitles:["Bellevue • September 2021 - Present","GPA: 3.9"],detailsListColumns:2,detailsList:["MATH 151-153/254 Calculus I - IV","MATH 208 Linear Algebra","PHYS 121 Calculus Physics","MUSC 110-112 First Year Theory"]}]},{sectionTitle:"Work Experience",sections:2,tiles:[{icon:"fa-brands fa-android",title:"Programming Lead",subtitles:["Hazen Robotics","Renton • August 2022 - June 2023"],detailsListColumns:1,detailsList:["Teaching new members how to program and work in an organized fashion","Organize team members' projects/assignments based on skills and time commitment","Mentoring elementary/middle school robotics team (FIRST Lego League) "]},{icon:"fa-solid fa-chalkboard-user",title:"Web Developer",subtitles:["HD Fowler Co.","Bellevue, Washington, United States • June 2022 - Present"],detailsListColumns:1,detailsList:["Worked with back-end developers to connect data to users, with a device friendly interface, via the web"]}]},{sectionTitle:"Volunteer Experience",sections:2,tiles:[{icon:"fa-solid fa-sliders",title:"Audio Engineer",subtitles:["New Life Church"],detailsListColumns:2,detailsList:["Volunteer with whatever help may be needed. I.e. Camera, Lighting (Vista 3, GrandMA 3), Video Slides (ProPresenter), Audio (A&H), etc.","Volunteer 3-4 times per week with Sunday Services and rehearsals, Youth Group, and other events like funerals, weddings, school events, etc."]},{icon:"fa-solid fa-gear",title:'FIRST <a href="https://www.firstinspires.org/robotics/ftc" class="link external" target="_blank" rel="noopener noreferrer">FTC</a> Mentor',subtitles:["Dimmit Middle School Robotics"],detailsListColumns:1,detailsList:["Volunteer with the middle school, teaching the students the basics of FTC and preparing them for advanced teams in High School."]}]},{sectionTitle:"Awards and Achievements",sections:1,tiles:[{icon:"fa-solid fa-id-badge",title:"",subtitles:[],detailsListColumns:2,detailsList:["High School Lettered in Robotics and Band","Eagle Scout, May 2021","Superintendent's Gold Certificate of Merit, May 2023","President's Education Award, May 2023","Oliver M. Hazen Award, May 2023","Hibbard Memorial Award for Musical Excellence, June 2023"]}]},{sectionTitle:"Activities and Interests",sections:1,tiles:[{icon:"fa-solid fa-brain",title:"",subtitles:[],detailsListColumns:2,detailsList:["Computer Programming","Band (Marching Percussion)","Choir","Robotics Mentor (FIRST Tech Challenge)","Bellevue Youth Symphony Orchestra (Bassoon)","Church Worship Band (Piano)","Audio Engineering"]}]}]},getters:{},actions:{addProduct({state:s},e){s.products=[...s.products,e]}}});function vn(s,{$f7:e,$update:a}){let t="",r="";const i=l=>{t=l.target.value,a()},n=l=>{r=l.target.value,a()},o=()=>{e.dialog.alert("Username: "+t+"<br/>Password: "+r,()=>{e.loginScreen.close()})};return function(l){var c=l.$,d=l.$h,p=l.$root,u=l.$f7,f=l.$f7route,m=l.$f7router,h=l.$theme,v=l.$update,b=l.$store;return d`
+`}}gn.id="660e4c5675";const lh=[{path:"/",component:Xs},{path:"/picture-editor/",component:Gs},{path:"/connect-four/",component:_s},{path:"(.*)",component:gn}];je.use([Mi]);ze.use([wi,yi,Ei,Ci,$i,Si,Rs,Li,Bi,Ri,Hi,zi,Fi,Vi,Ni,Yi,Wi,qi]);const ch=ms({state:{resumeSections:[{sectionTitle:"Education",sections:2,tiles:[{icon:"fa-solid fa-graduation-cap",title:"Hazen High School",subtitles:["Renton • September 2020 - June 2023","GPA: 3.9"],detailsListColumns:2,detailsList:["AP Physics","AP Computer Science","Program Solving","Trigonometry","Networking I-III","University of Washington's CSE163 Data Science","Programming lead in the Robotics Team"]},{icon:"fa-solid fa-school",title:"Bellevue College",subtitles:["Bellevue • September 2021 - Present","GPA: 3.9"],detailsListColumns:2,detailsList:["MATH 151-153/254 Calculus I - IV","MATH 208 Linear Algebra","PHYS 121 Calculus Physics","MUSC 110-112 First Year Theory"]}]},{sectionTitle:"Work Experience",sections:2,tiles:[{icon:"fa-brands fa-android",title:"Programming Lead",subtitles:["Hazen Robotics","Renton • August 2022 - June 2023"],detailsListColumns:1,detailsList:["Teaching new members how to program and work in an organized fashion","Organize team members' projects/assignments based on skills and time commitment","Mentoring elementary/middle school robotics team (FIRST Lego League) "]},{icon:"fa-solid fa-chalkboard-user",title:"Web Developer",subtitles:["HD Fowler Co.","Bellevue, Washington, United States • June 2022 - Present"],detailsListColumns:1,detailsList:["Worked with back-end developers to connect data to users, with a device friendly interface, via the web"]}]},{sectionTitle:"Volunteer Experience",sections:2,tiles:[{icon:"fa-solid fa-sliders",title:"Audio Engineer",subtitles:["New Life Church"],detailsListColumns:2,detailsList:["Volunteer with whatever help may be needed. I.e. Camera, Lighting (Vista 3, GrandMA 3), Video Slides (ProPresenter), Audio (A&H), etc.","Volunteer 3-4 times per week with Sunday Services and rehearsals, Youth Group, and other events like funerals, weddings, school events, etc."]},{icon:"fa-solid fa-gear",title:'FIRST <a href="https://www.firstinspires.org/robotics/ftc" class="link external" target="_blank" rel="noopener noreferrer">FTC</a> Mentor',subtitles:["Dimmit Middle School Robotics"],detailsListColumns:1,detailsList:["Volunteer with the middle school, teaching the students the basics of FTC and preparing them for advanced teams in High School."]}]},{sectionTitle:"Awards and Achievements",sections:1,tiles:[{icon:"fa-solid fa-id-badge",title:"",subtitles:[],detailsListColumns:2,detailsList:["High School Lettered in Robotics and Band","Eagle Scout, May 2021","Superintendent's Gold Certificate of Merit, May 2023","President's Education Award, May 2023","Oliver M. Hazen Award, May 2023","Hibbard Memorial Award for Musical Excellence, June 2023"]}]},{sectionTitle:"Activities and Interests",sections:1,tiles:[{icon:"fa-solid fa-brain",title:"",subtitles:[],detailsListColumns:2,detailsList:["Computer Programming","Band (Marching Percussion)","Choir","Robotics Mentor (FIRST Tech Challenge)","Bellevue Youth Symphony Orchestra (Bassoon)","Church Worship Band (Piano)","Audio Engineering"]}]}]},getters:{},actions:{addProduct({state:s},e){s.products=[...s.products,e]}}});function vn(s,{$f7:e,$update:a}){let t="",r="";const i=l=>{t=l.target.value,a()},n=l=>{r=l.target.value,a()},o=()=>{e.dialog.alert("Username: "+t+"<br/>Password: "+r,()=>{e.loginScreen.close()})};return function(l){var c=l.$,d=l.$h,p=l.$root,u=l.$f7,f=l.$f7route,m=l.$f7router,h=l.$theme,v=l.$update,b=l.$store;return d`
 	<div id="app">
 		<div class="view view-main view-init safe-areas" data-url="/"></div>
 
@@ -695,4 +695,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		<!-- </div> -->
 
 	</div>
-`}}vn.id="dd4e62e31b";window.Cropper=mn;var qh=new ze({name:"Sam-DePoule",theme:"auto",el:"#app",component:vn,darkMode:"auto",store:ch,routes:lh,view:{browserHistorySeparator:"#"},on:{init:function(){dh(this)}}});function dh(s){let e=window.location.hash;if(console.log("hash",e,s.views),e.length>0&&e.startsWith("#")){let a=e.substring(0)}}window.removeCookie=s=>{console.log("removie cookie",s,"from",document.cookie),document.cookie=`${s}=; expires=${new Date().toUTCString()}`};window.setCookie=(s,e,a)=>{let t=new Date(new Date().getTime()+a*24*60*60*1e3);console.log("set cookie",{key:s,value:e,time:t.toString()}),document.cookie=`${s}=${e}; expires=${t.toUTCString()}; path=/`};window.splitCookies=s=>{s=s.split(/; ?/);let e={};for(const a of s){let t=a.split("=");t.length==2&&(e[t[0]]=t[1])}return e};
+`}}vn.id="755b7790ea";window.Cropper=mn;var qh=new ze({name:"Sam-DePoule",theme:"auto",el:"#app",component:vn,darkMode:"auto",store:ch,routes:lh,view:{browserHistorySeparator:"#"},on:{init:function(){dh(this)}}});function dh(s){let e=window.location.hash;if(console.log("hash",e,s.views),e.length>0&&e.startsWith("#")){let a=e.substring(0)}}window.removeCookie=s=>{console.log("removie cookie",s,"from",document.cookie),document.cookie=`${s}=; expires=${new Date().toUTCString()}`};window.setCookie=(s,e,a)=>{let t=new Date(new Date().getTime()+a*24*60*60*1e3);console.log("set cookie",{key:s,value:e,time:t.toString()}),document.cookie=`${s}=${e}; expires=${t.toUTCString()}; path=/`};window.splitCookies=s=>{s=s.split(/; ?/);let e={};for(const a of s){let t=a.split("=");t.length==2&&(e[t[0]]=t[1])}return e};

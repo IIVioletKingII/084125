@@ -1,5 +1,5 @@
 <template>
-	<div class="page" data-name="connectFour">
+	<div class="page" data-name="connect-four">
 
 		<div class="navbar">
 			<div class="navbar-bg"></div>
@@ -172,8 +172,6 @@
 
 				if (length >= 4)
 					return true;
-
-
 			}
 			return false;
 		}

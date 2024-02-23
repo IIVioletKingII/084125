@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="page" data-name="picture-editor">
 		<div class="navbar">
 			<div class="navbar-bg"></div>
 			<div class="navbar-inner sliding" style="flex-direction: row; justify-content: space-between;  padding: 0;">

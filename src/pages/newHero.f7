@@ -11,11 +11,11 @@
 				</div>
 				<div class="quick-jump flex row gap" style="--f7-button-height: 32px; --f7-button-font-size: 16px;">
 
-					<a href="#intro" class="button button-fill" @click="${scrollTo}">About</a>
+					<!-- <a href="#intro" class="button button-fill" @click="${scrollTo}">About</a>
 					<a href="#resume" class="button button-fill" @click="${scrollTo}">Resume</a>
-					<a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a>
+					<a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a> -->
 					<a href="/connect-four/" class="button button-fill color-green">Connect Four</a>
-					<a href="/picture-editor/" class="button button-fill color-green">Editor</a>
+					<a href="/picture-editor/" class="button button-fill color-green">Picture Editor</a>
 				</div>
 				<div class="right no-margin">
 

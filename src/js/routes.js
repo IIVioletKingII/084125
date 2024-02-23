@@ -1,13 +1,11 @@
 
-
-
 import HeroPage from '../pages/newHero.f7';
 import ConnectFourGame from '../pages/connectFour.f7';
 import PictureEditor from '../pages/pictureEditor.f7';
 
 import NotFoundPage from '../pages/404.f7';
 
-let routes = [
+const routes = [
 	{
 		path: '/',
 		component: HeroPage, // HomePage,
