@@ -91,7 +91,6 @@
 						<div class="block" style="--f7-block-padding-horizontal: 32px;">
 
 							<div class="flex row" style="justify-content: center;">
-								<!-- <img src="./images/share.svg" class="qr-code" alt="qr-code" width="400" height="400" /> -->
 								<div class="qr-code"></div>
 							</div>
 
