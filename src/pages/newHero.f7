@@ -1,0 +1,262 @@
+<template>
+	<div class="page" data-name="hero2">
+
+		<!-- 
+
+https://codepen.io/sosuke/pen/Pjoqqp
+https://fontawesome.com/search
+
+		 -->
+
+		<div class="navbar"
+			style="--f7-navbar-text-color: white; --f7-list-item-title-text-color: white; --f7-navbar-link-color: white;">
+			<div class="navbar-inner sliding" style="padding: 0 1rem; justify-content: space-between; gap: 16px;">
+				<div class="share">
+					<a href="#" class="link icon-only popup-open" data-popup=".popup-share">
+						<i class="icon material-icons">share</i>
+					</a>
+				</div>
+				<div class="quick-jump flex row gap" style="--f7-button-height: 32px; --f7-button-font-size: 16px;">
+
+					<a href="#intro" class="button button-fill" @click="${scrollTo}">About</a>
+					<a href="#resume" class="button button-fill" @click="${scrollTo}">Resume</a>
+					<a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a>
+					<a href="/connect-four/" class="button button-fill color-green">Connect Four</a>
+				</div>
+				<div class="right no-margin">
+
+					<div class="list" style="color: white; --f7-list-item-title-font-size: 20px;">
+						<ul>
+							<li>
+								<label class="item-content" style="border-radius: 1rem;">
+									<div class="item-inner">
+										<div class="item-title">Dark mode</div>
+										<div class="item-after">
+											<div class="toggle toggle-init color-yellow">
+												<input id="darkModeToggle" type="checkbox" />
+												<span class="toggle-icon"></span>
+											</div>
+										</div>
+									</div>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="page-content hide-navbar-on-scroll" style="padding-top: 0;">
+
+
+			<div class="section-intro parallax-hero-picture" id="intro">
+				<div class="spacer">
+					<div class="container">
+						<div class="title">Hey, I'm Sam DePoule</div>
+						<div class="about">
+							I am ${getAgeA(myAge())} ${myAge()} year old aspiring student! I love to program, sing, play
+							piano and bassoon, mix audio, and explore STEM interests!
+						</div>
+						<div class="contact flex row gap">
+							<a href="https://github.com/IIVioletKingII" class="link external" target="_blank">
+								<i class="fa-brands fa-github"></i>
+							</a>
+							<a href="https://www.instagram.com/II_BlueKing_II" class="link external" target="_blank">
+								<i class="fa-brands fa-instagram"></i>
+							</a><a href="https://www.linkedin.com/in/samuel-depoule/" class="link external"
+								target="_blank">
+								<i class="fa-brands fa-linkedin"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="section-resume" id="resume">
+				<div class="block">
+					<div class="block-title">Resume</div>
+				</div>
+			</div>
+			<div class="section-gallery" id="gallery">
+				<div class="block">
+					<div class="block-title">Gallery <span style="font-size: medium;"> (coming soon)</span></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="popup popup-share" data-close-on-escape="true">
+			<div class="view">
+				<div class="page">
+					<div class="page-content" style="position: relative;">
+						<a class="link popup-close font-size-26"
+							style="position: absolute; top: 2rem; right: 2rem; z-index: 1000; width: 28px; height: 28px;">
+							<i class="fa-solid fa-xmark"></i>
+						</a>
+						<div class="block" style="--f7-block-padding-horizontal: 32px;">
+
+							<div class="flex row" style="justify-content: center;">
+								<!-- <img src="./images/share.svg" class="qr-code" alt="qr-code" width="400" height="400" /> -->
+								<div class="qr-code"></div>
+							</div>
+
+							<div class="list list-strong-ios list-dividers-ios inset-ios">
+								<ul>
+									<li class="item-content item-input no-margin">
+										<div class="item-inner">
+											<div class="item-input-wrap">
+												<input type="text" style="font-size: 18px;"
+													value="https://iivioletkingii.github.io/sam-depoule/" readonly />
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</template>
+<style>
+
+
+</style>
+<script>
+
+	export default (props, { $, $on, $f7, $store }) => {
+
+		let resumeSections = $store.state.resumeSections;
+		const imageString = 'https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-';
+
+		$on('pageInit', (e) => {
+
+			console.log('Heyyy', 'what are you doing here??');
+
+			// addCSSRule(`
+			// .page[data-name="hero2"] .section-intro .spacer {
+			// 	padding-right: 620px;
+			// }
+			// `);
+
+			repositionTitle();
+
+			window.onresize = () => {
+				repositionTitle();
+			}
+
+
+			let cookies = splitCookies(document.cookie);
+			if (cookies.hasOwnProperty('darkMode')) {
+				$f7.setDarkMode(cookies.darkMode === 'true');
+				setCookie('darkMode', cookies.darkMode, 7 /* days */)
+			}
+
+			$('#darkModeToggle').prop('checked', $f7.darkMode);
+
+			$('#darkModeToggle').on('change', (e) => {
+				let checked = $('#darkModeToggle').prop('checked');
+				$f7.setDarkMode(checked);
+				setCookie('darkMode', checked, 7 /* days */)
+			})
+
+
+
+			$('#resume .block').html(`
+				<div class="block-title">Resume</div>
+				${resumeSections.map((resumeSection) => `
+					<div class="resume-header">${resumeSection.sectionTitle}</div>
+					<div class="resume-section" data-sections="${resumeSection.sections}">
+						${resumeSection.tiles?.map((tile) => `
+
+						<div class="resume-tile">
+							<div class="resume-icon">
+								<i class="${tile.icon}"></i>
+							</div>
+
+							<div class="resume-subheader">${tile.title}</div>
+							<div class="resume-info">
+							${tile.subtitles?.map((subtitle) => `
+								<span>${subtitle}</span>
+							`).join('')}
+								<div class="resume-list" data-columns="${tile.detailsListColumns}">
+									<ul>
+									${tile.detailsList?.map((detail) => `
+										<li><span>${detail}</span></li>
+									`).join('')}
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					`).join('')}
+					</div>
+
+				`).join('')}
+			`);
+
+		});
+
+		function scrollTo(el) {
+			let $el = $(el.target);
+			let target = $($el.attr('href'));
+			target.scrollTop(2000, 500)
+			console.log('scroolto', $el, $el.attr('href'), target, target.scrollTop());
+			$(document.body).scrollTop(0, target.scrollTop(), 2000);
+		}
+
+		function repositionTitle() {
+
+			let winHeight = $(window).height();
+			let winWidth = $(window).width();
+
+			let ratio = winWidth / winHeight
+
+			// console.log(ratio, winWidth, bg.width());
+
+			let padding = 0;
+			if (ratio < 0.7) {
+				$(`.page[data-name="hero2"] .section-intro`).addClass('small');
+			} else {
+				$(`.page[data-name="hero2"] .section-intro`).removeClass('small');
+
+				let scaledWidth = (3930 * winHeight) / 3744;
+				padding = 0.4 * (ratio > 1 ? winWidth : scaledWidth);
+			}
+			// console.log('', scaledWidth, padding);
+			$(`.page[data-name="hero2"] .section-intro .spacer`).css('padding-right', `${padding}px`);
+		}
+
+
+		function addCSSRule(css) {
+			return document.head.appendChild(document.createElement("style")).innerHTML = css
+		};
+
+
+		function getAgeA(age) {
+			let ageStr = age + '';
+			if (ageStr.length > 0) {
+				if (ageStr[0] == '8')
+					return 'an'
+
+				if (ageStr.length > 1) {
+					if ((ageStr[0] == '1' && ageStr[1] == '8') || ageStr[0] == '8')
+						return 'an'
+				}
+			}
+			return 'a';
+		}
+
+		function myAge() {
+			let age = new Date(new Date().getTime() - new Date('04-12-05').getTime());
+			return Math.abs(age.getUTCFullYear() - 1970);
+		}
+
+		return $render;
+	}
+</script>

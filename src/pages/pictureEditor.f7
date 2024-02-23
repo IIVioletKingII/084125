@@ -13,7 +13,7 @@
 					</label>
 					<a id="download" class="button button-tonal link external"
 						style="padding: 0; aspect-ratio: 8/7; height: auto; justify-content: center;">
-						<i class="f7-icons size-22">tray_arrow_down</i>
+						<i class="f7-icons font-size-22">tray_arrow_down</i>
 					</a>
 
 					<div class="button button-tonal popover-open" data-popover="#settingsPopover"
@@ -44,12 +44,13 @@
 								<div class="item-content item-input item-input-outline small-item">
 									<div class="item-inner">
 										<div class="item-title item-label">
-											(Ratio: W <i class="f7-icons size-10" style="margin: 0 0px;">xmark</i> H)
+											(Ratio: W <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i>
+											H)
 										</div>
 										<div class="item-input-wrap flex row" style="align-items: center;">
 											<input type="number" class="number-input" id="rWidthInput" min="0" value="2"
 												onchange="${onRatioChange}" onfocusout="${onRatioChange}" />
-											<i class="f7-icons size-16" style="margin: 0 8px;">xmark</i>
+											<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
 
 											<input type="number" class="number-input" id="rHeightInput" min="0"
 												value="1" onchange="${onRatioChange}" onfocusout="${onRatioChange}" />
@@ -65,12 +66,12 @@
 							<li class="item-content item-input item-input-outline">
 								<div class="item-inner">
 									<div class="item-title item-label">
-										(X <i class="f7-icons size-10" style="margin: 0 0px;">xmark</i> Y)
+										(X <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i> Y)
 									</div>
 									<div class="item-input-wrap flex row" style="align-items: center;">
 										<input type="number" class="number-input" id="xInput" min="0" value="0"
 											onchange="${onChangeX}" onfocusout="${onChangeX}" />
-										<i class="f7-icons size-16" style="margin: 0 8px;">xmark</i>
+										<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
 
 										<input type="number" class="number-input" id="yInput" min="0" value="0"
 											onchange="${onChangeY}" onfocusout="${onChangeY}" />
@@ -81,12 +82,12 @@
 							<li class="item-content item-input item-input-outline">
 								<div class="item-inner">
 									<div class="item-title item-label">
-										(Width <i class="f7-icons size-10" style="margin: 0 0px;">xmark</i> Height)
+										(Width <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i> Height)
 									</div>
 									<div class="item-input-wrap flex row" style="align-items: center;">
 										<input type="number" class="number-input" id="widthInput" min="0" value="0"
 											onchange="${onChangeWidth}" onfocusout="${onChangeWidth}" />
-										<i class="f7-icons size-16" style="margin: 0 8px;">xmark</i>
+										<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
 
 										<input type="number" class="number-input" id="heightInput" min="0" value="0"
 											onchange="${onChangeHeight}" onfocusout="${onChangeHeight}" />

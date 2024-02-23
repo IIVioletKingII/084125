@@ -1,5 +1,6 @@
 <template>
 	<div class="page" data-name="home">
+
 		<header id="header" class="d-flex justify-content-center">
 
 			<a class="mobile-nav-toggle">
@@ -27,7 +28,35 @@
 			</nav>
 		</header>
 
-		<div class="page-content ">
+		<div class="page-content">
+
+			<div class="popup popup-tablet-fullscreen popup-photo-viewer" data-close-on-escape="true">
+				<a class="link popup-close font-16">
+					<i class="fa-solid fa-xmark"></i>
+				</a>
+				<div class="immage-wrapper">
+					<img id="fullscreen-image" class="lazy lazy-fade-in" alt="Picture of Sam"
+						data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-258.jpg" />
+				</div>
+				<!-- <div class="view">
+					<div class="page">
+						<div class="navbar">
+							<div class="navbar-bg"></div>
+							<div class="navbar-inner">
+								<div class="title">Popup</div>
+								<div class="right">
+									
+
+								</div>
+							</div>
+						</div>
+						<div class="page-content">
+							
+						</div>
+					</div>
+				</div> -->
+			</div>
+
 			<swiper-container class="tabs">
 				<swiper-slide id="hero" class="page-content tab tab-active hero-picture">
 
@@ -35,7 +64,7 @@
 				<swiper-slide id="about" class="page-content tab">
 
 					<div class="block if-not-md if-not-ios"></div>
-					<div class="block${$f7.device.desktop ? ' navbar-margin' : ''}">
+					<div class="block${$f7.device.desktop ? ' 9' : ''}">
 
 						<div class="block-title">About</div>
 						<p>Greetings! I'm Sam DePoule! I am a programmer, musician, and technology/production
@@ -49,11 +78,10 @@
 						<div class="block-title">Gallery</div>
 						<div id="photo-gallery" class="photo-gallery">
 						</div>
-						<div id="photo-viewer">
-							<i class="fa-solid fa-xmark"></i>
-							<img id="fullscreen-image" class="lazy lazy-fade-in" alt="Picture of Sam"
-								data-src="https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/sam-258.jpg" />
-						</div>
+						<!-- <div id="photo-viewer">
+							
+							
+						</div> -->
 					</div>
 				</swiper-slide>
 				<swiper-slide id="resume" class="page-content tab tab">
@@ -103,6 +131,59 @@
 		</div>
 	</div>
 </template>
+<style>
+	.popup-photo-viewer {
+		background: transparent !important;
+		--border: 4rem;
+		max-width: calc(100vw - var(--border) * 2) !important;
+		max-height: calc(100vh - var(--border) * 2) !important;
+		width: auto !important;
+		height: auto !important;
+		/* top: var(--border) !important;
+		left: var(--border) !important; */
+		top: 50%;
+		left: 50%;
+		margin: 0 !important;
+		transform: translate(-50%, -50%) !important;
+		overflow: visible;
+	}
+
+	.immage-wrapper {
+
+		border-radius: 2rem;
+		overflow: clip;
+		/* padding: var(--border);
+		display: flex;
+		justify-content: center;
+		height: 100%; */
+	}
+
+
+	#fullscreen-image {
+		max-width: calc(100vw - var(--border) * 2) !important;
+		max-height: calc(100vh - var(--border) * 2) !important;
+		/* max-width: 100%;
+		max-height: 100%; */
+		object-fit: contain;
+		pointer-events: auto;
+	}
+
+
+	.popup-photo-viewer img {
+
+		/* width: auto !important;
+		height: auto !important; */
+	}
+
+	.popup-photo-viewer .popup-close {
+		position: absolute;
+		right: calc(var(--border) / -2);
+		top: calc(var(--border) / -2);
+		font-size: 28px;
+		/* font-weight: 100; */
+		transform: translate(50%, -50%) !important;
+	}
+</style>
 <script>
 
 	export default (props, { $, $on, $f7, $store }) => {
@@ -151,28 +232,43 @@
 
 				return `<div id="photo-sam-${pictureNum}" class="photo-tile${(viewType == '' ? '' : ' ') + viewType}">
 					<img src="${imageString}scaled-${pictureNum}.jpg"
-					class="lazy lazy-fade-in picture" alt="Picture of Sam" />
+					class="popup-open lazy lazy-fade-in picture" data-popup=".popup-photo-viewer" alt="Picture of Sam" />
 					</div>`;
 			}).join('');
 
-			// View Gallery Image
-			let pictureViewer = document.getElementById('photo-viewer');
-			let pictureView = document.getElementById('fullscreen-image');
-			let header = document.getElementById('header');
-			for (let i = 0; i < picturesList.length; i++) {
-				document.getElementById('photo-sam-' + picturesList[i]).onclick = function (event) {
-					// console.log(event);
-					pictureView.src = imageString + picturesList[i] + '.jpg';
-					pictureViewer.style.display = 'flex';
-					header.style.display = 'none';
-				}
-			}
+			$('.picture').on('click', (e) => {
+				let src = e.target.src ? e.target.src : '';
+				$('#fullscreen-image').attr('src', src.replace('-scaled', ''))
+			})
 
-			pictureViewer.onclick = function (event) {
-				// console.log(event)
-				pictureViewer.style.display = 'none';
-				header.style.display = 'flex';
-			}
+			$f7.popup.create({
+				el: '.popup-photo-viewer',
+				// swipeToClose: true,
+				on: {
+					open: (popup) => {
+						console.log('Popup open', popup)
+					}
+				}
+			});
+
+			// View Gallery Image
+			// let pictureViewer = document.getElementById('photo-viewer');
+			// let pictureView = document.getElementById('fullscreen-image');
+			// let header = document.getElementById('header');
+			// for (let i = 0; i < picturesList.length; i++) {
+			// 	document.getElementById('photo-sam-' + picturesList[i]).onclick = function (event) {
+			// 		// console.log(event);
+			// 		pictureView.src = imageString + picturesList[i] + '.jpg';
+			// 		pictureViewer.style.display = 'flex';
+			// 		header.style.display = 'none';
+			// 	}
+			// }
+
+			// pictureViewer.onclick = function (event) {
+			// 	// console.log(event)
+			// 	pictureViewer.style.display = 'none';
+			// 	header.style.display = 'flex';
+			// }
 
 
 			// Nav Menu - onclick tab-links
@@ -230,9 +326,9 @@
 			}
 
 			function withinNums(x, min, max, incMin, incMax) {
-				if (incMin == undefined)
+				if (typeof incMin == "undefined")
 					incMin = true;
-				if (incMax == undefined)
+				if (typeof incMax == "undefined")
 					incMax = true;
 
 				return ((incMin && x >= min) || x > min)
