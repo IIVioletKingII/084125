@@ -58,7 +58,15 @@ function onAfterInit($f7) {
 			test: 'testing'
 		}
 	});
-	$f7.mainView.router.navigate('/');
+	$f7.mainView.router.navigate('/#/');
+
+	$f7.$(document).on('page:afterin', () => {
+		let $store = $f7.store;
+		// console.log('test', $store.state.firstLoad);
+		$store.dispatch('onLoad', '/');
+	});
+
+	console.log('%cHeyyy what are you doing here??', 'color: cyan;');
 }
 
 

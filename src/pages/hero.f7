@@ -147,8 +147,6 @@
 
 		$on('pageInit', (e) => {
 
-			console.log('%cHeyyy what are you doing here??', 'color: cyan;');
-
 			// addCSSRule(`
 			// .page[data-name="hero"] .section-intro .spacer {
 			// 	padding-right: 620px;

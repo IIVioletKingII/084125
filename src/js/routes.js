@@ -25,7 +25,7 @@ const routes = [
 	},
 	{
 		path: '(.*)',
-		component: NotFoundPage,
+		component: HeroPage, // NotFoundPage,
 	},
 ];
 

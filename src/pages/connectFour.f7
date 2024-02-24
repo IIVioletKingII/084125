@@ -6,7 +6,7 @@
 			<div class="navbar-inner sliding" style="justify-content: space-between; gap: 16px;">
 				<div class="flex row ">
 					<div class="margin-horizontal-half">
-						<a href="#" class="link back">
+						<a href="/" class="link${!$store.state.firstLoad ? ' back' : ''}">
 							<i class="icon icon-back"></i>
 							<span class="if-not-md">Back</span>
 						</a>
@@ -36,7 +36,7 @@
 								<li>
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
-											<input id="delayToggle" type="range" min="0" max="500" step="1"
+											<input id="delaySlider" type="range" min="0" max="500" step="1"
 												value="450" />
 										</div>
 									</div>
@@ -187,9 +187,9 @@
 
 			});
 
-			$('#delayToggle').prop('checked', delay);
-			$('#delayToggle').on('change', () => {
-				delay = $('#delayToggle').val();
+			$('#delaySlider').prop('checked', delay);
+			$('#delaySlider').on('change', () => {
+				delay = $('#delaySlider').val();
 			});
 		});
 

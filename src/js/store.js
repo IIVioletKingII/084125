@@ -3,6 +3,8 @@ import { createStore } from 'framework7';
 
 const store = createStore({
 	state: {
+		firstLoad: true,
+		firstPage: '',
 		resumeSections: [
 			{
 				sectionTitle: 'Education',
@@ -159,8 +161,9 @@ const store = createStore({
 	getters: {
 	},
 	actions: {
-		addProduct({ state }, product) {
-			state.products = [...state.products, product];
+		onLoad({ state }, page) {
+			state.firstPage = page;
+			state.firstLoad = false;
 		},
 	},
 })

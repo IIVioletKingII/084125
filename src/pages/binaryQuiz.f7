@@ -4,9 +4,9 @@
 		<div class="navbar" sty>
 			<div class="navbar-bg"></div>
 			<div class="navbar-inner sliding" style="justify-content: space-between; gap: 16px;">
-				<div class="flex row ">
+				<div class="flex row">
 					<div class="margin-horizontal-half">
-						<a href="#" class="link back">
+						<a href="/" class="link${!$store.state.firstLoad ? ' back' : ''}">
 							<i class="icon icon-back"></i>
 							<span class="if-not-md">Back</span>
 						</a>
@@ -16,28 +16,111 @@
 			</div>
 		</div>
 
-		<div class="page-content">
+		<div class="page-content" style="--f7-block-title-font-size: 18px;">
+
+			<div class="block-title">
+				Settings
+			</div>
+			<div class="block flex row gap" style="--gap: 8px;">
+				<span class="title" style="align-self: center;">
+					Signal Bit
+				</span>
+				<label class="item-content">
+					<div class="item-inner">
+						<div class="item-after">
+							<div class="toggle toggle-init color-blue">
+								<input id="signalToggle" type="checkbox" />
+								<span class="toggle-icon" style="scale: 0.8"></span>
+							</div>
+						</div>
+					</div>
+				</label>
+				<span></span>
+				<span class="title" style="align-self: center;">
+					Number of bits
+				</span>
+				<div class="list no-margin flex">
+					<ul style="align-self: center;">
+						<li>
+							<div style="min-width: 150px; margin: 0 16px">
+								<div class="range-slider range-slider-init color-blue" data-label="true">
+									<input id="delayToggle" type="range" min="1" max="16" step="1" value="4" />
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div><span></span>
+				<span class="title" style="align-self: center;">
+					Difficulty
+				</span>
+				<div class="list no-margin flex">
+					<ul style="align-self: center;">
+						<li>
+							<div style="min-width: 100px; margin: 0 16px">
+								<div class="range-slider range-slider-init color-blue" data-label="true">
+									<input id="difficultyToggle" type="range" min="0" max="1" step="0.01" value="0.5" />
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block-title">
+				Try it!
+			</div>
+			<div class="block flex row gap align-content-center" style="--gap: 4px;">
+				<div class="resetBitEntry flex row gap"></div>
+				<span class="text-align-center"> = </span>
+				<div class="answer">
+
+				</div>
+			</div>
 
 		</div>
 
 	</div>
 </template>
 <style>
+	.bit {
+		padding: 0.5rem;
+		background: rgb(70, 70, 70);
+		background-color: var(--f7-navbar-bg-color, var(--f7-bars-bg-color));
+		border-radius: 0.5rem;
+	}
+
+	.bit.signal {
+		color: var(--f7-theme-color);
+	}
 </style>
 <script>
 
 	export default (props, { $, $on, $f7, $store, $update }) => {
 
 		$on('pageInit', (e) => {
-
+			resetBitEntry();
+			$('#signalToggle').on('change', (e) => {
+				resetBitEntry();
+			});
+			$('#delayToggle').on('change', (e) => {
+				resetBitEntry();
+			});
+			$('#difficultyToggle').on('change', (e) => {
+				resetBitEntry();
+			});
 		});
 
-		function resizeGrid() {
-
-		}
-
-		function reset() {
-
+		function resetBitEntry() {
+			let difficulty = $('#difficultyToggle').val();
+			let randomBit = () => Math.random() < difficulty ? 1 : 0;
+			$('.resetBitEntry').html(`
+				${$('#signalToggle').prop('checked') ? `
+					<div class="bit signal">${randomBit()}</div>
+				` : ''}
+				${Array.from({ length: $('#delayToggle').val() }, (y, i) => `
+					<div class="bit" data-index="${y}">${randomBit()}</div>
+				`).join('')}
+			`);
 		}
 
 		return $render;
