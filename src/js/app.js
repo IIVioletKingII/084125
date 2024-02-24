@@ -51,20 +51,19 @@ function onAfterInit($f7) {
 	// 	let page = hash.substring(0);
 
 	// }
-
-
+	app.f7.views.main.router.navigate('/');
 }
 
 
 window.removeCookie = (cookie) => {
-	console.log('removie cookie', cookie, 'from', document.cookie);
+	// console.log('removie cookie', cookie, 'from', document.cookie);
 	document.cookie = `${cookie}=; expires=${new Date().toUTCString()}`
 }
 
 window.setCookie = (key, value, expireDays) => {
 
 	let time = new Date(new Date().getTime() + expireDays * 24 * 60 * 60 * 1000);
-	console.log('set cookie', { key: key, value: value, time: time.toString() });
+	// console.log('set cookie', { key: key, value: value, time: time.toString() });
 	document.cookie = `${key}=${value}; expires=${time.toUTCString()}; path=/`;
 }
 
