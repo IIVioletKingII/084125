@@ -73,7 +73,7 @@
 				<div class="resetBitEntry flex row gap"></div>
 				<span class="text-align-center"> = </span>
 				<div class="answer">
-
+					${getBitAnswer()}
 				</div>
 			</div>
 
@@ -89,8 +89,15 @@
 		border-radius: 0.5rem;
 	}
 
-	.bit.signal {
+	.bit[data-index="signal"] {
 		color: var(--f7-theme-color);
+	}
+
+	.bit input {
+		text-align: center;
+		min-width: 0;
+		width: auto !important;
+		max-width: 40px;
 	}
 </style>
 <script>
@@ -110,17 +117,39 @@
 			});
 		});
 
+		function getBitAnswer() {
+			let bits = $('.bit:not([data-index="signal"])');
+			let signalBit = $('.bit[data-index="signal"] input');
+			return bits.reduce((sum, n, i) => {
+				let cur = bits.eq(i);
+				let index = parseInt(cur.data('index'));
+				// console.log('test', n, i, index, cur.data('index'));
+				if (cur.children('input').val() != 0)
+					return sum + Math.pow(2, index);
+				return sum;
+			}, 0) * (signalBit.length > 0 && signalBit.val() == 1 ? -1 : 1);
+		}
+
 		function resetBitEntry() {
 			let difficulty = $('#difficultyToggle').val();
 			let randomBit = () => Math.random() < difficulty ? 1 : 0;
+			function createBit(index) {
+				return `
+					<div class="bit" data-index="${index}">
+						<input type="number" value="${randomBit()}" readonly/>
+					</div>
+				`;
+			}
+			let length = $('#delayToggle').val() - 1;
 			$('.resetBitEntry').html(`
 				${$('#signalToggle').prop('checked') ? `
-					<div class="bit signal">${randomBit()}</div>
+					${createBit('signal')}
 				` : ''}
-				${Array.from({ length: $('#delayToggle').val() }, (y, i) => `
-					<div class="bit" data-index="${y}">${randomBit()}</div>
+				${Array.from({ length: length + 1 }, (arr, i, j) => `
+					${createBit(length - i)}
 				`).join('')}
 			`);
+			$update();
 		}
 
 		return $render;
