@@ -33,7 +33,7 @@ var app = new Framework7({
 	routes: routes,
 
 	view: {
-		// browserHistory: true,
+		browserHistory: true,
 		browserHistorySeparator: "#", // #app
 	},
 	on: {
