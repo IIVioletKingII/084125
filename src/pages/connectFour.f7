@@ -1,17 +1,61 @@
 <template>
 	<div class="page" data-name="connect-four">
 
-		<div class="navbar">
+		<div class="navbar" sty>
 			<div class="navbar-bg"></div>
-			<div class="navbar-inner sliding">
-				<div class="left">
-					<a href="#" class="link back">
-						<i class="icon icon-back"></i>
-						<span class="if-not-md">Back</span>
-					</a>
+			<div class="navbar-inner sliding" style="justify-content: space-between; gap: 16px;">
+				<div class="flex row ">
+					<div class="margin-horizontal-half">
+						<a href="#" class="link back">
+							<i class="icon icon-back"></i>
+							<span class="if-not-md">Back</span>
+						</a>
+					</div>
+					<div class="title" style="align-self: center;">Connect Four Game!</div>
 				</div>
-				<div class="title">Connect Four Game!</div>
-				<div class="right margin-right">
+				<div class="flex row gap">
+					<span class="title" style="align-self: center;">
+						Animate
+					</span>
+					<label class="item-content" style="border-radius: 1rem;">
+						<div class="item-inner">
+							<div class="item-after">
+								<div class="toggle toggle-init color-blue">
+									<input id="animateToggle" type="checkbox" />
+									<span class="toggle-icon"></span>
+								</div>
+							</div>
+						</div>
+					</label>
+					<div class="flex row delay-list">
+						<span class="title" style="align-self: center;">
+							Delay
+						</span>
+						<div class="list no-margin flex">
+							<ul style="align-self: center;">
+								<li>
+									<div style="min-width: 150px; margin: 0 16px">
+										<div class="range-slider range-slider-init color-blue" data-label="true">
+											<input id="delayToggle" type="range" min="0" max="500" step="1"
+												value="450" />
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- <label class="item-content" style="border-radius: 1rem;">
+						<div class="item-inner">
+							<div class="item-after">
+								<div class="toggle toggle-init color-blue">
+									<input id="delayToggle" type="checkbox" />
+									<span class="toggle-icon"></span>
+								</div>
+							</div>
+						</div>
+					</label> -->
+				</div>
+				<div class="margin-right">
 					<a href="#" class="button button-tonal" @click="${reset}">Reset</a>
 				</div>
 			</div>
@@ -33,6 +77,22 @@
 	</div>
 </template>
 <style>
+	.winner {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+
+		font-size: 56px;
+		position: absolute;
+		transition: 800ms;
+		backdrop-filter: blur(3px);
+		z-index: 10000;
+		pointer-events: none;
+	}
+
 	#gameTable {
 
 		width: 100%;
@@ -40,6 +100,11 @@
 		border-collapse: collapse;
 		table-layout: fixed;
 		overflow: hidden;
+	}
+
+	th,
+	td {
+		border: 1px solid;
 	}
 
 	.team-red,
@@ -52,12 +117,8 @@
 		--color: rgb(27, 61, 255);
 	}
 
-	.tile.filled {
-		position: relative;
-	}
-
-
-	.tile.filled:after {
+	.tile.filled .circle {
+		display: none;
 		content: '';
 		width: 90%;
 		height: 90%;
@@ -66,28 +127,33 @@
 		top: 5%;
 		left: 5%;
 		background: var(--color);
-	}
 
-	.winner {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		opacity: 0;
-
-		font-size: 56px;
-		position: absolute;
-		/* background: rgba(104, 104, 104, 0.26); */
-		transition: 1200ms;
-		backdrop-filter: blur(3px);
-		z-index: 10000;
 		pointer-events: none;
 	}
 
-	th,
-	td {
-		border: 1px solid;
+	.tile.filled {
+		position: relative;
+	}
+
+	.circle.animate {
+		animation-timing-function: cubic-bezier(0.33333, 0.66667, 0.66667, 1);
+		animation: slide-in 650ms linear forwards;
+		/* transition: 1200ms; */
+	}
+
+	@keyframes slide-in {
+		0% {
+			transform: translateY(calc(var(--top) + 50px)) scale(0.5);
+			animation-timing-function: cubic-bezier(0.2, .6, 0.75, 1);
+		}
+
+		36% {
+			transform: translateY(var(--top)) scale(1);
+			animation-timing-function: cubic-bezier(0.33333, 0, 0.68, 0.33333);
+		}
+
+		100% {}
+
 	}
 </style>
 <script>
@@ -97,17 +163,34 @@
 		let turn = 'blue';
 		let winner = '';
 		let dim = {
-			width: 7,
-			height: 6
+			width: 8,
+			height: 7
 		}
 		let xs = [0, 1, 1, 1];
 		let ys = [1, -1, 0, 1];
+		let animate = true;
+		let delay = 450;
 
 		$on('pageInit', (e) => {
 
 			createGameTable(dim.width, dim.height);
 			window.addEventListener('resize', resizeGrid);
 			resizeGrid();
+
+			$('#animateToggle').prop('checked', animate);
+			$('#animateToggle').on('change', () => {
+				animate = $('#animateToggle').prop('checked');
+				if (animate)
+					$('.delay-list').show();
+				else
+					$('.delay-list').hide();
+
+			});
+
+			$('#delayToggle').prop('checked', delay);
+			$('#delayToggle').on('change', () => {
+				delay = $('#delayToggle').val();
+			});
 		});
 
 		function round(num, decimals) {
@@ -131,10 +214,19 @@
 
 		function reset() {
 			$('.tile.filled').removeClass('filled').removeClass('blue').removeClass('red');
+			$('.circle.animate').removeClass('animate');
 			$('.winner').css('opacity', '0');
 			$('.winner').css('pointer-events', 'none');
 			turn = 'blue';
 			winner = '';
+		}
+
+		function win() {
+			winner = turn[0].toUpperCase() + turn.substring(1);
+			$('.winner').css('opacity', '1');
+			$('.winner').css('pointer-events', 'all');
+			turn = 'over';
+			$update();
 		}
 
 		function createGameTable(width, height) {
@@ -145,35 +237,53 @@
 						${Array.from({ length: width }, (x, j) => `
 						<td class="tile" data-x="${j}" data-y="${i}">
 							<!-- Cell ${j}, ${i} -->
+							<div class="circle"></div>
 						</td>
 						`).join('')}
 					</tr>
 					`).join('')}
 				</tbody>
 			`);
-
-			document.querySelector("#gameTable tbody").addEventListener("click", (event) => {
+			$("#gameTable tbody").on("click", (event) => {
 				let $td = $(event.target);
 				let col = $td.data('x');
 				let rows = $(`.tile:not(.filled)[data-x="${col}"]`)
 
-				if (rows.length > 0 && turn != 'over') {
+				if (rows.length > 0 && ['blue', 'red'].includes(turn)) {
 
-					let bottom = rows.eq(rows.length - 1)
+					let top = rows.eq(0);
+					let topCoords = top.offset();
+					let bottom = rows.eq(rows.length - 1);
+					let bottomCoords = bottom.offset();
 					bottom.addClass('filled').addClass(turn);
 					let curX = parseInt(bottom.data('x'));
 					let curY = parseInt(bottom.data('y'));
-					let win = checkWin(curX, curY)
-					if (win) {
-						winner = turn[0].toUpperCase() + turn.substring(1);
-						$('.winner').css('opacity', '1');
-						$('.winner').css('pointer-events', 'all');
-						turn = 'over';
-						$update();
+					let isWin = checkWin(curX, curY)
+
+					let circle = bottom.children('.circle');
+					if (animate) {
+						turn = `animate-${turn}`
+						bottom.parent()[0].style.setProperty('--top', `-${bottomCoords.top - topCoords.top}px`);
+						circle.show();
+						circle.addClass('animate');
+
+						setTimeout(() => {
+							turn = turn.replace('animate-', '');
+							tryNextTurn(isWin)
+						}, delay);
+					} else {
+						circle.show();
+						tryNextTurn(isWin)
 					}
-					turn = (turn == 'blue' ? 'red' : 'blue');
 				}
 			});
+		}
+
+		function tryNextTurn(isWin) {
+			if (isWin)
+				win();
+			else
+				turn = (turn == 'blue' ? 'red' : 'blue');
 		}
 
 		function checkWin(startX, startY) {

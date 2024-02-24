@@ -17,25 +17,42 @@
 					<a href="/connect-four/" class="button button-fill color-green">Connect Four</a>
 					<a href="/picture-editor/" class="button button-fill color-green">Picture Editor</a>
 				</div>
-				<div class="right no-margin">
+				<div class="right margin-horizontal">
+					<div class="flex row gap">
+						<span class="title" style="align-self: center;">
+							Dark mode
+						</span>
+						<label class="item-content">
+							<div class="item-inner">
+								<div class="item-after">
+									<div class="toggle toggle-init color-yellow">
+										<input id="darkModeToggle" type="checkbox" />
+										<span class="toggle-icon"></span>
+									</div>
+								</div>
+							</div>
+						</label>
+					</div>
 
-					<div class="list" style="color: white; --f7-list-item-title-font-size: 20px;">
-						<ul>
-							<li>
-								<label class="item-content" style="border-radius: 1rem;">
-									<div class="item-inner">
-										<div class="item-title">Dark mode</div>
-										<div class="item-after">
-											<div class="toggle toggle-init color-yellow">
-												<input id="darkModeToggle" type="checkbox" />
-												<span class="toggle-icon"></span>
+					<!-- <div class="right no-margin">
+						<div class="list" style="color: white; --f7-list-item-title-font-size: 20px;">
+							<ul>
+								<li>
+									<label class="item-content" style="border-radius: 1rem;">
+										<div class="item-inner">
+											<div class="item-title">Dark mode</div>
+											<div class="item-after">
+												<div class="toggle toggle-init color-yellow">
+													<input id="darkModeToggle" type="checkbox" />
+													<span class="toggle-icon"></span>
+												</div>
 											</div>
 										</div>
-									</div>
-								</label>
-							</li>
-						</ul>
-					</div>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div> -->
 				</div>
 
 			</div>
@@ -143,7 +160,6 @@
 				repositionTitle();
 			}
 
-
 			let cookies = splitCookies(document.cookie);
 			if (cookies.hasOwnProperty('darkMode')) {
 				$f7.setDarkMode(cookies.darkMode === 'true');
@@ -155,10 +171,8 @@
 			$('#darkModeToggle').on('change', (e) => {
 				let checked = $('#darkModeToggle').prop('checked');
 				$f7.setDarkMode(checked);
-				setCookie('darkMode', checked, 7 /* days */)
-			})
-
-
+				setCookie('darkMode', checked, 7 /* days */);
+			});
 
 			$('#resume .block').html(`
 				<div class="block-title">Resume</div>
