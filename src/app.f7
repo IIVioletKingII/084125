@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
-		<div class="view view-main view-init safe-areas" data-url="/"></div>
+		<div class="view view-main safe-areas"></div>
+		<!-- <div class="view view-main view-init safe-areas" data-url="/"></div> -->
 
 
 		<!-- Views/Tabs container -->

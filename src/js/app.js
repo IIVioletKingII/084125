@@ -51,7 +51,13 @@ function onAfterInit($f7) {
 	// 	let page = hash.substring(0);
 
 	// }
-	app.f7.views.main.router.navigate('/');
+	// $f7.views.main.router.navigate('/');
+	$f7.mainView = $f7.views.create('.view-main', {
+		url: '/',
+		props: {
+			test: 'testing'
+		}
+	});
 }
 
 
