@@ -16,6 +16,7 @@
 					<a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a> -->
 					<a href="/connect-four/" class="button button-fill color-green">Connect Four</a>
 					<a href="/picture-editor/" class="button button-fill color-green">Picture Editor</a>
+					<a href="/binary-quiz/" class="button button-fill color-green">Binary Quiz</a>
 				</div>
 				<div class="right margin-horizontal">
 					<div class="flex row gap">

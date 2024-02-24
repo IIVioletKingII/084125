@@ -1,0 +1,45 @@
+<template>
+	<div class="page" data-name="binary-quiz">
+
+		<div class="navbar" sty>
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding" style="justify-content: space-between; gap: 16px;">
+				<div class="flex row ">
+					<div class="margin-horizontal-half">
+						<a href="#" class="link back">
+							<i class="icon icon-back"></i>
+							<span class="if-not-md">Back</span>
+						</a>
+					</div>
+					<div class="title" style="align-self: center;">Binary Quiz!</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content">
+
+		</div>
+
+	</div>
+</template>
+<style>
+</style>
+<script>
+
+	export default (props, { $, $on, $f7, $store, $update }) => {
+
+		$on('pageInit', (e) => {
+
+		});
+
+		function resizeGrid() {
+
+		}
+
+		function reset() {
+
+		}
+
+		return $render;
+	}
+</script>
