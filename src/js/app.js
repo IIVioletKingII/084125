@@ -58,6 +58,7 @@ function onAfterInit($f7) {
 			test: 'testing'
 		}
 	});
+	$f7.mainView.router.navigate('/');
 }
 
 
