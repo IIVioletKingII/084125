@@ -400,7 +400,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		</div>
 
 	</div>
-`}}Wa.id="89c6e69c88";Wa.style=`
+`}}Wa.id="0eb0c79801";Wa.style=`
 
 
 `;function is(r,{$:e,$on:a,$f7:t,$store:s,$update:n}){let i="blue",o="",l={width:8,height:7},c=[0,1,1,1],d=[1,-1,0,1],p=!0,u=450;a("pageInit",y=>{b(l.width,l.height),window.addEventListener("resize",f),f(),e("#animateToggle").prop("checked",p),e("#animateToggle").on("change",()=>{p=e("#animateToggle").prop("checked"),p?e(".delay-list").show():e(".delay-list").hide()}),e("#delaySlider").prop("checked",u),e("#delaySlider").on("change",()=>{u=e("#delaySlider").val()})});function h(y,x){return Math.round((y+Number.EPSILON)*Math.pow(10,x))/Math.pow(10,x)}function f(){let y=e("#gameTable"),x=y.parent(),M=x.width(),k=x.height(),O=l.width/l.height;M/O>=k?(y.css("height",`${k}px`),y.css("width",`${k*O}px`)):(y.css("height",`${M/O}px`),y.css("width",`${M}px`))}function m(){e(".tile.filled").removeClass("filled").removeClass("blue").removeClass("red"),e(".circle.animate").removeClass("animate"),e(".winner").css("opacity","0"),e(".winner").css("pointer-events","none"),i="blue",o=""}function v(){o=i[0].toUpperCase()+i.substring(1),e(".winner").css("opacity","1"),e(".winner").css("pointer-events","all"),i="over",n()}function b(y,x){e("#gameTable").html(`
@@ -493,7 +493,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		</div>
 
 	</div>
-`}}is.id="0e21b17c00";is.style=`
+`}}is.id="cb1f60f051";is.style=`
 	.winner {
 		width: 100%;
 		height: 100%;
@@ -680,19 +680,23 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 			</div>
 		</div>
 	</div>
-`}}os.id="a16de07b2f";os.style=`
+`}}os.id="330c0afdec";os.style=`
 	#imagePreview {
 		object-fit: contain;
 		max-width: 100%;
 	}
-`;function ls(r,{$:e,$on:a,$f7:t,$store:s,$update:n}){a("pageInit",o=>{i(),e("#signalToggle").on("change",l=>{i()}),e("#delayToggle").on("change",l=>{i()}),e("#difficultyToggle").on("change",l=>{i()})});function i(){let o=e("#difficultyToggle").val(),l=()=>Math.random()<o?1:0;e(".resetBitEntry").html(`
+`;function ls(r,{$:e,$on:a,$f7:t,$store:s,$update:n}){a("pageInit",l=>{o(),e("#signalToggle").on("change",c=>{o()}),e("#delayToggle").on("change",c=>{o()}),e("#difficultyToggle").on("change",c=>{o()})});function i(){let l=e('.bit:not([data-index="signal"])'),c=e('.bit[data-index="signal"] input');return l.reduce((d,p,u)=>{let h=l.eq(u),f=parseInt(h.data("index"));return h.children("input").val()!=0?d+Math.pow(2,f):d},0)*(c.length>0&&c.val()==1?-1:1)}function o(){let l=e("#difficultyToggle").val(),c=()=>Math.random()<l?1:0;function d(u){return`
+					<div class="bit" data-index="${u}">
+						<input type="number" value="${c()}" readonly/>
+					</div>
+				`}let p=e("#delayToggle").val()-1;e(".resetBitEntry").html(`
 				${e("#signalToggle").prop("checked")?`
-					<div class="bit signal">${l()}</div>
+					${d("signal")}
 				`:""}
-				${Array.from({length:e("#delayToggle").val()},(c,d)=>`
-					<div class="bit" data-index="${c}">${l()}</div>
+				${Array.from({length:p+1},(u,h,f)=>`
+					${d(p-h)}
 				`).join("")}
-			`)}return function(o){var l=o.$,c=o.$h,d=o.$root,p=o.$f7,u=o.$f7route,h=o.$f7router,f=o.$theme,m=o.$update,v=o.$store;return c`
+			`),n()}return function(l){var c=l.$,d=l.$h,p=l.$root,u=l.$f7,h=l.$f7route,f=l.$f7router,m=l.$theme,v=l.$update,b=l.$store;return d`
 	<div class="page" data-name="binary-quiz">
 
 		<div class="navbar" sty>
@@ -700,7 +704,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 			<div class="navbar-inner sliding" style="justify-content: space-between; gap: 16px;">
 				<div class="flex row">
 					<div class="margin-horizontal-half">
-						<a href="/" class="link${v.state.firstLoad?"":" back"}">
+						<a href="/" class="link${b.state.firstLoad?"":" back"}">
 							<i class="icon icon-back"></i>
 							<span class="if-not-md">Back</span>
 						</a>
@@ -767,14 +771,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 				<div class="resetBitEntry flex row gap"></div>
 				<span class="text-align-center"> = </span>
 				<div class="answer">
-
+					${i()}
 				</div>
 			</div>
 
 		</div>
 
 	</div>
-`}}ls.id="47d5fa9811";ls.style=`
+`}}ls.id="9dfc188bdf";ls.style=`
 	.bit {
 		padding: 0.5rem;
 		background: rgb(70, 70, 70);
@@ -782,8 +786,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		border-radius: 0.5rem;
 	}
 
-	.bit.signal {
+	.bit[data-index="signal"] {
 		color: var(--f7-theme-color);
+	}
+
+	.bit input {
+		text-align: center;
+		min-width: 0;
+		width: auto !important;
+		max-width: 40px;
 	}
 `;function xh(){return function(r){var e=r.$,a=r.$h,t=r.$root,s=r.$f7,n=r.$f7route,i=r.$f7router,o=r.$theme,l=r.$update,c=r.$store;return a`
 	<div class="page">
@@ -809,7 +820,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		</div>
 
 	</div>
-`}}xh.id="10c8227737";const kh=[{path:"/",component:Wa},{path:"/picture-editor/",component:os},{path:"/connect-four/",component:is},{path:"/binary-quiz/",component:ls},{path:"(.*)",component:Wa}];Ze.use([qn]);Xe.use([Bn,Ln,Rn,Hn,zn,Yn,Kr,Kn,Gn,Qn,Jn,Zn,ei,ti,ai,ri,si,ni]);const Th=Pr({state:{firstLoad:!0,firstPage:"",resumeSections:[{sectionTitle:"Education",sections:2,tiles:[{icon:"fa-solid fa-graduation-cap",title:"Hazen High School",subtitles:["Renton • September 2020 - June 2023","GPA: 3.9"],detailsListColumns:2,detailsList:["AP Physics","AP Computer Science","Program Solving","Trigonometry","Networking I-III","University of Washington's CSE163 Data Science","Programming lead in the Robotics Team"]},{icon:"fa-solid fa-school",title:"Bellevue College",subtitles:["Bellevue • September 2021 - Present","GPA: 3.9"],detailsListColumns:2,detailsList:["MATH 151-153/254 Calculus I - IV","MATH 208 Linear Algebra","PHYS 121 Calculus Physics","MUSC 110-112 First Year Theory"]}]},{sectionTitle:"Work Experience",sections:2,tiles:[{icon:"fa-brands fa-android",title:"Programming Lead",subtitles:["Hazen Robotics","Renton • August 2022 - June 2023"],detailsListColumns:1,detailsList:["Teaching new members how to program and work in an organized fashion","Organize team members' projects/assignments based on skills and time commitment","Mentoring elementary/middle school robotics team (FIRST Lego League) "]},{icon:"fa-solid fa-chalkboard-user",title:"Web Developer",subtitles:["HD Fowler Co.","Bellevue, Washington, United States • June 2022 - Present"],detailsListColumns:1,detailsList:["Worked with back-end developers to connect data to users, with a device friendly interface, via the web"]}]},{sectionTitle:"Volunteer Experience",sections:2,tiles:[{icon:"fa-solid fa-sliders",title:"Audio Engineer",subtitles:["New Life Church"],detailsListColumns:2,detailsList:["Volunteer with whatever help may be needed. I.e. Camera, Lighting (Vista 3, GrandMA 3), Video Slides (ProPresenter), Audio (A&H), etc.","Volunteer 3-4 times per week with Sunday Services and rehearsals, Youth Group, and other events like funerals, weddings, school events, etc."]},{icon:"fa-solid fa-gear",title:'FIRST <a href="https://www.firstinspires.org/robotics/ftc" class="link external" target="_blank" rel="noopener noreferrer">FTC</a> Mentor',subtitles:["Dimmit Middle School Robotics"],detailsListColumns:1,detailsList:["Volunteer with the middle school, teaching the students the basics of FTC and preparing them for advanced teams in High School."]}]},{sectionTitle:"Awards and Achievements",sections:1,tiles:[{icon:"fa-solid fa-id-badge",title:"",subtitles:[],detailsListColumns:2,detailsList:["High School Lettered in Robotics and Band","Eagle Scout, May 2021","Superintendent's Gold Certificate of Merit, May 2023","President's Education Award, May 2023","Oliver M. Hazen Award, May 2023","Hibbard Memorial Award for Musical Excellence, June 2023"]}]},{sectionTitle:"Activities and Interests",sections:1,tiles:[{icon:"fa-solid fa-brain",title:"",subtitles:[],detailsListColumns:2,detailsList:["Computer Programming","Band (Marching Percussion)","Choir","Robotics Mentor (FIRST Tech Challenge)","Bellevue Youth Symphony Orchestra (Bassoon)","Church Worship Band (Piano)","Audio Engineering"]}]}]},getters:{},actions:{onLoad({state:r},e){r.firstPage=e,r.firstLoad=!1}}});function Di(r,{$f7:e,$update:a}){return function(t){var s=t.$,n=t.$h,i=t.$root,o=t.$f7,l=t.$f7route,c=t.$f7router,d=t.$theme,p=t.$update,u=t.$store;return n`
+`}}xh.id="68df994643";const kh=[{path:"/",component:Wa},{path:"/picture-editor/",component:os},{path:"/connect-four/",component:is},{path:"/binary-quiz/",component:ls},{path:"(.*)",component:Wa}];Ze.use([qn]);Xe.use([Bn,Ln,Rn,Hn,zn,Yn,Kr,Kn,Gn,Qn,Jn,Zn,ei,ti,ai,ri,si,ni]);const Th=Pr({state:{firstLoad:!0,firstPage:"",resumeSections:[{sectionTitle:"Education",sections:2,tiles:[{icon:"fa-solid fa-graduation-cap",title:"Hazen High School",subtitles:["Renton • September 2020 - June 2023","GPA: 3.9"],detailsListColumns:2,detailsList:["AP Physics","AP Computer Science","Program Solving","Trigonometry","Networking I-III","University of Washington's CSE163 Data Science","Programming lead in the Robotics Team"]},{icon:"fa-solid fa-school",title:"Bellevue College",subtitles:["Bellevue • September 2021 - Present","GPA: 3.9"],detailsListColumns:2,detailsList:["MATH 151-153/254 Calculus I - IV","MATH 208 Linear Algebra","PHYS 121 Calculus Physics","MUSC 110-112 First Year Theory"]}]},{sectionTitle:"Work Experience",sections:2,tiles:[{icon:"fa-brands fa-android",title:"Programming Lead",subtitles:["Hazen Robotics","Renton • August 2022 - June 2023"],detailsListColumns:1,detailsList:["Teaching new members how to program and work in an organized fashion","Organize team members' projects/assignments based on skills and time commitment","Mentoring elementary/middle school robotics team (FIRST Lego League) "]},{icon:"fa-solid fa-chalkboard-user",title:"Web Developer",subtitles:["HD Fowler Co.","Bellevue, Washington, United States • June 2022 - Present"],detailsListColumns:1,detailsList:["Worked with back-end developers to connect data to users, with a device friendly interface, via the web"]}]},{sectionTitle:"Volunteer Experience",sections:2,tiles:[{icon:"fa-solid fa-sliders",title:"Audio Engineer",subtitles:["New Life Church"],detailsListColumns:2,detailsList:["Volunteer with whatever help may be needed. I.e. Camera, Lighting (Vista 3, GrandMA 3), Video Slides (ProPresenter), Audio (A&H), etc.","Volunteer 3-4 times per week with Sunday Services and rehearsals, Youth Group, and other events like funerals, weddings, school events, etc."]},{icon:"fa-solid fa-gear",title:'FIRST <a href="https://www.firstinspires.org/robotics/ftc" class="link external" target="_blank" rel="noopener noreferrer">FTC</a> Mentor',subtitles:["Dimmit Middle School Robotics"],detailsListColumns:1,detailsList:["Volunteer with the middle school, teaching the students the basics of FTC and preparing them for advanced teams in High School."]}]},{sectionTitle:"Awards and Achievements",sections:1,tiles:[{icon:"fa-solid fa-id-badge",title:"",subtitles:[],detailsListColumns:2,detailsList:["High School Lettered in Robotics and Band","Eagle Scout, May 2021","Superintendent's Gold Certificate of Merit, May 2023","President's Education Award, May 2023","Oliver M. Hazen Award, May 2023","Hibbard Memorial Award for Musical Excellence, June 2023"]}]},{sectionTitle:"Activities and Interests",sections:1,tiles:[{icon:"fa-solid fa-brain",title:"",subtitles:[],detailsListColumns:2,detailsList:["Computer Programming","Band (Marching Percussion)","Choir","Robotics Mentor (FIRST Tech Challenge)","Bellevue Youth Symphony Orchestra (Bassoon)","Church Worship Band (Piano)","Audio Engineering"]}]}]},getters:{},actions:{onLoad({state:r},e){r.firstPage=e,r.firstLoad=!1}}});function Di(r,{$f7:e,$update:a}){return function(t){var s=t.$,n=t.$h,i=t.$root,o=t.$f7,l=t.$f7route,c=t.$f7router,d=t.$theme,p=t.$update,u=t.$store;return n`
 	<div id="app">
 		<div class="view view-main safe-areas"></div>
 		<!-- <div class="view view-main view-init safe-areas" data-url="/"></div> -->
@@ -855,4 +866,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		<!-- </div> -->
 
 	</div>
-`}}Di.id="58df4cd63e";window.Cropper=Ii;var om=new Xe({name:"Sam-DePoule",theme:"auto",el:"#app",component:Di,darkMode:"auto",store:Th,routes:kh,view:{browserHistory:!0,browserHistorySeparator:"#"},on:{init:function(){Sh(this)}}});function Sh(r){r.mainView=r.views.create(".view-main",{url:"/",props:{test:"testing"}}),r.mainView.router.navigate("/#/"),r.$(document).on("page:afterin",()=>{r.store.dispatch("onLoad","/")}),console.log("%cHeyyy what are you doing here??","color: cyan;")}window.removeCookie=r=>{document.cookie=`${r}=; expires=${new Date().toUTCString()}`};window.setCookie=(r,e,a)=>{let t=new Date(new Date().getTime()+a*24*60*60*1e3);document.cookie=`${r}=${e}; expires=${t.toUTCString()}; path=/`};window.splitCookies=r=>{r=r.split(/; ?/);let e={};for(const a of r){let t=a.split("=");t.length==2&&(e[t[0]]=t[1])}return e};
+`}}Di.id="3ccaa1243a";window.Cropper=Ii;var om=new Xe({name:"Sam-DePoule",theme:"auto",el:"#app",component:Di,darkMode:"auto",store:Th,routes:kh,view:{browserHistory:!0,browserHistorySeparator:"#"},on:{init:function(){Sh(this)}}});function Sh(r){r.mainView=r.views.create(".view-main",{url:"/",props:{test:"testing"}}),r.mainView.router.navigate("/#/"),r.$(document).on("page:afterin",()=>{r.store.dispatch("onLoad","/")}),console.log("%cHeyyy what are you doing here??","color: cyan;")}window.removeCookie=r=>{document.cookie=`${r}=; expires=${new Date().toUTCString()}`};window.setCookie=(r,e,a)=>{let t=new Date(new Date().getTime()+a*24*60*60*1e3);document.cookie=`${r}=${e}; expires=${t.toUTCString()}; path=/`};window.splitCookies=r=>{r=r.split(/; ?/);let e={};for(const a of r){let t=a.split("=");t.length==2&&(e[t[0]]=t[1])}return e};
