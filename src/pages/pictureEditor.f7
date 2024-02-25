@@ -77,7 +77,6 @@
 										<input type="number" class="number-input" id="xInput" min="0" value="0"
 											onchange="${onChangeX}" onfocusout="${onChangeX}" />
 										<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
-
 										<input type="number" class="number-input" id="yInput" min="0" value="0"
 											onchange="${onChangeY}" onfocusout="${onChangeY}" />
 										<!-- <span class="input-clear-button"></span> -->
@@ -93,7 +92,6 @@
 										<input type="number" class="number-input" id="widthInput" min="0" value="0"
 											onchange="${onChangeWidth}" onfocusout="${onChangeWidth}" />
 										<i class="f7-icons font-size-16" style="margin: 0 8px;">xmark</i>
-
 										<input type="number" class="number-input" id="heightInput" min="0" value="0"
 											onchange="${onChangeHeight}" onfocusout="${onChangeHeight}" />
 										<!-- <span class="input-clear-button"></span> -->

@@ -21,7 +21,7 @@
 			<div class="block-title">
 				Settings
 			</div>
-			<div class="block flex row gap" style="--gap: 8px;">
+			<div class="block flex row gap align-items-center" style="--gap: 8px;">
 				<span class="title" style="align-self: center;">
 					Signal Bit
 				</span>
@@ -30,6 +30,20 @@
 						<div class="item-after">
 							<div class="toggle toggle-init color-blue">
 								<input id="signalToggle" type="checkbox" />
+								<span class="toggle-icon" style="scale: 0.8"></span>
+							</div>
+						</div>
+					</div>
+				</label>
+				<span></span>
+				<span class="title" style="align-self: center;">
+					Hints
+				</span>
+				<label class="item-content">
+					<div class="item-inner">
+						<div class="item-after">
+							<div class="toggle toggle-init color-blue">
+								<input id="hintToggle" type="checkbox" />
 								<span class="toggle-icon" style="scale: 0.8"></span>
 							</div>
 						</div>
@@ -66,14 +80,36 @@
 				</div>
 			</div>
 
-			<div class="block-title">
+			<div class="block-title flex row gap align-items-center">
 				Try it!
+				<a href="#" class="link"><i class="icon material-icons expand-more"
+						@click="${resetBitEntry}">refresh</i></a>
+				<a class="button button-tonal" @click="${revealAnswer}">Reveal</a>
 			</div>
-			<div class="block flex row gap align-content-center" style="--gap: 4px;">
+			<div class="block flex row gap align-items-center" style="--gap: 4px;">
 				<div class="resetBitEntry flex row gap"></div>
 				<span class="text-align-center"> = </span>
-				<div class="answer">
-					${getBitAnswer()}
+				<div class="answer list no-margin">
+					<ul>
+						<li class="item-content item-input no-margin no-padding-vertical"
+							style="--f7-input-item-border-radius: 8px; --f7-input-border-color: #00000000">
+							<div class="item-inner">
+								<!-- <div class="item-title item-label">
+										(Width <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i> Height)
+									</div> -->
+								<div class="item-input-wrap flex row" style="align-items: center;">
+									<input type="number" class="number-input" style="width: 64px; margin-right: 32px;"
+										id="answerInput" min="0" value="0" onblur="${onChangeAnswer}"
+										onkeypress="${onChangeAnswer}" />
+									<span class="input-clear-button" style="scale: 0.8;"></span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<span></span>
+				<div class="result text-color-red">
+					Incorrect
 				</div>
 			</div>
 
@@ -87,10 +123,18 @@
 		background: rgb(70, 70, 70);
 		background-color: var(--f7-navbar-bg-color, var(--f7-bars-bg-color));
 		border-radius: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.bit[data-index="signal"] {
 		color: var(--f7-theme-color);
+	}
+
+	.hint {
+		/* display: none; */
+		font-size: 12px;
 	}
 
 	.bit input {
@@ -98,6 +142,15 @@
 		min-width: 0;
 		width: auto !important;
 		max-width: 40px;
+	}
+
+	.block-title {
+		line-height: 20px;
+		color: var(--f7-theme-color-tint);
+	}
+
+	.item-content.item-input:after {
+		content: none !important;
 	}
 </style>
 <script>
@@ -115,19 +168,50 @@
 			$('#difficultyToggle').on('change', (e) => {
 				resetBitEntry();
 			});
+			$('#hintToggle').on('change', (e) => {
+				$('.hint').css('display', $('#hintToggle').prop('checked') ? '' : 'none');
+			});
 		});
+
+		function revearlCorrectness() {
+			let correct = $('#answerInput').val() == getBitAnswer();
+			let result = $('.result');
+			if (correct) {
+				result.removeClass('text-color-red').addClass('text-color-green');
+				result.html('Correct!');
+			} else {
+				result.addClass('text-color-red').removeClass('text-color-green');
+				result.html('Incorrect');
+			}
+		}
+
+		function revealAnswer(e) {
+			$('#answerInput').val(getBitAnswer());
+			revearlCorrectness();
+		}
+
+		function onChangeAnswer(e) {
+			console.log('answer', e);
+			if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
+				// console.log('answer', e.target,);
+				// let input = $(e.target);
+				// if (input)
+				revearlCorrectness();
+			}
+
+		}
 
 		function getBitAnswer() {
 			let bits = $('.bit:not([data-index="signal"])');
-			let signalBit = $('.bit[data-index="signal"] input');
+			let signalBit = $('.bit[data-index="signal"]');
 			return bits.reduce((sum, n, i) => {
 				let cur = bits.eq(i);
 				let index = parseInt(cur.data('index'));
 				// console.log('test', n, i, index, cur.data('index'));
-				if (cur.children('input').val() != 0)
+				if (parseInt(cur.html()) != 0)
 					return sum + Math.pow(2, index);
 				return sum;
-			}, 0) * (signalBit.length > 0 && signalBit.val() == 1 ? -1 : 1);
+			}, 0) * (signalBit.length > 0 && parseInt(signalBit.html()) == 1 ? -1 : 1);
 		}
 
 		function resetBitEntry() {
@@ -136,7 +220,8 @@
 			function createBit(index) {
 				return `
 					<div class="bit" data-index="${index}">
-						<input type="number" value="${randomBit()}" readonly/>
+						${randomBit()}
+						<div class="hint" style="${$('#hintToggle').prop('checked') ? '' : 'display: none;'}">${index == 'signal' ? '-' : Math.pow(2, index)}</div>
 					</div>
 				`;
 			}
@@ -149,7 +234,9 @@
 					${createBit(length - i)}
 				`).join('')}
 			`);
-			$update();
+			revearlCorrectness();
+			// $update();
+			// $('.answer').html(getBitAnswer());
 		}
 
 		return $render;
