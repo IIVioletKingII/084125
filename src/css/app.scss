@@ -164,7 +164,7 @@ div {
 }
 
 .qr-code {
-	background: url('https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/share.svg') center center;
+	background: url('https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/images/share.svg') center center;
 	background-size: cover;
 	background-attachment: fixed;
 	width: 80%;
@@ -176,7 +176,7 @@ div {
 }
 
 .parallax-hero-picture {
-	background: url('https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/cover2.jpg');
+	background: url('https://raw.githubusercontent.com/IIVioletKingII/sam-depoule/main/src/assets/cover.jpg');
 	background-position: right;
 	background-size: cover;
 	background-attachment: fixed;
@@ -192,6 +192,15 @@ div {
 
 	[class*="section-"] {
 		width: 100%;
+	}
+
+	.drop-down {
+		max-width: 120px;
+
+		.button:is(.expand) {
+			// color: red;
+			flex-shrink: 2;
+		}
 	}
 
 	.block-title {
@@ -222,36 +231,82 @@ div {
 				margin: 0 15%;
 				color: white;
 				font-weight: 600;
+				position: relative;
 
-				>:not(:last-child) {
-					margin-bottom: 1rem;
+				//.container-bg
+				&:after {
+					content: '';
+					margin: 0 !important;
+					z-index: 0 !important;
+					position: absolute;
+					--offset: 4rem;
+					top: calc(-1 * var(--offset));
+					left: calc(-1 * var(--offset));
+					width: calc(100% + 2 * var(--offset));
+					height: calc(100% + 2 * var(--offset));
+
+					$one: rgb(0, 0, 0) 40%;
+					$two: rgba(0, 0, 0, 0.7) 64%;
+					$three: rgba(0, 0, 0, 0.1) 75%;
+
+					-webkit-mask-image: radial-gradient($one, $two, $three);
+					mask-image: radial-gradient($one, $two, $three);
+					backdrop-filter: blur(2rem);
+					border-radius: 1rem;
 				}
 
-				.title {
-					font-size: 56px;
-					line-height: 52px;
+				.container-inner {
 
-				}
+					& div {
+						position: relative;
+						z-index: 1;
+					}
 
-				.about {
-					font-size: 32px;
-					line-height: 30px;
-				}
+					>:not(:last-child) {
+						margin-bottom: 1rem;
+					}
 
-				.contact {
-					font-size: 40px;
+					.title {
+						font-size: 56px;
+						line-height: 56px;
 
-					i {
+					}
+
+					.about {
+						font-size: 32px;
+						line-height: 30px;
+					}
+
+					.email {
+						font-size: 32px;
 						color: #adc6ff;
+						line-height: 40px;
+						text-decoration: underline;
 						transition: 250ms;
-						filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4));
+					}
+
+					.contact {
+						font-size: 40px;
+
+						i {
+							color: #adc6ff;
+							transition: 250ms;
+							filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4));
+						}
 					}
 				}
 			}
 
+
+
 			.container:hover {
 				color: #adc6ff;
 				transition: 250ms;
+
+				.email {
+					color: #005bc1;
+					transition: 350ms;
+				}
 
 				.contact {
 					i {
@@ -273,11 +328,29 @@ div {
 	}
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 
-	.quick-jump {
+	.quick-jump,
+	.dark-mode-title {
+		display: none !important;
+	}
+
+	.email {
+		font-size: 25px !important;
+		line-height: 30px !important;
+	}
+
+	.navbar-inner.sliding {
+		overflow-x: scroll;
+	}
+}
+
+@media (min-width: 1001px) {
+
+	.drop-down {
 		display: none;
 	}
+
 }
 
 @media (min-width: $mobile-view-break) {
