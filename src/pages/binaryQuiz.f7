@@ -3,7 +3,7 @@
 
 		<div class="navbar" sty>
 			<div class="navbar-bg"></div>
-			<div class="navbar-inner sliding" style="justify-content: space-between; gap: 16px;">
+			<div class="navbar-inner" style="justify-content: space-between; gap: 16px;">
 				<div class="flex row">
 					<div class="margin-horizontal-half">
 						<a href="/" class="link${!$store.state.firstLoad ? ' back' : ''}">
@@ -17,102 +17,115 @@
 		</div>
 
 		<div class="page-content" style="--f7-block-title-font-size: 18px;">
-
-			<div class="block-title">
-				Settings
-			</div>
-			<div class="block flex row gap align-items-center" style="--gap: 8px;">
-				<span class="title" style="align-self: center;">
-					Signal Bit
-				</span>
-				<label class="item-content">
-					<div class="item-inner">
-						<div class="item-after">
-							<div class="toggle toggle-init color-blue">
-								<input id="signalToggle" type="checkbox" />
-								<span class="toggle-icon" style="scale: 0.8"></span>
-							</div>
-						</div>
+			<div class="flex row no-wrap justify-content-center" style="max-width: 1200px; margin: auto;">
+				<div class="left-page">
+					<div class="block-title">
+						Settings
 					</div>
-				</label>
-				<span></span>
-				<span class="title" style="align-self: center;">
-					Hints
-				</span>
-				<label class="item-content">
-					<div class="item-inner">
-						<div class="item-after">
-							<div class="toggle toggle-init color-blue">
-								<input id="hintToggle" type="checkbox" />
-								<span class="toggle-icon" style="scale: 0.8"></span>
-							</div>
-						</div>
-					</div>
-				</label>
-				<span></span>
-				<span class="title" style="align-self: center;">
-					Number of bits
-				</span>
-				<div class="list no-margin flex">
-					<ul style="align-self: center;">
-						<li>
-							<div style="min-width: 150px; margin: 0 16px">
-								<div class="range-slider range-slider-init color-blue" data-label="true">
-									<input id="delayToggle" type="range" min="1" max="16" step="1" value="4" />
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div><span></span>
-				<span class="title" style="align-self: center;">
-					Difficulty
-				</span>
-				<div class="list no-margin flex">
-					<ul style="align-self: center;">
-						<li>
-							<div style="min-width: 100px; margin: 0 16px">
-								<div class="range-slider range-slider-init color-blue" data-label="true">
-									<input id="difficultyToggle" type="range" min="0" max="1" step="0.01" value="0.5" />
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="block-title flex row gap align-items-center">
-				Try it!
-				<a href="#" class="link"><i class="icon material-icons expand-more"
-						@click="${resetBitEntry}">refresh</i></a>
-				<a class="button button-tonal" @click="${revealAnswer}">Reveal</a>
-			</div>
-			<div class="block flex row gap align-items-center" style="--gap: 4px;">
-				<div class="resetBitEntry flex row gap"></div>
-				<span class="text-align-center"> = </span>
-				<div class="answer list no-margin">
-					<ul>
-						<li class="item-content item-input no-margin no-padding-vertical"
-							style="--f7-input-item-border-radius: 8px; --f7-input-border-color: #00000000">
+					<div class="block flex row gap wrap align-items-center" style="--gap: 8px;">
+						<span class="title" style="align-self: center;">
+							Signal Bit
+						</span>
+						<label class="item-content">
 							<div class="item-inner">
-								<!-- <div class="item-title item-label">
-										(Width <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i> Height)
-									</div> -->
-								<div class="item-input-wrap flex row" style="align-items: center;">
-									<input type="number" class="number-input" style="width: 64px; margin-right: 32px;"
-										id="answerInput" min="0" value="0" onblur="${onChangeAnswer}"
-										onkeypress="${onChangeAnswer}" />
-									<span class="input-clear-button" style="scale: 0.8;"></span>
+								<div class="item-after">
+									<div class="toggle toggle-init color-blue">
+										<input id="signalToggle" type="checkbox" />
+										<span class="toggle-icon" style="scale: 0.8"></span>
+									</div>
 								</div>
 							</div>
-						</li>
-					</ul>
+						</label>
+						<span></span>
+						<span class="title" style="align-self: center;">
+							Hints
+						</span>
+						<label class="item-content">
+							<div class="item-inner">
+								<div class="item-after">
+									<div class="toggle toggle-init color-blue">
+										<input id="hintToggle" type="checkbox" />
+										<span class="toggle-icon" style="scale: 0.8"></span>
+									</div>
+								</div>
+							</div>
+						</label>
+						<span></span>
+						<span class="title" style="align-self: center;">
+							Number of bits
+						</span>
+						<div class="list no-margin flex">
+							<ul style="align-self: center;">
+								<li>
+									<div style="min-width: 150px; margin: 0 16px">
+										<div class="range-slider range-slider-init color-blue" data-label="true">
+											<input id="numBitsInput" type="range" min="1" max="16" step="1" value="4" />
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div><span></span>
+						<span class="title" style="align-self: center;">
+							Difficulty
+						</span>
+						<div class="list no-margin flex">
+							<ul style="align-self: center;">
+								<li>
+									<div style="min-width: 100px; margin: 0 16px">
+										<div class="range-slider range-slider-init color-blue" data-label="true">
+											<input id="difficultyInput" type="range" min="0.2" max="0.8" step="0.01"
+												value="0.5" />
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="block-title flex row gap align-items-center">
+						Try it!
+						<a href="#" class="link">
+							<i class="icon material-icons reset-bid-entry" @click="${resetBitEntry}">refresh</i>
+						</a>
+						<a class="button button-tonal" @click="${revealAnswer}">Reveal</a>
+					</div>
+					<div class="block flex row gap align-items-center" style="--gap: 4px;">
+						<div class="resetBitEntry flex row gap"></div>
+						<span class="text-align-center"> = </span>
+						<div class="answer list no-margin">
+							<ul>
+								<li class="item-content item-input no-margin no-padding-vertical"
+									style="--f7-input-item-border-radius: 8px; --f7-input-border-color: #00000000">
+									<div class="item-inner">
+										<!-- <div class="item-title item-label">
+															(Width <i class="f7-icons font-size-10" style="margin: 0 0px;">xmark</i> Height)
+														</div> -->
+										<div class="item-input-wrap flex row" style="align-items: center;">
+											<input type="number" class="number-input"
+												style="width: 64px; margin-right: 32px;" id="answerInput" value="0"
+												onchange="${onChangeAnswer}" onblur="${onChangeAnswer}"
+												onkeypress="${onChangeAnswer}" />
+											<span class="input-clear-button" style="scale: 0.8;"></span>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<span></span>
+						<div class="result text-color-red">
+							Incorrect
+						</div>
+					</div>
+
 				</div>
-				<span></span>
-				<div class="result text-color-red">
-					Incorrect
+				<div class="right-page">
+					<div class="card">
+						<div class="card-header">Scores (${total} total)</div>
+						<div class="card-content">
+						</div>
+					</div>
 				</div>
 			</div>
-
 		</div>
 
 	</div>
@@ -152,51 +165,223 @@
 	.item-content.item-input:after {
 		content: none !important;
 	}
+
+	.left-page {
+		flex-shrink: 1;
+		width: 100%;
+	}
+
+	.right-page {
+		flex-shrink: 2;
+		width: 100%;
+	}
+
+	.card-header {
+		--f7-card-header-padding-vertical: 0px;
+		margin: var(--f7-card-header-padding-horizontal) 0;
+	}
+
+	.card-content {
+		padding: 0 var(--f7-card-header-padding-horizontal) var(--f7-card-header-padding-horizontal);
+		margin: var(--f7-card-header-padding-horizontal) 0;
+	}
+
+	.score-tooltip {}
+
+	.score {
+		display: flex;
+		align-items: center;
+		gap: var(--gap, 1rem);
+		width: max-content;
+		--f7-button-height: 2rem;
+		margin-bottom: 8px;
+	}
+
+	.dark .score-tooltip .text-color-green {
+		--f7-theme-color-text-color: #008b18;
+	}
 </style>
 <script>
 
 	export default (props, { $, $on, $f7, $store, $update }) => {
 
-		$on('pageInit', (e) => {
+		let scores = {};
+		let total = 0;
+
+		$on('pageInit', (e, page) => {
 			resetBitEntry();
 			$('#signalToggle').on('change', (e) => {
 				resetBitEntry();
 			});
-			$('#delayToggle').on('change', (e) => {
+			$('#numBitsInput').on('change', (e) => {
 				resetBitEntry();
 			});
-			$('#difficultyToggle').on('change', (e) => {
+			$('#difficultyInput').on('change', (e) => {
 				resetBitEntry();
 			});
 			$('#hintToggle').on('change', (e) => {
 				$('.hint').css('display', $('#hintToggle').prop('checked') ? '' : 'none');
 			});
+			let cookies = splitCookies(document.cookie);
+			if (cookies['scores'])
+				scores = JSON.parse(cookies['scores']);
+
+			for (const scoreKey of Object.getOwnPropertyNames(scores)) {
+				createScore(scores[scoreKey], true);
+				total += scores[scoreKey].count;
+			}
+			$update();
+
+			console.log('cookies', cookies, scores);
+
+
+			// createScore(scores['sign-nohints-8bit-0.5dif']);
+			// createScore({
+			// 	signal: true,
+			// 	hints: false,
+			// 	bits: 8,
+			// 	difficulty: 0.5,
+			// 	count: 1
+			// });
+			// createCurrentScore();
+			// console.log('test', typeof JSON.stringify(['test', 'test2']));
 		});
 
-		function revearlCorrectness() {
+		function activateScoreClick(e) {
+			let scores = $(e.target).parent('.score').dataset();
+			$('#signalToggle').prop('checked', scores.signal);
+			$('#hintToggle').prop('checked', scores.hints);
+			$('#numBitsInput').val(scores.bits);
+			$('#difficultyInput').val(scores.difficulty);
+			$update();
+			resetBitEntry();
+			console.log('score', scores, $('#numBitsInput'), $('#numBitsInput').val());
+
+		}
+
+		// $on('pageBeforeOut', (e, page) => {
+		// 	console.log('page before out');
+		// 	setCookie('pageBeforeOut', 'testing this', 0.0104);
+		// });
+		// $on('pageAfterOut', (e, page) => {
+		// 	console.log('page after out');
+		// 	setCookie('pageAfterOut', 'testing this', 0.0104);
+		// });
+		// $on('pageBeforeUnmount', (e, page) => {
+		// 	console.log('page before unmount');
+		// 	setCookie('pageBeforeUnmount', 'testing this', 0.0104);
+		// });
+		// $on('pageBeforeRemove', (e, page) => {
+		// 	console.log('page before remove');
+		// 	setCookie('pageBeforeRemove', 'testing this', 0.0104);
+		// });
+
+		function createCurrentScore() {
+			console.log('current score');
+			createScore({
+				signal: $('#signalToggle').prop('checked'),
+				hints: $('#hintToggle').prop('checked'),
+				bits: parseInt($('#numBitsInput').val()),
+				difficulty: parseFloat($('#difficultyInput').val()),
+				count: 1
+			});
+		}
+
+		function createScore(params, ignore) {
+			let name = getScoreName(params);
+			let label = () => `${params.signal ? 'Signed ' : ''}${params.bits}-bit Integer${params.hints ? ' with hints' : ''}: ${params.count} total`;
+			if (typeof scores[name] != 'undefined' && !ignore) {
+				scores[name]['count'] += params['count'];
+				params['count'] = scores[name]['count'];
+				//  update record
+				let cur = $(`.score[data-signal="${params.signal}"][data-hints="${params.hints}"][data-bits="${params.bits}"][data-difficulty="${params.difficulty}"]`)
+				cur.addClass('cur');
+				cur.children('.label').html(label());
+				console.log('params new', params, cur);
+				// log
+			} else {
+				// save record
+				scores[name] = params;
+				console.log('new params', params, name);
+				$('.card-content').append(`
+					<div class="score cur" data-signal="${params.signal}" data-hints="${params.hints}" data-bits="${params.bits}" data-difficulty="${params.difficulty}">
+						<a class="label activate-score">${label(params.count)}</a>
+						<!-- <span class="label">${label(params.count)}</span> -->
+						<!-- <a href="" class="button button-fill color-blue activate-score">Activate</a> -->
+					</div>
+				`);
+			}
+			if (!ignore) {
+				total += 1;
+				$update();
+			}
+			$('.score.cur .activate-score').on('click', activateScoreClick);
+
+			setCookie('scores', JSON.stringify(scores), 5);
+
+			// `.score[data-signal="${params.signal}"][data-hints="${params.hints}"][data-bits="${params.bits}"][data-difficulty="${params.difficulty}"]`
+			$f7.tooltip.create({
+				// targetEl: `.score[data-signal="${params.signal}"][data-hints="${params.hints}"][data-bits="${params.bits}"][data-difficulty="${params.difficulty}"]`,
+				targetEl: '.score.cur',
+				offset: 4,
+				// trigger: 'click',
+				text: `
+					<div class="score-tooltip flex col">
+						<div class="flex row gap">
+							<span>Sign: <span class="text-color-${params.signal ? 'green' : 'red'}">${params.signal}</span></span>
+							<span>Hints: <span class="text-color-${params.hints ? 'green' : 'red'}">${params.hints}</span></span>
+						</div>
+						<div class="flex row gap">
+							<span>Bits: <span class="text-color-blue">${params.bits}</span></span>
+							<span>Difficulty: <span class="text-color-blue">${params.difficulty}</span></span>
+						</div>
+					</div>
+				`
+			});
+			$('.score.cur').removeClass('cur');
+		}
+
+		function getScoreName(score) {
+			return `${score.signal ? '' : 'no'}sign-${score.hints ? '' : 'no'}hints-${score.bits}bit-${score.difficulty}dif`;
+		}
+
+		function revealCorrectness(reset) {
 			let correct = $('#answerInput').val() == getBitAnswer();
 			let result = $('.result');
 			if (correct) {
 				result.removeClass('text-color-red').addClass('text-color-green');
 				result.html('Correct!');
+				if (reset) {
+					setTimeout(() => {
+						$('.reset-bid-entry').click();
+						$('#answerInput').val(0);
+					}, 500);
+				}
 			} else {
 				result.addClass('text-color-red').removeClass('text-color-green');
 				result.html('Incorrect');
 			}
+			return correct;
 		}
 
 		function revealAnswer(e) {
 			$('#answerInput').val(getBitAnswer());
-			revearlCorrectness();
+			revealCorrectness();
 		}
 
 		function onChangeAnswer(e) {
-			console.log('answer', e);
+			// console.log('answer', e);
 			if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
 				// console.log('answer', e.target,);
 				// let input = $(e.target);
 				// if (input)
-				revearlCorrectness();
+				if (revealCorrectness(true))
+					createCurrentScore();
+				// $('.reset-bid-entry').focus();
+			} else {
+				// setTimeout(() => {
+				revealCorrectness();
+				// }, 250);
 			}
 
 		}
@@ -215,7 +400,7 @@
 		}
 
 		function resetBitEntry() {
-			let difficulty = $('#difficultyToggle').val();
+			let difficulty = $('#difficultyInput').val();
 			let randomBit = () => Math.random() < difficulty ? 1 : 0;
 			function createBit(index) {
 				return `
@@ -225,7 +410,7 @@
 					</div>
 				`;
 			}
-			let length = $('#delayToggle').val() - 1;
+			let length = $('#numBitsInput').val() - 1;
 			$('.resetBitEntry').html(`
 				${$('#signalToggle').prop('checked') ? `
 					${createBit('signal')}
@@ -234,7 +419,7 @@
 					${createBit(length - i)}
 				`).join('')}
 			`);
-			revearlCorrectness();
+			revealCorrectness();
 			// $update();
 			// $('.answer').html(getBitAnswer());
 		}

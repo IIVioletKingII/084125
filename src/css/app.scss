@@ -107,7 +107,6 @@ body {
 .flex {
 	display: flex;
 
-
 	&.row {
 		flex-direction: row;
 	}
@@ -118,6 +117,14 @@ body {
 
 	&.gap {
 		gap: var(--gap, 16px);
+	}
+
+	&.wrap {
+		flex-wrap: wrap;
+	}
+
+	&.no-wrap {
+		flex-wrap: nowrap;
 	}
 }
 
