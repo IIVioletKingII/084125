@@ -17,6 +17,7 @@
 					<a href="/connect-four/" class="button button-fill color-green">Connect Four</a>
 					<a href="/picture-editor/" class="button button-fill color-green">Picture Editor</a>
 					<a href="/binary-quiz/" class="button button-fill color-green">Binary Quiz</a>
+					<a href="/matrix-math/" class="button button-fill color-green">Matrix Math</a>
 				</div>
 				<div class="drop-down flex row segmented color-green popover-open" data-popover=".popover-menu"
 					data-animate="false" style="--f7-button-height: 32px; --f7-button-font-size: 16px;">
@@ -107,12 +108,18 @@
 						<!-- <li><a href="#intro" class="button button-fill" @click="${scrollTo}">About</a></li>
 						<li><a href="#resume" class="button button-fill" @click="${scrollTo}">Resume</a></li>
 						<li><a href="#gallery" class="button button-fill" @click="${scrollTo}">Photos</a></li> -->
-						<li><a href="/connect-four/" class="button button-fill color-green popover-close">Connect
-								Four</a></li>
-						<li><a href="/picture-editor/" class="button button-fill color-green popover-close">Picture
-								Editor</a></li>
-						<li><a href="/binary-quiz/" class="button button-fill color-green popover-close">Binary Quiz</a>
-						</li>
+						<li><a href="/connect-four/" class="button button-fill color-green popover-close">
+								Connect Four
+							</a></li>
+						<li><a href="/picture-editor/" class="button button-fill color-green popover-close">
+								Picture Editor
+							</a></li>
+						<li><a href="/binary-quiz/" class="button button-fill color-green popover-close">
+								Binary Quiz
+							</a></li>
+						<li><a href="/matrix-math/" class="button button-fill color-green popover-close">
+								Matrix Math
+							</a></li>
 					</ul>
 				</div>
 			</div>

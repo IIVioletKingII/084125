@@ -1,7 +1,7 @@
 <template>
 	<div class="page" data-name="binary-quiz">
 
-		<div class="navbar" sty>
+		<div class="navbar">
 			<div class="navbar-bg"></div>
 			<div class="navbar-inner" style="justify-content: space-between; gap: 16px;">
 				<div class="flex row">

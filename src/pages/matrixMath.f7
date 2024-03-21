@@ -1,0 +1,273 @@
+<template>
+	<div class="page" data-name="matrix-math">
+
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner" style="justify-content: space-between; gap: 16px;">
+				<div class="flex row">
+					<div class="margin-horizontal-half">
+						<a href="/" class="link${!$store.state.firstLoad ? ' back' : ''}">
+							<i class="icon icon-back"></i>
+							<span class="if-not-md">Back</span>
+						</a>
+					</div>
+					<div class="title" style="align-self: center;">Matrix Math</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-content" style="--f7-block-title-font-size: 18px;">
+			<div class="flex col">
+				<div class="block-title">
+					Settings
+				</div>
+				<div class="block matrix-a-settings">
+					<div class="flex row gap wrap align-items-center" style="--gap: 8px;">
+						<span class="title tooltip-init" data-tooltip="Test" style="align-self: center;">
+							Height
+						</span>
+						<div class="list no-margin flex">
+							<ul style="align-self: center;">
+								<li>
+									<div style="min-width: 150px; margin: 0 16px">
+										<div class="range-slider range-slider-init color-blue" data-label="true">
+											<input id="mAHeightSlider" type="range" min="1" max="${sliderMax}" step="1"
+												value="4" />
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<span></span>
+						<span class="title" style="align-self: center;">
+							Width
+						</span>
+						<div class="list no-margin flex">
+							<ul style="align-self: center;">
+								<li>
+									<div style="min-width: 150px; margin: 0 16px">
+										<div class="range-slider range-slider-init color-blue" data-label="true">
+											<input id="mAWidthSlider" type="range" min="1" max="${sliderMax}" step="1"
+												value="4" />
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<span></span>
+						<span class="flex row nowrap gap" style="gap: 4px;">
+							(<span class="height highlightNum">4</span>
+							<div class="flex align-items-center"><i class="f7-icons" style="font-size: 12px;">xmark</i>
+							</div>
+							<span class="width highlightNum">4</span>)
+						</span>
+					</div>
+				</div>
+
+				<div class="block matrix-b-settings">
+					<div class="flex row gap wrap align-items-center" style="--gap: 8px;">
+						<span class="title tooltip-init" data-tooltip="Test" style="align-self: center;">
+							Height
+						</span>
+						<div class="list no-margin flex">
+							<ul style="align-self: center;">
+								<li>
+									<div style="min-width: 150px; margin: 0 16px">
+										<div class="range-slider range-slider-init color-blue" data-label="true">
+											<input id="mBHeightSlider" type="range" min="1" max="${sliderMax}" step="1"
+												value="4" />
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<span></span>
+						<span class="title" style="align-self: center;">
+							Width
+						</span>
+						<div class="list no-margin flex">
+							<ul style="align-self: center;">
+								<li>
+									<div style="min-width: 150px; margin: 0 16px">
+										<div class="range-slider range-slider-init color-blue" data-label="true">
+											<input id="mBWidthSlider" type="range" min="1" max="${sliderMax}" step="1"
+												value="4" />
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<span></span>
+						<span class="flex row nowrap gap" style="gap: 4px;">
+							(<span class="height highlightNum">4</span>
+							<div class="flex align-items-center"><i class="f7-icons" style="font-size: 12px;">xmark</i>
+							</div>
+							<span class="width highlightNum">4</span>)
+						</span>
+					</div>
+				</div>
+
+				<div class="block">
+
+					<div class="flex row gap align-items-center">
+						<div id="matrixA">
+							Matrix A
+						</div>
+
+						*
+
+						<div id="matrixB">
+							Matrix B
+						</div>
+
+						=
+
+						<div id="matrixC">
+							Matrix C
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+<style>
+	.highlightNum {
+		color: var(--f7-md-primary);
+	}
+
+	.matrix {
+
+		display: flex;
+		flex-direction: row;
+		gap: 8px;
+	}
+
+	.matrixCol {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		width: 50px;
+		margin: 4px;
+	}
+
+
+
+	.matrixPos {
+		position: relative;
+	}
+
+	.matrixPos input {
+		width: 100%;
+	}
+
+	.matrixPos:before {
+		z-index: -1;
+		--gap: 5px;
+		position: absolute;
+		content: '';
+		width: calc(100% + 2 * var(--gap));
+		height: calc(100% + 2 * var(--gap));
+		top: calc(-1 * var(--gap));
+		left: calc(-1 * var(--gap));
+		background: var(--f7-input-item-bg-color);
+		border-radius: 0.5rem;
+	}
+</style>
+<script>
+
+	export default (props, { $, $on, $f7, $store, $update }) => {
+
+		const sliderMax = 10;
+		let scores = {};
+		let total = 0;
+
+		$on('pageInit', (e, page) => {
+
+			$('#mAHeightSlider').on('input', (e) => {
+				drawMatrixA();
+				drawMatrixC();
+				$('.matrix-a-settings .height.highlightNum').html(e.target.value);
+			});
+
+			$('#mAWidthSlider').on('input', (e) => {
+				drawMatrixA();
+				$('.matrix-a-settings .width.highlightNum').html(e.target.value);
+				$f7.range.setValue('.range-slider:has(#mBHeightSlider)', e.target.value);
+			});
+
+			$('#mBHeightSlider').on('input', (e) => {
+				drawMatrixB();
+				$('.matrix-b-settings .height.highlightNum').html(e.target.value);
+				$f7.range.setValue('.range-slider:has(#mAWidthSlider)', e.target.value);
+			});
+
+			$('#mBWidthSlider').on('input', (e) => {
+				drawMatrixB();
+				drawMatrixC();
+				$('.matrix-b-settings .width.highlightNum').html(e.target.value);
+			});
+
+			drawMatrixA();
+			drawMatrixB();
+			drawMatrixC();
+
+			$('.matrixPos').on('blur keypress change', (e) => {
+				console.log('test', e);
+				if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
+				} else if (e.type == 'keypress'/*  && ([''].includes(e.key)) */) {
+					console.log('test', e, e.key);
+				}
+			});
+
+		});
+
+		function drawMatrixA() {
+
+			createMatrix($('#mAHeightSlider').val(), $('#mAWidthSlider').val(), "matrixA");
+		}
+
+		function drawMatrixB() {
+
+			createMatrix($('#mBHeightSlider').val(), $('#mBWidthSlider').val(), "matrixB");
+		}
+
+		function drawMatrixC() {
+			createMatrix($('#mAHeightSlider').val(), $('#mBWidthSlider').val(), "matrixC");
+		}
+
+		function createMatrix(height, width, matrixId) {
+			height = parseInt(height);
+			width = parseInt(width);
+			// console.log('test', $(matrixId));
+			$(`#${matrixId}`).html(`
+				<div class="matrix">
+					${Array.from({ length: width }, (y, j) => `
+					<div class="matrixCol" data-row="${j}">
+						${Array.from({ length: height }, (x, i) => `
+						<div class="matrixPos" data-x="${i}" data-y="${j}">
+							<!-- Cell ${i}, ${j} -->
+							<input type="number" class="circle"/>
+
+						</div>
+						`).join('')}
+					</div>
+					`).join('')}
+				</div>
+			`);
+		}
+
+		function onChangeAnswer(e) {
+			// console.log('answer', e);
+			if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
+			} else {
+			}
+
+		}
+
+		return $render;
+	}
+</script>
