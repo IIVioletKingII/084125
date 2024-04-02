@@ -294,11 +294,9 @@
 			$(`.page[data-name="hero"] .section-intro .spacer`).css('padding-right', `${padding}px`);
 		}
 
-
 		function addCSSRule(css) {
-			return document.head.appendChild(document.createElement("style")).innerHTML = css
+			return document.head.appendChild(document.createElement("style")).innerHTML = css;
 		};
-
 
 		function getAgeA(age) {
 			let ageStr = age + '';
@@ -315,6 +313,8 @@
 		}
 
 		function myAge() {
+			console.log('cur data', new Date(), new Date().getTime(), Date.now());
+			console.log('cur data', new Date('04-12-05'), new Date('04-12-05').getTime());
 			let age = new Date(new Date().getTime() - new Date('04-12-05').getTime());
 			return Math.abs(age.getUTCFullYear() - 1970);
 		}

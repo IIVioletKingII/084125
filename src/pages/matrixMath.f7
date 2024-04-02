@@ -32,7 +32,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mAHeightSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="4" />
+												value="2" />
 										</div>
 									</div>
 								</li>
@@ -48,7 +48,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mAWidthSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="4" />
+												value="3" />
 										</div>
 									</div>
 								</li>
@@ -56,10 +56,10 @@
 						</div>
 						<span></span>
 						<span class="flex row nowrap gap" style="gap: 4px;">
-							(<span class="height highlightNum">4</span>
+							(<span class="height highlightNum">2</span>
 							<div class="flex align-items-center"><i class="f7-icons" style="font-size: 12px;">xmark</i>
 							</div>
-							<span class="width highlightNum">4</span>)
+							<span class="width highlightNum">2</span>)
 						</span>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mBHeightSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="4" />
+												value="3" />
 										</div>
 									</div>
 								</li>
@@ -91,7 +91,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mBWidthSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="4" />
+												value="2" />
 										</div>
 									</div>
 								</li>
@@ -99,17 +99,22 @@
 						</div>
 						<span></span>
 						<span class="flex row nowrap gap" style="gap: 4px;">
-							(<span class="height highlightNum">4</span>
+							(<span class="height highlightNum">2</span>
 							<div class="flex align-items-center"><i class="f7-icons" style="font-size: 12px;">xmark</i>
 							</div>
-							<span class="width highlightNum">4</span>)
+							<span class="width highlightNum">2</span>)
 						</span>
 					</div>
 				</div>
 
+				<div class="block no-margin flex row gap">
+					<a class="button button-tonal" @click="${calculateMultiplications}">Calculate</a>
+					<a class="button button-tonal" @click="${randomize}">Randomize</a>
+				</div>
+
 				<div class="block">
 
-					<div class="flex row gap align-items-center">
+					<div class="flex row gap wrap align-items-center">
 						<div id="matrixA">
 							Matrix A
 						</div>
@@ -182,8 +187,14 @@
 	export default (props, { $, $on, $f7, $store, $update }) => {
 
 		const sliderMax = 10;
+
+		const tabCode = 9;
+		const enterCode = 13;
+		const shiftCode = 16;
+
 		let scores = {};
 		let total = 0;
+		let keyDownMap = {};
 
 		$on('pageInit', (e, page) => {
 
@@ -215,15 +226,42 @@
 			drawMatrixB();
 			drawMatrixC();
 
-			$('.matrixPos').on('blur keypress change', (e) => {
-				console.log('test', e);
-				if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
-				} else if (e.type == 'keypress'/*  && ([''].includes(e.key)) */) {
-					console.log('test', e, e.key);
-				}
-			});
+			// $('.matrixPos').on('blur keypress change', (e) => {
+			// 	console.log('test', e);
+			// 	if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
+			// 	} else if (e.type == 'keypress'/*  && ([''].includes(e.key)) */) {
+			// 		console.log('test', e, e.key);
+			// 	}
+			// });
+
+
+			calculateMultiplications();
 
 		});
+
+		function calculateMultiplications() {
+			for (let row = 0; row < $('#mAHeightSlider').val(); row++) {
+				for (let mCol = 0; mCol < $('#mBWidthSlider').val(); mCol++) { // 2nd matrix number of columns
+					let rowTotal = 0;
+					for (let col = 0; col < $('#mAWidthSlider').val(); col++) { // 2nd matrix number of columns
+						let a = $(`#matrixA .matrixPos[data-x="${col}"][data-y="${row}"] input`);
+						let b = $(`#matrixB .matrixPos[data-x="${mCol}"][data-y="${col}"] input`);
+						rowTotal += a.val() * b.val();
+						// console.log('test', row, mCol, col, a[0], b[0]);
+					}
+					// console.log('test', row, mCol, rowTotal);
+					$(`#matrixC .matrixPos[data-x="${mCol}"][data-y="${row}"] input`).val(rowTotal);
+				}
+			}
+		}
+
+		function randomize() {
+
+			$('#matrixA input, #matrixB input').forEach((el, i) => {
+				el.value = Math.round(Math.random() * 5);
+			});
+			calculateMultiplications();
+		}
 
 		function drawMatrixA() {
 
@@ -240,17 +278,18 @@
 		}
 
 		function createMatrix(height, width, matrixId) {
+			let debug = false;
 			height = parseInt(height);
 			width = parseInt(width);
 			// console.log('test', $(matrixId));
 			$(`#${matrixId}`).html(`
 				<div class="matrix">
-					${Array.from({ length: width }, (y, j) => `
-					<div class="matrixCol" data-row="${j}">
-						${Array.from({ length: height }, (x, i) => `
+					${Array.from({ length: width }, (y, i) => `
+					<div class="matrixCol" data-col="${i}">
+						${Array.from({ length: height }, (x, j) => `
 						<div class="matrixPos" data-x="${i}" data-y="${j}">
 							<!-- Cell ${i}, ${j} -->
-							<input type="number" class="circle"/>
+							<input type="number" class="circle" value="${debug ? Math.floor(Math.random() * 4) : 0}"/>
 
 						</div>
 						`).join('')}
@@ -258,14 +297,91 @@
 					`).join('')}
 				</div>
 			`);
+
+
+			$('.matrixPos input').forEach((el) => {
+				el.addEventListener('keydown', (event) => {
+					if (event.keyCode == tabCode || event.keyCode == enterCode || event.keyCode == shiftCode)
+						toggleKey(event);
+
+					if (keyDownMap[tabCode])
+						tab(event, keyDownMap[shiftCode]);
+					else if (keyDownMap[enterCode])
+						enter(event, keyDownMap[shiftCode]);
+
+					// console.log(event, event.code, event.keyCode, keyDownMap);
+
+				});
+				el.addEventListener('keyup', (event) => {
+					if (event.keyCode == tabCode || event.keyCode == enterCode || event.keyCode == shiftCode)
+						toggleKey(event);
+				});
+			});
 		}
 
-		function onChangeAnswer(e) {
-			// console.log('answer', e);
-			if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
-			} else {
-			}
 
+
+		function toggleKey(e) {
+			keyDownMap[e.keyCode] = e.type == 'keydown';
+		};
+
+		function tab(event, backward) {
+
+			event.preventDefault();
+			let targetInput = $(event.target);
+			let parentMatrix = targetInput.parents('.matrix').parent().attr('id').charAt(6);
+			let curPos = targetInput.parent('.matrixPos').dataset();
+			if (curPos.hasOwnProperty('x') && curPos.hasOwnProperty('y')) {
+				// next/prev column
+				let next = backward ? -1 : 1;
+				let nextItem = $(`#matrix${parentMatrix} .matrixPos[data-x="${curPos.x + next}"][data-y="${curPos.y}"]`);
+				if (nextItem.length == 0) { // next/prev line
+					let endX = backward ? $(`#m${parentMatrix == 'C' ? 'B' : parentMatrix}WidthSlider`).val() - 1 : 0;
+					nextItem = $(`#matrix${parentMatrix} .matrixPos[data-x="${endX}"][data-y="${curPos.y + next}"]`);
+					if (nextItem.length == 0) {// next/prev matrix
+						let nextChar = addChar(parentMatrix, next);
+						nextChar = nextChar == '@' ? '' : nextChar;
+						endX = backward ? $(`#m${nextChar}WidthSlider`).val() - 1 : 0;
+						let endY = backward ? $(`#m${nextChar}HeightSlider`).val() - 1 : 0;
+						nextItem = $(`#matrix${nextChar} .matrixPos[data-x="${endX}"][data-y="${endY}"]`);
+					}
+				}
+				if (nextItem.length) {
+					nextItem.find('input')[0].select();
+					calculateMultiplications();
+				}
+			}
+		}
+
+		function enter(event, backward) {
+			event.preventDefault();
+			let targetInput = $(event.target);
+			let parentMatrix = targetInput.parents('.matrix').parent().attr('id').charAt(6);
+			let curPos = targetInput.parent('.matrixPos').dataset();
+			if (curPos.hasOwnProperty('x') && curPos.hasOwnProperty('y')) {
+				// next/prev line
+				let next = backward ? -1 : 1;
+				let nextItem = $(`#matrix${parentMatrix} .matrixPos[data-x="${curPos.x}"][data-y="${curPos.y + next}"]`);
+				if (nextItem.length == 0) { // next/prev column
+					let endY = backward ? $(`#m${parentMatrix == 'C' ? 'A' : parentMatrix}HeightSlider`).val() - 1 : 0;
+					nextItem = $(`#matrix${parentMatrix} .matrixPos[data-x="${curPos.x + next}"][data-y="${endY}"]`);
+					if (nextItem.length == 0) {// next/prev matrix
+						let nextChar = addChar(parentMatrix, next);
+						nextChar = nextChar == '@' ? '' : nextChar;
+						let endX = backward ? $(`#m${nextChar}WidthSlider`).val() - 1 : 0;
+						endY = backward ? $(`#m${nextChar}HeightSlider`).val() - 1 : 0;
+						nextItem = $(`#matrix${nextChar} .matrixPos[data-x="${endX}"][data-y="${endY}"]`);
+					}
+				}
+				if (nextItem.length) {
+					nextItem.find('input')[0].select();
+					calculateMultiplications();
+				}
+			}
+		}
+
+		function addChar(char, increase) {
+			return String.fromCharCode(char.charCodeAt(0) + increase);
 		}
 
 		return $render;
