@@ -32,7 +32,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mAHeightSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="2" />
+												value="${initialAHeight}" />
 										</div>
 									</div>
 								</li>
@@ -48,7 +48,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mAWidthSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="3" />
+												value="${initialAWidthBHeight}" />
 										</div>
 									</div>
 								</li>
@@ -56,10 +56,10 @@
 						</div>
 						<span></span>
 						<span class="flex row nowrap gap" style="gap: 4px;">
-							(<span class="height highlightNum">2</span>
+							(<span class="height highlightNum">${initialAHeight}</span>
 							<div class="flex align-items-center"><i class="f7-icons" style="font-size: 12px;">xmark</i>
 							</div>
-							<span class="width highlightNum">2</span>)
+							<span class="width highlightNum">${initialAWidthBHeight}</span>)
 						</span>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mBHeightSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="3" />
+												value="${initialAWidthBHeight}" />
 										</div>
 									</div>
 								</li>
@@ -91,7 +91,7 @@
 									<div style="min-width: 150px; margin: 0 16px">
 										<div class="range-slider range-slider-init color-blue" data-label="true">
 											<input id="mBWidthSlider" type="range" min="1" max="${sliderMax}" step="1"
-												value="2" />
+												value="${initialBWidth}" />
 										</div>
 									</div>
 								</li>
@@ -99,10 +99,10 @@
 						</div>
 						<span></span>
 						<span class="flex row nowrap gap" style="gap: 4px;">
-							(<span class="height highlightNum">2</span>
+							(<span class="height highlightNum">${initialAWidthBHeight}</span>
 							<div class="flex align-items-center"><i class="f7-icons" style="font-size: 12px;">xmark</i>
 							</div>
-							<span class="width highlightNum">2</span>)
+							<span class="width highlightNum">${initialBWidth}</span>)
 						</span>
 					</div>
 				</div>
@@ -186,6 +186,10 @@
 
 	export default (props, { $, $on, $f7, $store, $update }) => {
 
+		let initialAHeight = 2;
+		let initialAWidthBHeight = 3;
+		let initialBWidth = 2;
+
 		const sliderMax = 10;
 
 		const tabCode = 9;
@@ -226,15 +230,6 @@
 			drawMatrixB();
 			drawMatrixC();
 
-			// $('.matrixPos').on('blur keypress change', (e) => {
-			// 	console.log('test', e);
-			// 	if ((e.type == 'keypress' && e.key == 'Enter') | e.type == 'blur') {
-			// 	} else if (e.type == 'keypress'/*  && ([''].includes(e.key)) */) {
-			// 		console.log('test', e, e.key);
-			// 	}
-			// });
-
-
 			calculateMultiplications();
 
 		});
@@ -247,9 +242,7 @@
 						let a = $(`#matrixA .matrixPos[data-x="${col}"][data-y="${row}"] input`);
 						let b = $(`#matrixB .matrixPos[data-x="${mCol}"][data-y="${col}"] input`);
 						rowTotal += a.val() * b.val();
-						// console.log('test', row, mCol, col, a[0], b[0]);
 					}
-					// console.log('test', row, mCol, rowTotal);
 					$(`#matrixC .matrixPos[data-x="${mCol}"][data-y="${row}"] input`).val(rowTotal);
 				}
 			}
@@ -281,7 +274,6 @@
 			let debug = false;
 			height = parseInt(height);
 			width = parseInt(width);
-			// console.log('test', $(matrixId));
 			$(`#${matrixId}`).html(`
 				<div class="matrix">
 					${Array.from({ length: width }, (y, i) => `
@@ -308,8 +300,6 @@
 						tab(event, keyDownMap[shiftCode]);
 					else if (keyDownMap[enterCode])
 						enter(event, keyDownMap[shiftCode]);
-
-					// console.log(event, event.code, event.keyCode, keyDownMap);
 
 				});
 				el.addEventListener('keyup', (event) => {
